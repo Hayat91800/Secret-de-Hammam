@@ -1,0 +1,7 @@
+// Reprendre les infos du fichier yaml
+{
+    "name": "Secret-de-Hammam - MongoDB",
+    "service": "mongodb", // reprendre strictement le nom du fichier
+    "dockerComposeFile": "../../docker-compose.dev.yaml", // reprendre strictement le nom du fichier yaml
+    "workspaceFolder": "/app" // reprendre strictement le nom de wirking_dir
+}
