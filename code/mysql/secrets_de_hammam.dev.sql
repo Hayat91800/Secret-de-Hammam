@@ -132,14 +132,6 @@ CREATE TABLE secretsDeHammam_dev.product_body_part(
 
 -- Query OK, 0 rows affected, 1 warning (0.052 sec)
 
--- mysql> show tables;
--- ERROR 1046 (3D000): No database selected
--- mysql> source secretsDeHammam_dev;
--- ERROR: 
--- Failed to open file 'secretsDeHammam_dev', error: 2
--- mysql> source secretsDeHammam_dev;
--- ERROR: 
--- Failed to open file 'secretsDeHammam_dev', error: 2
 -- mysql> use secretsDeHammam_dev;
 -- Reading table information for completion of table and column names
 -- You can turn off this feature to get a quicker startup with -A
