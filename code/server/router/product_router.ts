@@ -10,6 +10,10 @@ class ProductRouter {
 		// Créer une route en GET simple
 		this.router.get("/", new ProductController().index);
 
+		// variable de route: précédé par :; suivi du nom de la variable
+		// appel 1
+		this.router.get("/:id", new ProductController().selectOne);
+
 		// retourner le routeur
 		return this.router;
 	};

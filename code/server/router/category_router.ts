@@ -10,6 +10,10 @@ class CategoryRouter {
 		// Créer une route en GET simple
 		this.router.get("/", new CategoryController().index);
 
+		// variable de route: précédé par :; suivi du nom de la variable
+		// appel 1
+		this.router.get("/:id", new CategoryController().selectOne);
+
 		// retourner le routeur
 		return this.router;
 	};

@@ -24,6 +24,31 @@ class Body_PartController {
 			data: results,
 		});
 	};
+
+	public selectOne = async (req: Request, res: Response) => {
+		// récupérer la variable de route
+		// req.params : récupére les variables de route
+		console.log(req.params);
+		// récupération des resultats de la requete
+		const results = await new Body_partRepository().selectOne(req.params);
+		// Si la raquete renvoi une erreur
+		if (results instanceof Error) {
+			res.status(400).json({
+				status: 400,
+				message:
+					process.env.NODE_ENV === "production" ? "Error" : results.message,
+			});
+			return;
+		}
+		//    envoyer une réponse
+		// res.send("coucou");
+		// renvoyer une réponse avec un code de statut  HTTP et au format JSON
+		res.status(200).json({
+			status: 200,
+			message: "ok body_part",
+			data: results,
+		});
+	};
 }
 
 export default Body_PartController;

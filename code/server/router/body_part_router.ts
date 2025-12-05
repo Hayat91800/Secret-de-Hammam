@@ -10,6 +10,10 @@ class Body_partRouter {
 		// Créer une route en GET simple
 		this.router.get("/", new Body_PartController().index);
 
+		// variable de route: précédé par :; suivi du nom de la variable
+		// appel 1
+		this.router.get("/:id", new Body_PartController().selectOne);
+
 		// retourner le routeur
 		return this.router;
 	};

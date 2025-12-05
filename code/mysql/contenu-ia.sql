@@ -2,7 +2,6 @@ INSERT INTO secretsDeHammam_dev.role (name) VALUES
 ('admin'),
 ('client');
 
-/*
 INSERT INTO secretsDeHammam_dev.category (name) VALUES
 ('Savons'),
 ('Huiles'),
@@ -75,5 +74,3 @@ INSERT INTO secretsDeHammam_dev.product_body_part VALUES
 (8, 2),
 (9, 1),
 (10, 1), (10, 2);
-
-*/

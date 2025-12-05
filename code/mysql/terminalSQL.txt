@@ -13,191 +13,37 @@ owners.
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 mysql> source secrets_de_hammam.dev.sql;
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected, 1 warning (0.005 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 1 row affected (0.009 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected, 1 warning (0.051 sec)
-
-Query OK, 0 rows affected, 1 warning (0.046 sec)
-
-Query OK, 0 rows affected, 1 warning (0.043 sec)
-
-Query OK, 0 rows affected (0.042 sec)
-
-Query OK, 0 rows affected, 1 warning (0.039 sec)
-
-Query OK, 0 rows affected, 1 warning (0.046 sec)
-
-Query OK, 0 rows affected, 2 warnings (0.053 sec)
-
-Query OK, 0 rows affected, 1 warning (0.038 sec)
-
-Query OK, 0 rows affected (0.087 sec)
-
-Query OK, 0 rows affected, 1 warning (0.051 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
+Query OK, 0 rows affected (0.001 sec)
 
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-mysql> show tables
-    -> ;
-ERROR 1046 (3D000): No database selected
-mysql> source secrets_de_hammam.dev.sql;
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 10 rows affected (0.161 sec)
+Query OK, 10 rows affected (0.333 sec)
 
 Query OK, 0 rows affected (0.000 sec)
 
-Query OK, 1 row affected (0.008 sec)
+Query OK, 1 row affected (0.022 sec)
 
 Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected, 1 warning (0.055 sec)
-
-Query OK, 0 rows affected, 1 warning (0.050 sec)
-
-Query OK, 0 rows affected, 1 warning (0.037 sec)
 
-Query OK, 0 rows affected (0.039 sec)
+Query OK, 0 rows affected, 1 warning (0.075 sec)
 
-Query OK, 0 rows affected, 1 warning (0.043 sec)
+Query OK, 0 rows affected, 1 warning (0.066 sec)
 
-Query OK, 0 rows affected, 1 warning (0.049 sec)
+Query OK, 0 rows affected, 1 warning (0.061 sec)
 
-Query OK, 0 rows affected, 2 warnings (0.059 sec)
+Query OK, 0 rows affected (0.054 sec)
 
-Query OK, 0 rows affected, 1 warning (0.044 sec)
+Query OK, 0 rows affected, 1 warning (0.057 sec)
 
-Query OK, 0 rows affected (0.052 sec)
+Query OK, 0 rows affected, 1 warning (0.070 sec)
 
-Query OK, 0 rows affected, 1 warning (0.046 sec)
+Query OK, 0 rows affected, 2 warnings (0.086 sec)
 
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
+Query OK, 0 rows affected, 1 warning (0.088 sec)
 
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
+Query OK, 0 rows affected (0.082 sec)
 
-Query OK, 0 rows affected (0.000 sec)
+Query OK, 0 rows affected, 1 warning (0.074 sec)
 
-Query OK, 0 rows affected (0.000 sec)
+Query OK, 0 rows affected (0.001 sec)
 
 Query OK, 0 rows affected (0.000 sec)
 
@@ -217,7 +63,7 @@ Query OK, 0 rows affected (0.000 sec)
 
 Query OK, 0 rows affected (0.000 sec)
 
-Query OK, 0 rows affected (0.000 sec)
+Query OK, 0 rows affected (0.001 sec)
 
 Query OK, 0 rows affected (0.000 sec)
 
@@ -231,7 +77,7 @@ Query OK, 0 rows affected (0.000 sec)
 
 Query OK, 0 rows affected (0.000 sec)
 
-Query OK, 0 rows affected (0.000 sec)
+Query OK, 0 rows affected (0.001 sec)
 
 Query OK, 0 rows affected (0.000 sec)
 
@@ -253,7 +99,7 @@ Query OK, 0 rows affected (0.000 sec)
 
 Query OK, 0 rows affected (0.000 sec)
 
-Query OK, 0 rows affected (0.000 sec)
+Query OK, 0 rows affected (0.001 sec)
 
 Query OK, 0 rows affected (0.000 sec)
 
@@ -263,7 +109,7 @@ Query OK, 0 rows affected (0.000 sec)
 
 Query OK, 0 rows affected (0.000 sec)
 
-Query OK, 0 rows affected (0.000 sec)
+Query OK, 0 rows affected (0.001 sec)
 
 Query OK, 0 rows affected (0.000 sec)
 
@@ -275,7 +121,7 @@ Query OK, 0 rows affected (0.000 sec)
 
 Query OK, 0 rows affected (0.000 sec)
 
-Query OK, 0 rows affected (0.000 sec)
+Query OK, 0 rows affected (0.001 sec)
 
 Query OK, 0 rows affected (0.000 sec)
 
@@ -285,8 +131,6 @@ Query OK, 0 rows affected (0.000 sec)
 
 Query OK, 0 rows affected (0.000 sec)
 
-mysql> show tables;
-ERROR 1046 (3D000): No database selected
 mysql> show databases;
 +---------------------+
 | Database            |
@@ -297,145 +141,8 @@ mysql> show databases;
 | secretsDeHammam_dev |
 | sys                 |
 +---------------------+
-5 rows in set (0.021 sec)
+5 rows in set (0.012 sec)
 
-mysql> source secrets_de_hammam.dev.sql;
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 10 rows affected (0.153 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 1 row affected (0.009 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected, 1 warning (0.041 sec)
-
-Query OK, 0 rows affected, 1 warning (0.034 sec)
-
-Query OK, 0 rows affected, 1 warning (0.032 sec)
-
-Query OK, 0 rows affected (0.044 sec)
-
-Query OK, 0 rows affected, 1 warning (0.034 sec)
-
-Query OK, 0 rows affected, 1 warning (0.042 sec)
-
-Query OK, 0 rows affected, 2 warnings (0.047 sec)
-
-Query OK, 0 rows affected, 1 warning (0.040 sec)
-
-Query OK, 0 rows affected (0.102 sec)
-
-Query OK, 0 rows affected, 1 warning (0.044 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-Query OK, 0 rows affected (0.000 sec)
-
-mysql> show tables;
-ERROR 1046 (3D000): No database selected
 mysql> use secretsDeHammam_dev;
 Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
@@ -456,30 +163,79 @@ mysql> show tables;
 | skin                          |
 | user                          |
 +-------------------------------+
-10 rows in set (0.003 sec)
+10 rows in set (0.005 sec)
 
-mysql> table role;
+mysql> table category;
 Empty set (0.001 sec)
 
-mysql> source contenu-ia.sql
-Query OK, 2 rows affected (0.013 sec)
+mysql> source contenu-ia.sql;
+Query OK, 2 rows affected (0.008 sec)
 Records: 2  Duplicates: 0  Warnings: 0
 
-Query OK, 0 rows affected (0.000 sec)
+Query OK, 6 rows affected (0.008 sec)
+Records: 6  Duplicates: 0  Warnings: 0
 
-mysql> source contenu-ia.sql;
-ERROR 1062 (23000): Duplicate entry 'admin' for key 'role.name'
-Query OK, 0 rows affected (0.000 sec)
+Query OK, 6 rows affected (0.012 sec)
+Records: 6  Duplicates: 0  Warnings: 0
 
-mysql> use secretsDeHammam_dev;
-Database changed
-mysql> table role;
-+----+--------+
-| id | name   |
-+----+--------+
-|  1 | admin  |
-|  2 | client |
-+----+--------+
-2 rows in set (0.001 sec)
+Query OK, 4 rows affected (0.015 sec)
+Records: 4  Duplicates: 0  Warnings: 0
 
-mysql> 
+Query OK, 5 rows affected (0.009 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+Query OK, 10 rows affected (0.018 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+Query OK, 3 rows affected (0.013 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+Query OK, 13 rows affected (0.009 sec)
+Records: 13  Duplicates: 0  Warnings: 0
+
+Query OK, 11 rows affected (0.017 sec)
+Records: 11  Duplicates: 0  Warnings: 0
+
+Query OK, 13 rows affected (0.013 sec)
+Records: 13  Duplicates: 0  Warnings: 0
+
+mysql> show tables;
++-------------------------------+
+| Tables_in_secretsDeHammam_dev |
++-------------------------------+
+| body_part                     |
+| category                      |
+| pack                          |
+| product                       |
+| product_body_part             |
+| product_pack                  |
+| product_skin                  |
+| role                          |
+| skin                          |
+| user                          |
++-------------------------------+
+10 rows in set (0.003 sec)
+
+mysql> table skin;
++----+----------+
+| id | type     |
++----+----------+
+|  3 | Grasse   |
+|  6 | Mature   |
+|  4 | Mixte    |
+|  1 | Normale  |
+|  2 | Sèche    |
+|  5 | Sensible |
++----+----------+
+6 rows in set (0.001 sec)
+
+mysql> table pack;
++----+-----------------------+-------+
+| id | name                  | price |
++----+-----------------------+-------+
+|  1 | Rituel Hammam Complet | 49.90 |
+|  2 | Pack Bien-Être        | 29.90 |
+|  3 | Découverte Oriental   | 19.90 |
+|  4 | Coffret Luxe          | 69.90 |
++----+-----------------------+-------+
+4 rows in set (0.001 sec)
