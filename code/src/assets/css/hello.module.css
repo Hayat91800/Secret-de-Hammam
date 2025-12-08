@@ -1,0 +1,9 @@
+.hello {
+	background-color: aquamarine;
+
+	.title {
+		color: red;
+	}
+}
+
+/* Responsive */
