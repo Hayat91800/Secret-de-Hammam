@@ -1,3 +1,5 @@
+import type { Category } from "./category";
+
 // Reprendre strictement les noms des colonnes de la table SQL
 type Product = {
 	id: number;
@@ -5,6 +7,8 @@ type Product = {
 	image: string;
 	description: string;
 	price: number;
+
+	category: Category;
 	category_id: number;
 };
 
