@@ -1,4 +1,3 @@
-import { Fragment } from "react/jsx-runtime";
 import styles from "../assets/css/hello.module.css";
 
 // Créer fonction capotaliser car elle va devenir un composant (balise)
