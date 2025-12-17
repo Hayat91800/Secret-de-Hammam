@@ -1,3 +1,4 @@
+import type { QueryResult } from "mysql2";
 import type { Category } from "../../models/category";
 import type { Product } from "../../models/product";
 import MySQLService from "../service/mysql_service";
@@ -107,6 +108,86 @@ class ProductRepository {
 			// Retourner reultats
 			return query;
 		} catch (error) {
+			return error;
+		}
+	};
+
+	// Insérer un enregistrement
+	public insert = async (
+		data: Partial<Product>,
+	): Promise<QueryResult | unknown> => {
+		// connexionau server SQL
+		const connection = await new MySQLService().connect();
+
+		// requête SQL : SELECT role.* FROM secretsDeHammam_dev.product;
+		let sql = `
+			INSERT INTO ${process.env.MYSQL_DATABASE}.${this.table}		
+            VALUE (
+				NULL,
+				:name,
+				:image,
+				:description,
+				:price,
+				:category_id
+			);
+		`;
+
+		// Try / Catch : récuperer les résultats de la reqête ou un erreur
+		try {
+			// Demarrer une transaction
+			connection.beginTransaction();
+
+			// Execution de la première requete
+			await connection.execute(sql, data);
+
+			// Seconde Requete
+			sql = `SET @id = LAST_INSERT_ID();`;
+			await connection.execute(sql);
+
+			// Troisième requete
+			/* 
+			1,2,3
+				>>>
+			INSERT INTO secretsDeHammam_dev.product_pack
+			VALUES 
+			(1, @id),
+			(2, @id),
+			(3, @id)
+			;
+
+			split: extraire les données d'une chaine de caractères en array
+			1,2,3 >>>> [1,2,3]
+			map 
+				[1,2,3] >> [(1, @id), (2, @id), (3, @id)]
+				join 
+				[(1, @id), (2, @id), (3, @id)] >> (1, @id), (2, @id), (3, @id)
+			 */
+
+			const joinIds = data.skin_ids
+				?.split(`,`)
+				.map((value) => `(@id, ${value})`)
+				.join();
+
+			sql = `
+				INSERT INTO
+					${process.env.MYSQL_DATABASE}.product_skin
+				VALUES
+					${joinIds}
+				;
+			`;
+
+			// query doit etre placer sur la dernière requete
+			const [query] = await connection.execute(sql);
+
+			// Valider transaction SQL
+			connection.commit();
+
+			// Retourner reultats
+			return query;
+		} catch (error) {
+			// Annuler une transaction
+			connection.rollback();
+
 			return error;
 		}
 	};

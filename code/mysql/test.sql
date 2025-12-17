@@ -10,3 +10,20 @@ GROUP BY pack.id ;
 SELECT product.id, product.name, product.price
 FROM ${process.env.MYSQL_DATABASE}
 WHERE product.id IN (list)
+
+-- Transaction SQL
+-- START TRANSACTION
+
+-- Requet 1
+-- INSERT INTO database name
+-- VALUE
+
+-- variable qui stocke le dernier id inséré
+-- SET
+
+--REQUETE 2
+-- INSERT INTO database name 
+-- VALUE
+
+-- COMMIT;
+
