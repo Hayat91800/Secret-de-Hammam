@@ -75,6 +75,58 @@ class ProductController {
 			data: results,
 		});
 	};
+
+	public update = async (req: Request, res: Response) => {
+		// req.body : récupérer les données contenues dans la requête HTTP
+		console.log(req.body);
+
+		// insertion d'un enregistrement
+		const results = await new ProductRepository().update(req.body);
+
+		// Si la raquete renvoi une erreur
+		if (results instanceof Error) {
+			res.status(400).json({
+				status: 400,
+				message:
+					process.env.NODE_ENV === "production" ? "Error" : results.message,
+			});
+			return;
+		}
+		//    envoyer une réponse
+		// res.send("coucou");
+		// renvoyer une réponse avec un code de statut  HTTP et au format JSON
+		res.status(201).json({
+			status: 201,
+			message: "update product",
+			data: results,
+		});
+	};
+
+	public delete = async (req: Request, res: Response) => {
+		// req.body : récupérer les données contenues dans la requête HTTP
+		console.log(req.body);
+
+		// insertion d'un enregistrement
+		const results = await new ProductRepository().delete(req.body);
+
+		// Si la raquete renvoi une erreur
+		if (results instanceof Error) {
+			res.status(400).json({
+				status: 400,
+				message:
+					process.env.NODE_ENV === "production" ? "Error" : results.message,
+			});
+			return;
+		}
+		//    envoyer une réponse
+		// res.send("coucou");
+		// renvoyer une réponse avec un code de statut  HTTP et au format JSON
+		res.status(201).json({
+			status: 201,
+			message: "delete product",
+			data: results,
+		});
+	};
 }
 
 export default ProductController;

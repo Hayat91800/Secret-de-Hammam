@@ -80,18 +80,33 @@ class PackRepository {
 		// SELECT level.* FROM secretsDeHammam_dev;
 		// variable de requete : précédée d'un :, suivi du nom de la variable
 		// requetes préparées :sécurité;(utilisation des varibales de requetes)la requete est exécutée si elle ne représente pas de risque de sécurité
+		// const sql = `
+		// SELECT $this.table.*
+		// FROM ${process.env.MYSQL_DATABASE}.${this.table}
+		// WHERE ${this.table}.id = :id;
+		// `;
+
 		const sql = `
-		SELECT $this.table.*
-		FROM ${process.env.MYSQL_DATABASE}.${this.table}
-		WHERE ${this.table}.id = :id;
-		`;
+		SELECT ${this.table}.*, 
+	GROUP_CONCAT(product_id) AS product_ids 
+	FROM ${process.env.MYSQL_DATABASE}.${this.table}
+	JOIN ${process.env.MYSQL_DATABASE}.product_pack 
+	ON product_pack.pack_id = ${this.table}.id 
+	JOIN ${process.env.MYSQL_DATABASE}.product 
+	ON product.id = product_pack.product_id 
+	WHERE ${this.table}.id = :id
+	GROUP BY ${this.table}.id ;
+	`;
 		// try / catch pour récuperer les resultats de la requete ou une erreur
 		try {
 			// execution de la requete
 			// si la requete possede des variables, utiliser le parametre de la méthode
 			const [query] = await connection.execute(sql, data);
 			// récuperer le premier indice d'un array
-			const result = (query as Pack[]).shift();
+			const result = (query as Pack[]).shift() as Pack;
+			result.products = (await new ProductRepository().selectInList(
+				result.product_ids,
+			)) as Product[];
 			// retourner les résultats
 			return result;
 		} catch (error) {

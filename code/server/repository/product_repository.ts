@@ -142,7 +142,7 @@ class ProductRepository {
 
 			// Seconde Requete
 			sql = `SET @id = LAST_INSERT_ID();`;
-			await connection.execute(sql);
+			await connection.execute(sql, data);
 
 			// Troisième requete
 			/* 
@@ -163,7 +163,7 @@ class ProductRepository {
 				[(1, @id), (2, @id), (3, @id)] >> (1, @id), (2, @id), (3, @id)
 			 */
 
-			const joinIds = data.skin_ids
+			let joinIds = data.skin_ids
 				?.split(`,`)
 				.map((value) => `(@id, ${value})`)
 				.join();
@@ -176,8 +176,255 @@ class ProductRepository {
 				;
 			`;
 
+			await connection.execute(sql, data);
+
+			joinIds = data.pack_ids
+				?.split(`,`)
+				.map((value) => `(@id, ${value})`)
+				.join();
+
+			sql = `
+				INSERT INTO
+					${process.env.MYSQL_DATABASE}.product_pack
+				VALUES
+					${joinIds}
+				;
+			`;
+
+			await connection.execute(sql, data);
+
+			joinIds = data.body_part_ids
+				?.split(`,`)
+				.map((value) => `(@id, ${value})`)
+				.join();
+
+			sql = `
+				INSERT INTO
+					${process.env.MYSQL_DATABASE}.product_body_part
+				VALUES
+					${joinIds}
+				;
+			`;
+
 			// query doit etre placer sur la dernière requete
 			const [query] = await connection.execute(sql);
+
+			// Valider transaction SQL
+			connection.commit();
+
+			// Retourner reultats
+			return query;
+		} catch (error) {
+			// Annuler une transaction
+			connection.rollback();
+
+			return error;
+		}
+	};
+
+	public update = async (
+		data: Partial<Product>,
+	): Promise<QueryResult | unknown> => {
+		// connexionau server SQL
+		const connection = await new MySQLService().connect();
+
+		// requête SQL : SELECT role.* FROM secretsDeHammam_dev.product;
+		let sql = `
+			Update
+				${process.env.MYSQL_DATABASE}.${this.table}
+ 			set
+				${this.table}.name = :name,
+				${this.table}.image = :image,
+				${this.table}.description = :description,
+				${this.table}.price = :price,
+				${this.table}.category_id = :category_id
+ 			where
+				${this.table}.id = :id;
+		`;
+
+		// Try / Catch : récuperer les résultats de la reqête ou un erreur
+		try {
+			// Demarrer une transaction
+			connection.beginTransaction();
+
+			// Execution de la première requete
+			await connection.execute(sql, data);
+
+			sql = `
+				DELETE FROM
+					${process.env.MYSQL_DATABASE}.product_skin
+				WHERE
+					product_skin.product_id = :id;
+				`;
+			await connection.execute(sql, data);
+
+			sql = `
+				DELETE FROM
+					${process.env.MYSQL_DATABASE}.product_pack
+				WHERE
+					product_pack.product_id = :id;
+				`;
+			await connection.execute(sql, data);
+
+			sql = `
+				DELETE FROM
+					${process.env.MYSQL_DATABASE}.product_body_part
+				WHERE
+					product_body_part.product_id = :id;
+				`;
+			await connection.execute(sql, data);
+
+			let joinIds = data.skin_ids
+				?.split(`,`)
+				.map((value) => `(:id, ${value})`)
+				.join();
+
+			sql = `
+				INSERT INTO
+					${process.env.MYSQL_DATABASE}.product_skin
+				VALUES
+					${joinIds}
+				;
+			`;
+
+			await connection.execute(sql, data);
+
+			joinIds = data.pack_ids
+				?.split(`,`)
+				.map((value) => `(:id, ${value})`)
+				.join();
+
+			sql = `
+				INSERT INTO
+					${process.env.MYSQL_DATABASE}.product_pack
+				VALUES
+					${joinIds}
+				;
+			`;
+
+			await connection.execute(sql, data);
+
+			joinIds = data.body_part_ids
+				?.split(`,`)
+				.map((value) => `(:id, ${value})`)
+				.join();
+
+			sql = `
+				INSERT INTO
+					${process.env.MYSQL_DATABASE}.product_body_part
+				VALUES
+					${joinIds}
+				;
+			`;
+
+			// // Seconde Requete
+			// sql = `
+			// 	DELETE FROM
+			// 		${process.env.MYSQL_DATABASE}.${this.table}
+			// 	WHERE
+			// 		${this.table}.id = :id;
+			// `;
+
+			// // Seconde Requete
+			// sql = `SET @id = LAST_INSERT_ID();`;
+			// await connection.execute(sql);
+
+			// Troisième requete
+			/* 
+			1,2,3
+				>>>
+			INSERT INTO secretsDeHammam_dev.product_pack
+			VALUES 
+			(1, @id),
+			(2, @id),
+			(3, @id)
+			;
+
+			split: extraire les données d'une chaine de caractères en array
+			1,2,3 >>>> [1,2,3]
+			map 
+				[1,2,3] >> [(1, @id), (2, @id), (3, @id)]
+				join 
+				[(1, @id), (2, @id), (3, @id)] >> (1, @id), (2, @id), (3, @id)
+			 */
+
+			// const joinIds = data.skin_ids
+			// 	?.split(`,`)
+			// 	.map((value) => `(@id, ${value})`)
+			// 	.join();
+
+			// sql = `
+			// 	INSERT INTO
+			// 		${process.env.MYSQL_DATABASE}.product_skin
+			// 	VALUES
+			// 		${joinIds}
+			// 	;
+			// `;
+
+			// query doit etre placer sur la dernière requete
+			const [query] = await connection.execute(sql, data);
+
+			// Valider transaction SQL
+			connection.commit();
+
+			// Retourner reultats
+			return query;
+		} catch (error) {
+			// Annuler une transaction
+			connection.rollback();
+
+			return error;
+		}
+	};
+
+	public delete = async (
+		data: Partial<Product>,
+	): Promise<QueryResult | unknown> => {
+		// connexionau server SQL
+		const connection = await new MySQLService().connect();
+
+		// requête SQL : SELECT role.* FROM secretsDeHammam_dev.product;
+		let sql = `
+			DELETE FROM
+				${process.env.MYSQL_DATABASE}.product_skin
+ 			WHERE
+				product_skin.product_id = :id;
+		`;
+
+		// Try / Catch : récuperer les résultats de la reqête ou un erreur
+		try {
+			// Demarrer une transaction
+			connection.beginTransaction();
+
+			// Execution de la première requete
+			await connection.execute(sql, data);
+
+			sql = `
+				DELETE FROM
+					${process.env.MYSQL_DATABASE}.product_pack
+				WHERE
+					product_pack.product_id = :id;
+				`;
+			await connection.execute(sql, data);
+
+			sql = `
+				DELETE FROM
+					${process.env.MYSQL_DATABASE}.product_body_part
+				WHERE
+					product_body_part.product_id = :id;
+				`;
+			await connection.execute(sql, data);
+
+			// // Seconde Requete
+			sql = `
+				DELETE FROM
+					${process.env.MYSQL_DATABASE}.${this.table}
+				WHERE
+					${this.table}.id = :id;
+			`;
+
+			// query doit etre placer sur la dernière requete
+			const [query] = await connection.execute(sql, data);
 
 			// Valider transaction SQL
 			connection.commit();

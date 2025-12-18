@@ -19,7 +19,12 @@ class ProductRouter {
 		this.router.get("/:id", new ProductController().selectOne);
 
 		// middleware multer
+		// Creation: inserer un enregistrement => Post
 		this.router.post("/", this.multer.any(), new ProductController().insert);
+		// Modification: mettre à jour un enregistrement => Put
+		this.router.put("/", this.multer.any(), new ProductController().update);
+		// Supprimer => Delete
+		this.router.delete("/", new ProductController().delete);
 
 		// retourner le routeur
 		return this.router;
