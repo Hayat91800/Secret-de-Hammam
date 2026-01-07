@@ -1,8 +1,7 @@
-import Seo from "../components/seo";
+import ProductsList from "../../components/products/products_list";
+import Seo from "../../components/seo";
 
 const Produits = () => {
-	// uniquement des composants
-	// SEO
 
 	return (
 		<>
@@ -12,7 +11,8 @@ const Produits = () => {
 				url="/produits"
 			/>
 
-			<article></article>
+			<ProductsList/>
+
 		</>
 	);
 };

@@ -20,50 +20,68 @@ class RouterService {
 								id: "home",
 								index: true,
 								path: "",
-								lazy: () => import("../pages/index"),
+								lazy: () => import("../pages/public/homepage"),
 							},
 							{
 								id: "produits",
 								path: "produits",
-								lazy: () => import("../pages/produits"),
+								lazy: () => import("../pages/public/produits"),
+							},
+							{
+								id: "produits_details",
+								// path représente la route
+								// variable d'URL est préfixée d'in :
+								path: "produits/:id",
+								lazy: () => import("../pages/public/produits_details"),
 							},
 							{
 								id: "register",
 								path: "register",
-								lazy: () => import("../pages/register"),
+								lazy: () => import("../pages/public/register"),
 							},
 							{
 								id: "login",
 								path: "login",
-								lazy: () => import("../pages/login"),
+								lazy: () => import("../pages/public/login"),
 							},
 							{
 								id: "a_propos",
 								path: "a_propos",
-								lazy: () => import("../pages/a_propos"),
+								lazy: () => import("../pages/public/a_propos"),
 							},
 							{
 								id: "contact",
 								path: "contact",
-								lazy: () => import("../pages/contact"),
+								lazy: () => import("../pages/public/contact"),
 							},
 							{
 								id: "mentions_legales",
 								path: "mentions_legales",
-								lazy: () => import("../pages/mentions_legales"),
+								lazy: () => import("../pages/public/mentions_legales"),
 							},
 						],
 					},
 					{
-						id: "admin",
-						path: "/admin",
-						lazy: () => import("../layouts/admin_layout"),
-						children: [
+    					id: "admin",
+    					path: "admin",
+    					lazy: () => import("../layouts/admin_layout"),
+    					children: [
+        					{
+           					 id: "admin-home",
+           					 path:"",
+            				lazy: () => import("../pages/admin/index"),
+        					},
 							{
-								id: "admin-home",
-								lazy: () => import("../pages/index"),
+								id: "admin-product",
+								path: "products", 
+								lazy: () => import("../pages/admin/product/index"),
 							},
-						],
+							{
+								id: "add-product",
+								path: "products/add", 
+								lazy: () => import("../pages/admin/product/add"),
+							},
+    						],
 					},
 					/* 
 					{

@@ -1,0 +1,131 @@
+/* Conteneur principal pour centrer le formulaire */
+.formContainer {
+    max-width: 850px;
+    margin: 0 auto;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* En-tête du formulaire */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.header h1 {
+    font-family: 'Playfair Display', serif;
+    color: #4a3f35;
+    margin: 0;
+}
+
+.header p {
+    color: #8c725b;
+    margin: 5px 0 0 0;
+    font-style: italic;
+}
+
+/* Bouton Retour / Annuler */
+.backBtn {
+    text-decoration: none;
+    color: #8c725b;
+    border: 1px solid #eaddca;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.backBtn:hover {
+    background: #fdf2f2;
+    color: #d9534f;
+    border-color: #fca5a5;
+}
+
+/* Le bloc formulaire */
+.productForm {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f3efe4;
+}
+
+/* Groupes de champs (Label + Input) */
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+    font-weight: 600;
+    color: #645945;
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+}
+
+/* Style des Inputs, Select et Textarea */
+.formGroup input, 
+.formGroup select, 
+.formGroup textarea {
+    padding: 12px 15px;
+    border: 1px solid #eaddca;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #4a3f35;
+    background-color: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formGroup input:focus, 
+.formGroup select:focus, 
+.formGroup textarea:focus {
+    outline: none;
+    border-color: #c5a059;
+    box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1);
+}
+
+/* Mise en page sur deux colonnes pour Prix et Stock */
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Bouton de validation final */
+.submitBtn {
+    width: 100%;
+    padding: 15px;
+    background-color: #c5a059;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.3s ease, transform 0.2s active;
+}
+
+.submitBtn:hover {
+    background-color: #a68648;
+}
+
+.submitBtn:active {
+    transform: scale(0.98);
+}
+
+/* Petit effet d'entrée */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive pour les petits écrans */
+@media (max-width: 600px) {
+    .formRow {
+        grid-template-columns: 1fr;
+    }
+}

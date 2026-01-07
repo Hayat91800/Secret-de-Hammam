@@ -1,0 +1,96 @@
+.crudContainer {
+    padding: 20px;
+    max-width: 1200px;
+    margin:0 auto;
+}
+
+.crudHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.addButton {
+    background-color: #645945;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s;
+    white-space: nowrap; /*Empeche le texte du bouton de revenir à la ligne*/
+    display: inline-block;
+}
+
+.addButton:hover {
+    background-color: #c5a059;
+    transform: translateY(-2px);
+}
+
+.tableWrapper {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    overflow-x: auto;
+}
+
+.crudTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.crudTable th {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid #f3efe4;
+    color: #8c725b;
+}
+
+.crudTable td {
+    padding: 15px;
+    border-bottom: 1px solid #f3efe4;
+}
+
+.productName {
+    font-weight: 600;
+    color: #4a3f35;
+}
+
+.lowStock {
+    color: #d9534f;
+    font-weight: bold;
+    background: #fdf2f2;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.editBtn, .deleteBtn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.editBtn {
+    background-color: #eaddca;
+    color: #645945;
+}
+
+.deleteBtn {
+    background-color: #fdf2f2;
+    color: #d9534f;
+}
+
+.deleteBtn:hover {
+    background-color: #d9534f;
+    color: white;
+}

@@ -1,0 +1,91 @@
+*{
+    box-sizing: border-box;
+}
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background-color: #645945; 
+    color: #f3efe4;
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 2rem 1rem;
+}
+
+.logoSection {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.logoSection h2 {
+    color: #c5a059;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+}
+
+.badge {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #8c725b;
+}
+
+.navLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.link, .active {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+    color: #a89f91;
+}
+
+.link:hover {
+    background: rgba(197, 160, 89, 0.1);
+    color: #c5a059;
+}
+
+.active {
+    background: #c5a059;
+    color: white;
+}
+
+.icon {
+    margin-right: 12px;
+    font-size: 1.2rem;
+}
+
+.sidebarFooter {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+}
+
+.exitLink {
+    background-color: #c5a059;
+    color: white;
+    display: flex; /* Aligne le texte comme les autres liens */
+    align-items: center;
+    padding: 12px 15px; /* Même espacement interne que .link */
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.exitLink:hover {
+    background-color: #d9534f; /* Devient rouge plein au survol */
+    color: white;
+ } /* Texte blanc au survol */

@@ -1,0 +1,11 @@
+.appContainer {
+    display: flex;
+    flex-direction: column;
+    /* Force le site à faire au moins la hauteur de l'écran */
+    min-height: 100vh;
+}
+
+.mainContent {
+    /* Dit au contenu de prendre tout l'espace vide, poussant le footer en bas */
+    flex: 1;
+}
