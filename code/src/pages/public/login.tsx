@@ -1,4 +1,4 @@
-import Form from "../../components/formulaire";
+import PublicForm from "../../components/form";
 import Seo from "../../components/seo";
 
 const Login = () => {
@@ -10,7 +10,7 @@ const Login = () => {
                 url="/login" 
             />
             
-            <Form 
+            <PublicForm 
                 title="Mon Compte" 
                 buttonText="Se connecter" 
                 type="login" 

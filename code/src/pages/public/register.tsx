@@ -1,4 +1,4 @@
-import Form from "../../components/formulaire";
+import PublicForm from "../../components/form";
 import Seo from "../../components/seo";
 
 const Register = () => {
@@ -10,7 +10,7 @@ const Register = () => {
                 url="/register" 
             />
             
-            <Form 
+            <PublicForm 
                 title="Devenir Membre" 
                 buttonText="Créer mon compte" 
                 type="register" 

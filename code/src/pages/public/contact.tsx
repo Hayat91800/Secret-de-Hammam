@@ -1,4 +1,4 @@
-import Form from "../../components/formulaire";
+import PublicForm from "../../components/form";
 import Seo from "../../components/seo";
 
 const Contact = () => {
@@ -11,7 +11,7 @@ const Contact = () => {
 				url="/contact"
 			/>
             
-			<Form
+			<PublicForm
 				title="Envoyez-nous un message"
 				buttonText="Envoyer"
 				type="contact"

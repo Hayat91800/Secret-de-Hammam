@@ -90,3 +90,60 @@
   font-size: 0.85rem;
   color: #8c725b;
 }
+
+
+
+
+/*TEMPORAIRE*/
+
+.groupTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem;
+  color: #8c725b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+/* Style spécifique pour le SELECT dans le formGroup */
+.formGroup select {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #4a4a4a;
+  cursor: pointer;
+  outline: none;
+  padding: 5px 0;
+}
+
+/* Conteneur pour aligner les checkbox proprement */
+.checkboxGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  padding-top: 5px;
+}
+
+/* Style de chaque ligne de checkbox */
+.checkboxItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #4a4a4a;
+  transition: color 0.2s;
+}
+
+.checkboxItem:hover {
+  color: #c5a059;
+}
+
+.checkboxItem input[type="checkbox"] {
+  width: auto; /* Empêche la checkbox de prendre 100% de largeur */
+  accent-color: #c5a059; /* Colore la case en doré */
+  cursor: pointer;
+}

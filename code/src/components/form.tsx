@@ -2,7 +2,7 @@
 import type { FormProps } from "../models/props/form_props";
 import styles from "../assets/css/form.module.css";
 
-const Form = ({ title, buttonText, type }: FormProps) => {
+const PublicForm = ({ title, buttonText, type }: FormProps) => {
 
   return (
       <section className={styles.formWrapper}>
@@ -45,4 +45,4 @@ const Form = ({ title, buttonText, type }: FormProps) => {
   );
 }
 
-export default Form;
+export default PublicForm;
