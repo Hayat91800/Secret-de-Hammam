@@ -6,7 +6,7 @@ type Skin = {
 	type: string;
 
 	// liste concaténee des identifiants des produits
-	skin_ids: string;
+	skin_ids: string ;
 	skins: Skin[];
 
 	product_ids: string;

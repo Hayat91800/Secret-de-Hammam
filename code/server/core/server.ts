@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import Body_partRouter from "../router/body_part_router";
 import CategoryRouter from "../router/category_router";
 import HomepageRouter from "../router/homepage_router";
@@ -17,6 +18,11 @@ class Server {
 	constructor() {
 		// middleware JSON permet de récupérer la propriété body en JSON de la requête HTTP
 		this.app.use(express.json());
+
+		// integrer le middleare CORS qui permet d'autoriser l'acces aux ressources à des origines différents (protocoles, port, sous-domaine)
+		this.app.use(cors({
+			origin: process.env.ORIGINS?.split(",")
+		}));
 
 		// relier le router à l'application
 		this.app.use(this.router);

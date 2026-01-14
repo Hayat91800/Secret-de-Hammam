@@ -1,4 +1,3 @@
-"use client";
 import styles from "/app/src/assets/css/admin_layout.module.css";
 
  const AdminHome = () => {

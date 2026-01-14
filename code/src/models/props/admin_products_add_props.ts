@@ -10,8 +10,9 @@ type AdminProductsAddProps = {
     categories: Category[];
     skins: Skin[];
     bodyparts: Body_part[];
-    packs: Pack[]
+    packs: Pack[];
     validator: (data: Partial<Product>) => Promise<Partial<Product> | ZodError>;
+    dataToUpdate: Product | undefined;
 };
 
 

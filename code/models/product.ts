@@ -14,13 +14,13 @@ type Product = {
 	category: Category;
 	category_id: number;
 
-	skin_ids: string;
+	skin_ids: string | string[];
 	skins: Skin[];
 
-	body_part_ids: string;
+	body_part_ids: string | string[];
 	body_parts: Body_part[];
 
-	pack_ids: string;
+	pack_ids: string | string[];
 	packs: Pack[];
 };
 

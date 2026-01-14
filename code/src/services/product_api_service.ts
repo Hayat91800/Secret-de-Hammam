@@ -44,6 +44,133 @@ class ProductApiService {
         // retourner le resultat
         return results;
 
+     };
+    
+    // Insertion d'un enregistrement
+    /* Si le formulaire contient un champ de fichier: utiliser FormData en parametre
+        Si le formulaire ne contient pas de champ de gichier: utyliser le stype */
+       public insert = async (data: FormData) :Promise<ApiResponse<Product>> => {
+        
+        // configurer la requête HTTP
+        // import.meta.env permet d'importer une variable d'environnement dans vite/react. Il n'y à pas d'éspace.
+           const request = new Request(
+               `${import.meta.env.VITE_API_URL}${this.préfix}`,
+               {
+                   method: "post",
+                   /* Si le formulaire contient un champs de fichier 
+                            la propriété body renvoi un objet formData
+                            */
+                   body: data
+
+                    /*         
+                      Si le formulaire ne contient pas de champs de fichier
+                            la propriété body renvoir du JSON : JSON.stringify(...)
+                            ajouter l'en-tête Content-Type: applicatio,/json
+
+                    body: JSON.stringify(data)
+                    headers:{
+                            "Content-Type": "application/json",
+                            },
+                   */
+                   
+               }
+        );
+
+        // éxecuter la requête HTTP
+        const response = await fetch(request);
+
+        // convertir la reponse en JSON en utilisant fonction json: () obligatoire
+        // sérialiser: convertir des données complexes (onjet, array) en chaine de caractère
+        // désérialiser: convertir une chaine de caractère en données complexes (objet, array...)
+        const results = await response.json();
+
+        // retourner le resultat
+        return results;
+
+       };
+    
+    // Mise à jour d'un enregistrement
+    /* Si le formulaire contient un champ de fichier: utiliser FormData en parametre
+        Si le formulaire ne contient pas de champ de gichier: utiliser le stype */
+     public update = async (data: FormData) :Promise<ApiResponse<Product>> => {
+        
+        // configurer la requête HTTP
+        // import.meta.env permet d'importer une variable d'environnement dans vite/react. Il n'y à pas d'éspace.
+           const request = new Request(
+               `${import.meta.env.VITE_API_URL}${this.préfix}`,
+               {
+                   method: "put",
+                   /* Si le formulaire contient un champs de fichier 
+                            la propriété body renvoi un objet formData
+                            */
+                   body: data
+
+                    /*         
+                      Si le formulaire ne contient pas de champs de fichier
+                            la propriété body renvoir du JSON : JSON.stringify(...)
+                            ajouter l'en-tête Content-Type: applicatio,/json
+
+                    body: JSON.stringify(data)
+                    headers:{
+                            "Content-Type": "application/json",
+                            },
+                   */
+                   
+               }
+        );
+
+        // éxecuter la requête HTTP
+        const response = await fetch(request);
+
+        // convertir la reponse en JSON en utilisant fonction json: () obligatoire
+        // sérialiser: convertir des données complexes (onjet, array) en chaine de caractère
+        // désérialiser: convertir une chaine de caractère en données complexes (objet, array...)
+        const results = await response.json();
+
+        // retourner le resultat
+        return results;
+
+     };
+    
+     public delete = async (data: Partial<Product>) :Promise<ApiResponse<Product>> => {
+        
+        // configurer la requête HTTP
+        // import.meta.env permet d'importer une variable d'environnement dans vite/react. Il n'y à pas d'éspace.
+           const request = new Request(
+               `${import.meta.env.VITE_API_URL}${this.préfix}`,
+               {
+                   method: "delete",
+                   /* Si le formulaire contient un champs de fichier 
+                            la propriété body renvoi un objet formData
+                            
+                   body: data */
+
+                    /*         
+                      Si le formulaire ne contient pas de champs de fichier
+                            la propriété body renvoir du JSON : JSON.stringify(...)
+                            ajouter l'en-tête Content-Type: applicatio,/json */
+                    
+                    headers:{
+                        "Content-Type": "application/json",
+                        /* Serialiser = stringify ==> Transformer une donnée complexe (array, objet) en chaîne de caracteres
+                            Deserialiser = parse ==> Transformer une chaine de caractere en donnée complexe (array, objet) */
+                   },
+                   body: JSON.stringify(data),
+                  
+               }
+        );
+
+        // éxecuter la requête HTTP
+        const response = await fetch(request);
+
+        // convertir la reponse en JSON en utilisant fonction json: () obligatoire
+        // sérialiser: convertir des données complexes (onjet, array) en chaine de caractère
+        // désérialiser: convertir une chaine de caractère en données complexes (objet, array...)
+        const results = await response.json();
+
+        // retourner le resultat
+        return results;
+
     };
 }
 

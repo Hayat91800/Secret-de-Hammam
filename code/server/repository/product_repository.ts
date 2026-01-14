@@ -3,6 +3,12 @@ import type { Category } from "../../models/category";
 import type { Product } from "../../models/product";
 import MySQLService from "../service/mysql_service";
 import CategoryRepository from "./category_repository";
+import SkinRepository from "./skin_repository";
+import type { Skin } from "../../models/skin";
+import PackRepository from "./pack_repository";
+import Body_partRepository from "./body_part_repository";
+import type { Body_part } from "../../models/body_part";
+import type { Pack } from "../../models/pack";
 
 class ProductRepository {
 	// Nom de la table SQL
@@ -14,8 +20,30 @@ class ProductRepository {
 		const connection = await new MySQLService().connect();
 
 		// requête SQL : SELECT role.* FROM secretsDeHammam_dev.product;
-		const sql = `SELECT ${this.table}.*
-                    FROM ${process.env.MYSQL_DATABASE}.${this.table};`;
+		const sql = `SELECT ${this.table}.*,
+					GROUP_CONCAT(DISTINCT skin.id) AS skin_ids,
+					GROUP_CONCAT(DISTINCT pack.id) AS pack_ids,
+					GROUP_CONCAT(DISTINCT body_part.id) AS body_part_ids
+                    FROM ${process.env.MYSQL_DATABASE}.${this.table}
+
+					JOIN ${process.env.MYSQL_DATABASE}.product_skin 
+					ON product_skin.product_id = product.id 
+					JOIN ${process.env.MYSQL_DATABASE}.skin
+					ON product_skin.skin_id = skin.id
+
+					JOIN ${process.env.MYSQL_DATABASE}.product_pack 
+					ON product_pack.product_id = product.id 
+					JOIN ${process.env.MYSQL_DATABASE}.pack
+					ON product_pack.pack_id = pack.id
+
+					JOIN ${process.env.MYSQL_DATABASE}.product_body_part
+					ON product_body_part.product_id = product.id 
+					JOIN ${process.env.MYSQL_DATABASE}.body_part
+					ON product_body_part.body_part_id = body_part.id
+
+					GROUP BY ${this.table}.id;
+					`;
+		
 
 		// Try / Catch : récuperer les résultats de la reqête ou un erreur
 		try {
@@ -31,6 +59,12 @@ class ProductRepository {
 				result.category = (await new CategoryRepository().selectOne({
 					id: result.category_id,
 				})) as Category;
+
+				// tables de jointure
+				result.skins = (await new SkinRepository().selectInList(
+					result.skin_ids as string
+				)) as Skin[];
+
 			}
 
 			// Retourner reultats
@@ -52,11 +86,31 @@ class ProductRepository {
 		// SELECT level.* FROM secretsDeHammam_dev;
 		// variable de requete : précédée d'un :, suivi du nom de la variable
 		// requetes préparées :sécurité;(utilisation des varibales de requetes)la requete est exécutée si elle ne représente pas de risque de sécurité
-		const sql = `
-		SELECT ${this.table}.*
-		FROM ${process.env.MYSQL_DATABASE}.${this.table}
-		WHERE ${this.table}.id = :id;
-		`;
+		// DISTINCT: Evite les doublons
+		const sql = `SELECT ${this.table}.*,
+					GROUP_CONCAT(DISTINCT skin.id) AS skin_ids,
+					GROUP_CONCAT(DISTINCT pack.id) AS pack_ids,
+					GROUP_CONCAT(DISTINCT body_part.id) AS body_part_ids
+                    FROM ${process.env.MYSQL_DATABASE}.${this.table}
+
+					JOIN ${process.env.MYSQL_DATABASE}.product_skin 
+					ON product_skin.product_id = product.id 
+					LEFT JOIN ${process.env.MYSQL_DATABASE}.skin
+					ON product_skin.skin_id = skin.id
+
+					JOIN ${process.env.MYSQL_DATABASE}.product_pack 
+					ON product_pack.product_id = product.id 
+					LEFT JOIN ${process.env.MYSQL_DATABASE}.pack
+					ON product_pack.pack_id = pack.id
+
+					JOIN ${process.env.MYSQL_DATABASE}.product_body_part
+					ON product_body_part.product_id = product.id 
+					JOIN ${process.env.MYSQL_DATABASE}.body_part
+					ON product_body_part.body_part_id = body_part.id
+					
+					WHERE ${this.table}.id = :id
+					GROUP BY ${this.table}.id;
+					`;
 		// try / catch pour récuperer les resultats de la requete ou une erreur
 		try {
 			// execution de la requete
@@ -69,6 +123,21 @@ class ProductRepository {
 			result.category = (await new CategoryRepository().selectOne({
 				id: result.category_id,
 			})) as Category;
+
+			// tables de jointure
+			result.skins = (await new SkinRepository().selectInList(
+					result.skin_ids as string
+			)) as Skin[];
+
+			result.packs = (await new PackRepository().selectInList(
+					result.pack_ids as string
+			)) as Pack[];
+
+			result.body_parts = (await new Body_partRepository().selectInList(
+					result.body_part_ids as string
+			)) as Body_part[];
+			
+
 
 			// retourner les résultats
 			return result;
@@ -163,7 +232,7 @@ class ProductRepository {
 				[(1, @id), (2, @id), (3, @id)] >> (1, @id), (2, @id), (3, @id)
 			 */
 
-			let joinIds = data.skin_ids
+			let joinIds = (data.skin_ids as string)
 				?.split(`,`)
 				.map((value) => `(@id, ${value})`)
 				.join();
@@ -178,7 +247,7 @@ class ProductRepository {
 
 			await connection.execute(sql, data);
 
-			joinIds = data.pack_ids
+			joinIds = (data.pack_ids as string)
 				?.split(`,`)
 				.map((value) => `(@id, ${value})`)
 				.join();
@@ -193,7 +262,7 @@ class ProductRepository {
 
 			await connection.execute(sql, data);
 
-			joinIds = data.body_part_ids
+			joinIds = (data.body_part_ids as string)
 				?.split(`,`)
 				.map((value) => `(@id, ${value})`)
 				.join();
@@ -274,7 +343,7 @@ class ProductRepository {
 				`;
 			await connection.execute(sql, data);
 
-			let joinIds = data.skin_ids
+			let joinIds = (data.skin_ids as string)
 				?.split(`,`)
 				.map((value) => `(:id, ${value})`)
 				.join();
@@ -289,7 +358,7 @@ class ProductRepository {
 
 			await connection.execute(sql, data);
 
-			joinIds = data.pack_ids
+			joinIds = (data.pack_ids as string)
 				?.split(`,`)
 				.map((value) => `(:id, ${value})`)
 				.join();
@@ -304,7 +373,7 @@ class ProductRepository {
 
 			await connection.execute(sql, data);
 
-			joinIds = data.body_part_ids
+			joinIds = (data.body_part_ids as string)
 				?.split(`,`)
 				.map((value) => `(:id, ${value})`)
 				.join();

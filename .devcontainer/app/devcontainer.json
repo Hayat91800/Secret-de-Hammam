@@ -15,22 +15,32 @@
             ],
             "settings": {
                 "[typescript]": {
-                "editor.defaultFormatter": "biomejs.biome",
-                "editor.formatOnSave": true,
-                "editor.formatOnType": true
+                    "editor.defaultFormatter": "biomejs.biome",
+                    "editor.formatOnSave": true,
+                    "editor.formatOnType": true
                 },
                 "[typescriptreact]": {
-                "editor.defaultFormatter": "biomejs.biome",
-                "editor.formatOnSave": true,
-                "editor.formatOnType": true
+                    "editor.defaultFormatter": "biomejs.biome",
+                    "editor.formatOnSave": true,
+                    "editor.formatOnType": true
+                },
+                "[javascript]": {
+                    "editor.defaultFormatter": "biomejs.biome",
+                    "editor.formatOnSave": true,
+                    "editor.formatOnType": true
+                },
+                "[javascriptreact]": {
+                    "editor.defaultFormatter": "biomejs.biome",
+                    "editor.formatOnSave": true,
+                    "editor.formatOnType": true
                 },
                 "[css]": {
-                "editor.defaultFormatter": "biomejs.biome",
-                "editor.formatOnSave": true,
-                "editor.formatOnType": true
+                    "editor.defaultFormatter": "biomejs.biome",
+                    "editor.formatOnSave": true,
+                    "editor.formatOnType": true
                 },
                 "editor.codeActionsOnSave": {
-                "source.fixAll": "always"
+                    "source.fixAll": "always"
                 }
             }
         }

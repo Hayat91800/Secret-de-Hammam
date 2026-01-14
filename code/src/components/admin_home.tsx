@@ -1,10 +1,18 @@
 import { Link, NavLink } from "react-router";
 import styles from "../../../assets/css/admin_css/admin_product_index.module.css";
 import { use } from "react";
-import ProductApiService from "../../../services/product_api_service";
+import ProductApiService from "../../src/services/product_api_service";
 
 const AdminProductHome = () => {
+    // Liste fictive pour la partie "Read" du CRUD
+    // const products = [
+    //     { id: 1, name: "Huile d'Argan Pure", price: 25, stock: 10 },
+    //     { id: 2, name: "Savon Noir Eucalyptus", price: 12, stock: 50 },
+    //     { id: 3, name: "Eau de Rose", price: 18, stock: 15 },
+    // ];
+
     const results = use(new ProductApiService().selectAll()).data;
+    // console.log(results);
 
     return (
         <div className={styles.crudContainer}>
@@ -19,7 +27,7 @@ const AdminProductHome = () => {
                 </NavLink>
             </header>
 
-            {/* {results?.map((item) => {
+            {results?.map((item) => {
                 return (
                     <div key={item.id}>
                         <div>
@@ -36,39 +44,43 @@ const AdminProductHome = () => {
 
                 )
             })
-            } */}
+            }
 
-            <section className={styles.tableWrapper}>
+            {/* <section className={styles.tableWrapper}>
                 <table className={styles.crudTable}>
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>Nom</th>
                             <th>Prix</th>
+                            <th>Stock</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
-
-                    <tbody>
-                        {results.map((item) => {
-                            return (
-                                <tr key={item.id}>
-                                    <td>#{item.id}</td>
-                                    <td className={styles.productName}>{item.name}</td>
-                                    <td>{item.price} €</td>
-                                    <td>
-                                        <div className={styles.actions}>
-                                            <Link to={`/admin/products/add/${item.id}`} className={styles.modif}>Modifier</Link>
-                                            <Link to={`/admin/products/delete/${item.id}`} className={styles.supp}>Supprimer</Link>
-                                        </div>
-                                    </td>
-                                </tr>
-                            )
-                        })}
+                      
+                  <tbody>
+                        {products.map((p) => (
+                            <tr key={p.id}>
+                                <td>#{p.id}</td>
+                                <td className={styles.productName}>{p.name}</td>
+                                <td>{p.price} €</td>
+                                <td>
+                                    <span className={p.stock < 15 ? styles.lowStock : ""}>
+                                        {p.stock}
+                                    </span>
+                                </td>
+                                <td>
+                                    <div className={styles.actions}>
+                                        <button className={styles.editBtn}>Modifier</button>
+                                        <button className={styles.deleteBtn}>Supprimer</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
-
+                    
                 </table>
-            </section>
+            </section> */}
         </div>
     );
 };

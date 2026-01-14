@@ -115,6 +115,29 @@ class SkinRepository {
 			return error;
 		}
 	};
+
+	public selectInList = async (list: string): Promise<Skin[] | unknown> => {
+		// connexionau server SQL
+		const connection = await new MySQLService().connect();
+
+		// requête SQL : SELECT role.* FROM secretsDeHammam_dev.product;
+		const sql = `SELECT ${this.table}.*
+                    FROM ${process.env.MYSQL_DATABASE}.${this.table}
+					WHERE ${this.table}.id IN (${list})
+					;
+				`;
+
+		// Try / Catch : récuperer les résultats de la reqête ou un erreur
+		try {
+			// Execution de la requete
+			const [query] = await connection.execute(sql);
+
+			// Retourner reultats
+			return query;
+		} catch (error) {
+			return error;
+		}
+	};
 }
 
 export default SkinRepository;

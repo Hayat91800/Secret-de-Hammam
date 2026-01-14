@@ -63,7 +63,7 @@ class RouterService {
 					},
 					{
     					id: "admin",
-    					path: "admin",
+    					path: "/admin",
     					lazy: () => import("../layouts/admin_layout"),
     					children: [
         					{
@@ -78,8 +78,16 @@ class RouterService {
 							},
 							{
 								id: "add-product",
-								path: "products/add", 
+								// path représente la route
+								// variable d'URL est préfixée d'un :
+								// variable d'URL optionnelle est suffixée d'un ?
+								path: "products/add/:id?", 
 								lazy: () => import("../pages/admin/product/add"),
+							},
+							{
+								id: "admin-product-delete",
+								path: "products/delete/:id", 
+								lazy: () => import("../pages/admin/product/delete"),
 							},
     						],
 					},
