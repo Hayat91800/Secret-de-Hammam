@@ -8,7 +8,9 @@ const HomePage = () => {
 	return (
 		<>
 			<Seo title="Accueil" description="Accueil - Desk" url="/" />
-			<h1> HomePage </h1>
+
+
+
 		</>
 	);
 };

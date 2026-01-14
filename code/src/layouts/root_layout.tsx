@@ -12,7 +12,7 @@ const RootLayout = () => {
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			</head>
 			<body>
-				{/* Zone remplipar un autre contenu */}
+				{/* Zone rempli par un autre contenu */}
 				<Outlet />
 			</body>
 		</html>

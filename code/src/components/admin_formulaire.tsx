@@ -27,7 +27,7 @@ const AdminForm = ({ categories, skins, bodyparts, packs, validator, dataToUpdat
   const [serverErrors, setserverErrors] = useState<Partial<Product>>();
 
   // Message lié à la soumission du formulaire en cas d'echec
-  const [message, setMessage] = useState<string>();
+  const [message, setMessage] = useState<string>("");
 
 
   {/* REACT HOOK FORM
