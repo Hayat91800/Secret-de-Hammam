@@ -1,6 +1,6 @@
 INSERT INTO secretsDeHammam_dev.role (name) VALUES
 ('admin'),
-('client');
+('user');
 
 INSERT INTO secretsDeHammam_dev.category (name) VALUES
 ('Savons'),
@@ -44,10 +44,13 @@ INSERT INTO secretsDeHammam_dev.product
 ('Masque Visage au Ghassoul', 'Masque_visage_rhassoul.jpg', 'Masque purifiant pour diminuer les imperfections et absorber l’excès de sébum.', 11.90, 5),
 ('Huile de Nigelle', 'huile_nigelle.jpg', 'Huile de nigelle reconnue pour ses propriétés apaisantes et anti-imperfections.', 13.90, 2);
 
+-- admin@hammam.com / admin 
+-- client1@test.com / client1 
+-- client2@test.com / admin 
 INSERT INTO secretsDeHammam_dev.user (email, password, role_id, skin_id) VALUES
-('admin@hammam.com', '$2y$10$abcdefghijklmnopqrstuv', 1, 3),
-('client1@test.com', '$2y$10$abcdefghijklmnopqrstuv', 2, 2),
-('client2@test.com', '$2y$10$abcdefghijklmnopqrstuv', 2, 5);
+('admin@hammam.com', '$argon2i$v=19$m=16,t=2,p=1$UjdRQlAwR2FOSnY3eDZNWg$t7mHIlV7pYC64GrfIGq+Sg', 1, 3),
+('client1@test.com', '$argon2i$v=19$m=16,t=2,p=1$YmxzeXZDMVJhMURGb29Lbg$9kFrw3pSNtNAq5YgDw6aRg', 2, 2),
+('client2@test.com', '$argon2i$v=19$m=16,t=2,p=1$YmxzeXZDMVJhMURGb29Lbg$9kFrw3pSNtNAq5YgDw6aRg', 2, 5);
 
 INSERT INTO secretsDeHammam_dev.product_skin (product_id, skin_id) VALUES
 (1, 2), (1, 3), (1, 4),

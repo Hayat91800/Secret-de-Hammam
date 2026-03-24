@@ -1,16 +1,19 @@
 .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 120px; /* Plus grand pour la visibilité */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: auto;
+	height: 50px;
+	transition: transform 0.3s ease;
 }
 
 .logo img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
+	width: auto;
+	height: 100%;
+	display: block;
+	object-fit: contain;
 }
 
 .logo h1 {
-    display: none;
+	display: none;
 }

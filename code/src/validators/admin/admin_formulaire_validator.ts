@@ -22,8 +22,11 @@ class AdminFormulaireValidator {
 
             name: z.string("Le nom est obligatoire").min(2, "Un nom doit comporter au minimum 2 caractères").max(50, "Un nom doit comporté au maximum 50 caracteres"),
 
-            image: z.string("Le nom de l'image est obligatoire").min(2, "Une image doit comporter au minimum 2 caractères").max(50, "Un image peut comporter au maximum 50 caracteres"),
-
+            image: z.union([
+                z.string().nullable(),
+                z.file("L'image est obligatoire"),
+            ]),
+        
             price: z.coerce.number("Le prix est obligatoire").min(1, "Un prix doit comporter au minimum 1 chiffre").max(99.99, "Un prix peut comporter au maximum 4 caracteres dont 2 decimales"),
 
             description: z.string("La description est obligatoire").min(20, "Une description doit comporter au minimum 20 "),

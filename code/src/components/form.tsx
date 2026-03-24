@@ -1,48 +1,104 @@
 "use client";
-import type { FormProps } from "../models/props/form_props";
+
+import { useId } from "react";
+import { useForm } from "react-hook-form";
+import type { User } from "../../models/user";
 import styles from "../assets/css/form.module.css";
+import type { FormProps } from "../models/props/form_props";
+import SecurityApiService from "../services/security_api_service";
 
 const PublicForm = ({ title, buttonText, type }: FormProps) => {
+	const emailID = useId();
+	const passwordID = useId();
 
-  return (
-      <section className={styles.formWrapper}>
-      <h2>{title}</h2>
-          <form className={styles.orientalForm } onSubmit={(e) => e.preventDefault()}>
-        
-        {/* Rendu conditionnel des champs */}
-        {type === "contact" && (
-          <>
-            <input type="email" placeholder="Email" required />
-            <input type="text" placeholder="Sujet" required />
-            <textarea placeholder="Message"></textarea>
-          </>
-        )}
+	// useNavigtate hook: permet de créer une redirection
+	// const navigate = useNavigate();
 
-        {type === "login" && (
-          <>
-            <input type="email" placeholder="Email" required />
-            <input type="password" placeholder="Mot de passe" required />
-          </>
-        )}
+	// // Stocker les messages d'erreur de validation côté serveur
+	// const [serverErrors, setserverErrors] = useState<Partial<User>>();
 
-        {type === "register" && (
-          <>
-            <input type="email" placeholder="Email" required />
-            <input type="password" placeholder="Mot de passe" required />
-            <input type="password" placeholder="Confirmer mot de passe" required />
-          </>
-        )}
+	// // Message lié à la soumission du formulaire en cas d'echec
+	// const [message, setMessage] = useState<string>("");
 
-        <button type="submit">{buttonText}</button>
-        </form>
-        
-          <div className={styles.formFooter}>
-        {type === "login" && <p>Mot de passe oublié ?</p>}
-        {type === "register" && <p>En vous inscrivant, vous rejoignez notre rituel de fidélité.</p>}
-        </div>
-          
-    </section>
-  );
-}
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm<Partial<User>>();
+
+	const submitForm = async (data: Partial<User>) => {
+		if (type === "contact") {
+		}
+
+		if (type === "register") {
+			// console.log(data)
+			const process = new SecurityApiService().register(data);
+		}
+
+		if (type === "login") {
+			const process = new SecurityApiService().login(data);
+		}
+	};
+
+	return (
+		<section className={styles.formWrapper}>
+			<h2>{title}</h2>
+			<form className={styles.orientalForm} onSubmit={handleSubmit(submitForm)}>
+				{/* Rendu conditionnel des champs */}
+				{type === "contact" && (
+					<>
+						<input type="email" placeholder="Email" required />
+						<input type="text" placeholder="Sujet" required />
+						<textarea placeholder="Message"></textarea>
+					</>
+				)}
+
+				{type === "login" && (
+					<>
+						<input
+							type="email"
+							placeholder="Email"
+							{...register("email")}
+							required
+						/>
+						<input
+							type="password"
+							placeholder="Mot de passe"
+							{...register("password")}
+							required
+						/>
+					</>
+				)}
+
+				{/* onSubmit: evenement javasript
+handleSubmit: react hook form
+submitForm: fonction que l'on crée*/}
+				{type === "register" && (
+					<>
+						<input type="email" placeholder="Email" {...register("email")} />
+						<input
+							type="password"
+							placeholder="Mot de passe"
+							{...register("password")}
+						/>
+						{/* <input
+							type="password"
+							placeholder="Confirmer mot de passe"
+						/> */}
+					</>
+				)}
+
+				<button type="submit">{buttonText}</button>
+			</form>
+
+			<div className={styles.formFooter}>
+				{type === "login" && <p>Mot de passe oublié ?</p>}
+				{type === "register" && (
+					<p>En vous inscrivant, vous rejoignez notre rituel de fidélité.</p>
+				)}
+			</div>
+		</section>
+	);
+};
 
 export default PublicForm;

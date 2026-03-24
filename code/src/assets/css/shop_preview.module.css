@@ -1,0 +1,29 @@
+.shopPreview {
+	padding: 100px 20px;
+	text-align: center;
+	background-color: #f3efe4;
+}
+
+.shopPreview h2 {
+	font-family: "Playfair Display", serif;
+	color: #645945;
+	margin-bottom: 15px;
+}
+
+.shopPreview p {
+	color: #8a7d6a;
+	margin-bottom: 30px;
+}
+
+.secondaryLink {
+	color: #645945;
+	text-decoration: none;
+	font-weight: bold;
+	border-bottom: 2px solid #c5a059;
+	padding-bottom: 5px;
+	transition: color 0.3s;
+}
+
+.secondaryLink:hover {
+	color: #c5a059;
+}

@@ -1,15 +1,13 @@
 import { FaFacebookSquare } from "react-icons/fa";
 import { NavLink } from "react-router";
 import styles from "../assets/css/footer.module.css";
+import Logo from "./logo";
 
 const Footer = () => {
 	return (
 		<footer className={styles.footer}>
-			<div className={styles.logo}>
-				<img
-					src="/img/logo_secret_de_hammam_1.png"
-					alt="Logo Secret de Hammam"
-				/>
+			<div className={styles.logWrappero}>
+				<Logo />
 			</div>
 			<div className={styles.nav}>
 				<ul className={styles.menu}>

@@ -1,11 +1,12 @@
-import express from "express";
 import cors from "cors";
+import express from "express";
 import Body_partRouter from "../router/body_part_router";
 import CategoryRouter from "../router/category_router";
 import HomepageRouter from "../router/homepage_router";
 import PackRouter from "../router/pack_router";
 import ProductRouter from "../router/product_router";
 import RoleRouter from "../router/role_router";
+import SecurityRouter from "../router/security_router";
 import SkinRouter from "../router/skin_router";
 import UserRouter from "../router/user_router";
 
@@ -20,9 +21,11 @@ class Server {
 		this.app.use(express.json());
 
 		// integrer le middleare CORS qui permet d'autoriser l'acces aux ressources à des origines différents (protocoles, port, sous-domaine)
-		this.app.use(cors({
-			origin: process.env.ORIGINS?.split(",")
-		}));
+		this.app.use(
+			cors({
+				origin: process.env.ORIGINS?.split(","),
+			}),
+		);
 
 		// relier le router à l'application
 		this.app.use(this.router);
@@ -43,6 +46,7 @@ class Server {
 		this.router.use("/api/body_part", new Body_partRouter().getRoutes());
 		this.router.use("/api/product", new ProductRouter().getRoutes());
 		this.router.use("/api/user", new UserRouter().getRoutes());
+		this.router.use("/api", new SecurityRouter().getRoutes());
 	};
 
 	// créer méthode pour démarrer le serveur

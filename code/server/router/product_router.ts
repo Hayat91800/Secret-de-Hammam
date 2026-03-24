@@ -7,7 +7,9 @@ class ProductRouter {
 	private router = express.Router();
 
 	// multer permet de gérer le transfert de fichier
-	private multer = multer({ dest: "public" });
+	// private multer = multer({ dest: "public" });
+	// Si fichier ranger dans sous dossier, modifier le chemin
+	private multer = multer({ dest: `${process.env.PUBLIC_DIR}/img/products` });
 
 	// liste des routes
 	public getRoutes = () => {

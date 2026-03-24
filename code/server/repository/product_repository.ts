@@ -1,14 +1,14 @@
 import type { QueryResult } from "mysql2";
-import type { Category } from "../../models/category";
-import type { Product } from "../../models/product";
-import MySQLService from "../service/mysql_service";
-import CategoryRepository from "./category_repository";
-import SkinRepository from "./skin_repository";
-import type { Skin } from "../../models/skin";
-import PackRepository from "./pack_repository";
-import Body_partRepository from "./body_part_repository";
 import type { Body_part } from "../../models/body_part";
+import type { Category } from "../../models/category";
 import type { Pack } from "../../models/pack";
+import type { Product } from "../../models/product";
+import type { Skin } from "../../models/skin";
+import MySQLService from "../service/mysql_service";
+import Body_partRepository from "./body_part_repository";
+import CategoryRepository from "./category_repository";
+import PackRepository from "./pack_repository";
+import SkinRepository from "./skin_repository";
 
 class ProductRepository {
 	// Nom de la table SQL
@@ -43,7 +43,6 @@ class ProductRepository {
 
 					GROUP BY ${this.table}.id;
 					`;
-		
 
 		// Try / Catch : récuperer les résultats de la reqête ou un erreur
 		try {
@@ -62,9 +61,8 @@ class ProductRepository {
 
 				// tables de jointure
 				result.skins = (await new SkinRepository().selectInList(
-					result.skin_ids as string
+					result.skin_ids as string,
 				)) as Skin[];
-
 			}
 
 			// Retourner reultats
@@ -126,18 +124,16 @@ class ProductRepository {
 
 			// tables de jointure
 			result.skins = (await new SkinRepository().selectInList(
-					result.skin_ids as string
+				result.skin_ids as string,
 			)) as Skin[];
 
 			result.packs = (await new PackRepository().selectInList(
-					result.pack_ids as string
+				result.pack_ids as string,
 			)) as Pack[];
 
 			result.body_parts = (await new Body_partRepository().selectInList(
-					result.body_part_ids as string
+				result.body_part_ids as string,
 			)) as Body_part[];
-			
-
 
 			// retourner les résultats
 			return result;
@@ -507,6 +503,9 @@ class ProductRepository {
 			return error;
 		}
 	};
+	// public search = async (
+	// 	data: Partial<Product>,
+	// ): Promise<QueryResult | unknown> => {};
 }
 
 export default ProductRepository;
