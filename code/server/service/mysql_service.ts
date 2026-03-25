@@ -2,6 +2,7 @@ import mysql, { type PoolConnection } from "mysql2/promise";
 
 class MySQLService {
 	// propriété statique : accessible sans objet
+	// static: lorsque l'on appel l'objet, la propriéte ne change pas
 	private static instance: PoolConnection;
 
 	// Créer fonction de connexion au server MySQL

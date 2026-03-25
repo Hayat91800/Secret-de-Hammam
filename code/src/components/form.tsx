@@ -2,17 +2,19 @@
 
 import { useId } from "react";
 import { useForm } from "react-hook-form";
+import { Navigate, useNavigate } from "react-router";
 import type { User } from "../../models/user";
 import styles from "../assets/css/form.module.css";
 import type { FormProps } from "../models/props/form_props";
 import SecurityApiService from "../services/security_api_service";
+import SecurityService from "../services/security_service";
 
 const PublicForm = ({ title, buttonText, type }: FormProps) => {
 	const emailID = useId();
 	const passwordID = useId();
 
 	// useNavigtate hook: permet de créer une redirection
-	// const navigate = useNavigate();
+	const navigate = useNavigate();
 
 	// // Stocker les messages d'erreur de validation côté serveur
 	// const [serverErrors, setserverErrors] = useState<Partial<User>>();
@@ -32,11 +34,27 @@ const PublicForm = ({ title, buttonText, type }: FormProps) => {
 
 		if (type === "register") {
 			// console.log(data)
-			const process = new SecurityApiService().register(data);
+			const process = await new SecurityApiService().register(data);
 		}
 
 		if (type === "login") {
-			const process = new SecurityApiService().login(data);
+			const process = await new SecurityApiService().login(data);
+			if ([200, 201].indexOf(process.status) !== -1) {
+				const user = process.data as User;
+
+				// Stocker l'utilisateur avec getter/setter de security_service.ts
+				new SecurityService().setUser(user);
+
+				// Redirection vers une route react selon le role de l'utilisateur
+
+				if (user.role?.name === "admin") {
+					navigate("/admin");
+					return;
+				}
+				navigate("/");
+
+				// Si la requête HTTP échoue
+			}
 		}
 	};
 

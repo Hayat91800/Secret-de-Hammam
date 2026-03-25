@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router";
 import styles from "../assets/css/navbar.module.css";
+import SecurityService from "../services/security_service";
 
 const NavBar = () => {
 	// const navVisible: boolean = false;
@@ -14,6 +15,9 @@ const NavBar = () => {
 
 	return (
 		<div className={styles.navContainer}>
+			{/* Afficher l'utilisateur stocké pour phase de test */}
+			{JSON.stringify(new SecurityService().getUser())}
+
 			<button type="button" onClick={click}>
 				<div
 					className={`${styles.line} ${styles.line1} ${navVisible ? styles.one : ""}`}
@@ -45,20 +49,37 @@ const NavBar = () => {
 							Produits{" "}
 						</NavLink>
 					</li>
-					<li>
-						{" "}
-						<NavLink to={"/register"} onClick={closeMenu}>
-							{" "}
-							Inscription{" "}
-						</NavLink>{" "}
-					</li>
-					<li>
-						{" "}
-						<NavLink to={"/login"} onClick={closeMenu}>
-							{" "}
-							Connexion{" "}
-						</NavLink>{" "}
-					</li>
+
+					{
+						// Si l'utilisateur est connecter
+						new SecurityService().getUser() ? (
+							<li>
+								<NavLink to={"/logout"} onClick={closeMenu}>
+									{" "}
+									Déconnection{" "}
+								</NavLink>{" "}
+							</li>
+						) : (
+							// Si l'utilisateur n'est pas connecté
+							<>
+								<li>
+									{" "}
+									<NavLink to={"/register"} onClick={closeMenu}>
+										{" "}
+										Inscription{" "}
+									</NavLink>{" "}
+								</li>
+								<li>
+									{" "}
+									<NavLink to={"/login"} onClick={closeMenu}>
+										{" "}
+										Connexion{" "}
+									</NavLink>{" "}
+								</li>
+							</>
+						)
+					}
+
 					<li>
 						{" "}
 						<NavLink to={"/contact"} onClick={closeMenu}>
@@ -69,26 +90,32 @@ const NavBar = () => {
 					<li>
 						{" "}
 						<NavLink to={"/a_propos"} onClick={closeMenu}>
-							{" "}
 							A propos{" "}
 						</NavLink>{" "}
 					</li>
 					<li>
 						{" "}
 						<NavLink to={"/mentions_legales"} onClick={closeMenu}>
-							{" "}
 							Mentions légales{" "}
 						</NavLink>{" "}
 					</li>
-					<li>
-						<NavLink
-							to="/admin"
-							onClick={closeMenu}
-							className={styles.adminLink}
-						>
-							Admin
-						</NavLink>
-					</li>
+
+					{
+						// Si l'utilisateur est admin
+						new SecurityService().getUser()?.role?.name === "admin" ? (
+							<li>
+								<NavLink
+									to="/admin"
+									onClick={closeMenu}
+									className={styles.adminLink}
+								>
+									Admin
+								</NavLink>
+							</li>
+						) : (
+							<></>
+						)
+					}
 				</ul>
 			</nav>
 		</div>

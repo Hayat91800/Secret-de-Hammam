@@ -59,21 +59,26 @@ class RouterService {
 								path: "mentions_legales",
 								lazy: () => import("../pages/public/mentions_legales"),
 							},
+							{
+								id: "logout",
+								path: "logout",
+								lazy: () => import("../pages/public/logout"),
+							},
 						],
 					},
 					{
-    					id: "admin",
-    					path: "/admin",
-    					lazy: () => import("../layouts/admin_layout"),
-    					children: [
-        					{
-           					 id: "admin-home",
-           					 path:"",
-            				lazy: () => import("../pages/admin/index"),
-        					},
+						id: "admin",
+						path: "/admin",
+						lazy: () => import("../layouts/admin_layout"),
+						children: [
+							{
+								id: "admin-home",
+								path: "",
+								lazy: () => import("../pages/admin/index"),
+							},
 							{
 								id: "admin-product",
-								path: "products", 
+								path: "products",
 								lazy: () => import("../pages/admin/product/index"),
 							},
 							{
@@ -81,15 +86,15 @@ class RouterService {
 								// path représente la route
 								// variable d'URL est préfixée d'un :
 								// variable d'URL optionnelle est suffixée d'un ?
-								path: "products/add/:id?", 
+								path: "products/add/:id?",
 								lazy: () => import("../pages/admin/product/add"),
 							},
 							{
 								id: "admin-product-delete",
-								path: "products/delete/:id", 
+								path: "products/delete/:id",
 								lazy: () => import("../pages/admin/product/delete"),
 							},
-    						],
+						],
 					},
 					/* 
 					{
