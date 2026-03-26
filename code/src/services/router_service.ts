@@ -1,4 +1,5 @@
 import type { unstable_RSCRouteConfig as RSCRouteConfig } from "react-router";
+import DashboardClient from "../pages/user/dashboard_client";
 
 class RouterService {
 	public getRouter = () => {
@@ -27,6 +28,12 @@ class RouterService {
 								path: "produits",
 								lazy: () => import("../pages/public/produits"),
 							},
+							// {
+							// 	id: "pack",
+							// 	path: "pack",
+							// 	lazy: () => import("../pages/public/pack"),
+							// },
+
 							{
 								id: "produits_details",
 								// path représente la route
@@ -68,7 +75,7 @@ class RouterService {
 					},
 					{
 						id: "admin",
-						path: "/admin",
+						path: "admin",
 						lazy: () => import("../layouts/admin_layout"),
 						children: [
 							{
@@ -96,12 +103,19 @@ class RouterService {
 							},
 						],
 					},
-					/* 
 					{
-						id: "about",
-						path: "about",
-						lazy: () => import("./about/route"),
-					},*/
+						id: "user",
+						path: "user",
+						lazy: () => import("../layouts/user_layout"),
+						children: [
+							{
+								id: "user_home",
+								path: "",
+								lazy: () => import("../pages/user/dashboard_client"),
+								// Component: DashboardClient,
+							},
+						],
+					},
 				],
 			},
 		] satisfies RSCRouteConfig;

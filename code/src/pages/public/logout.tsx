@@ -11,8 +11,19 @@ const Logout = () => {
 	// Supprimer à l'affichage de la page
 
 	useEffect(() => {
-		// Supprimer l'utilisateur
-		new SecurityService().setUser(null);
+		// const reset = async () => {
+		// 	//Supprimer l'utilisateur
+		// 	new SecurityService().setUser(null);
+
+		//  //Supprimer le token JWT
+		// 	await new SecurityService().setToken(null);
+		// };
+
+		// reset();
+
+		// Déconnexion
+		new SecurityService().logout();
+
 		// Redirection de la route
 		navigate("/");
 	}, [navigate]);

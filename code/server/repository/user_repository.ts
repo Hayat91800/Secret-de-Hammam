@@ -1,5 +1,7 @@
+import type { Role } from "../../models/role";
 import type { User } from "../../models/user";
 import MySQLService from "../service/mysql_service";
+import RoleRepository from "./role_repository";
 
 class UserRepository {
 	// Nom de la table SQL
@@ -47,7 +49,12 @@ class UserRepository {
 			// si la requete possede des variables, utiliser le parametre de la méthode
 			const [query] = await connection.execute(sql, data);
 			// récuperer le premier indice d'un array
-			const result = (query as User[]).shift();
+			const result = (query as User[]).shift() as User;
+
+			result.role = (await new RoleRepository().selectOne({
+				id: result.role_id,
+			})) as Role;
+
 			// retourner les résultats
 			return result;
 		} catch (error) {

@@ -1,0 +1,81 @@
+.profileContainer {
+	max-width: 900px;
+	margin: 40px auto;
+	padding: 20px;
+	animation: fadeIn 0.5s ease-in-out;
+}
+
+.profileContainer h1 {
+	font-family: "Playfair Display", serif;
+	color: #645945;
+	text-align: center;
+	margin-bottom: 40px;
+	font-size: 2.5rem;
+}
+
+/* Style de la carte injectée */
+.infoCard {
+	background: #ffffff;
+	border-radius: 15px;
+	padding: 40px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+	border: 1px solid #f3efe4;
+	position: relative;
+	overflow: hidden;
+}
+
+.infoCard::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 5px;
+	background: linear-gradient(90deg, #c5a059, #e2d1b3);
+}
+
+.infoCard h3 {
+	font-family: "Playfair Display", serif;
+	color: #c5a059;
+	font-size: 1.8rem;
+	margin-bottom: 25px;
+	border-bottom: 1px solid #f3efe4;
+	padding-bottom: 10px;
+}
+
+.infoRow {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 0;
+	border-bottom: 1px dotted #e2d1b3;
+}
+
+.infoRow:last-of-type {
+	border-bottom: none;
+}
+
+.infoRow span {
+	color: #888;
+	font-weight: 500;
+	text-transform: uppercase;
+	font-size: 0.8rem;
+	letter-spacing: 1px;
+}
+
+.infoRow strong {
+	color: #4a4a4a;
+	font-size: 1.1rem;
+}
+
+/* Animation d'entrée */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

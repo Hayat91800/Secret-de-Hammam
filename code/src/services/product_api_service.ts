@@ -49,7 +49,10 @@ class ProductApiService {
 	// Insertion d'un enregistrement
 	/* Si le formulaire contient un champ de fichier: utiliser FormData en parametre
         Si le formulaire ne contient pas de champ de gichier: utyliser le stype */
-	public insert = async (data: FormData): Promise<ApiResponse<Product>> => {
+	public insert = async (
+		data: FormData,
+		token: string,
+	): Promise<ApiResponse<Product>> => {
 		// configurer la requête HTTP
 		// import.meta.env permet d'importer une variable d'environnement dans vite/react. Il n'y à pas d'éspace.
 		const request = new Request(
@@ -71,6 +74,10 @@ class ProductApiService {
                             "Content-Type": "application/json",
                             },
                    */
+
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
 			},
 		);
 
@@ -89,7 +96,10 @@ class ProductApiService {
 	// Mise à jour d'un enregistrement
 	/* Si le formulaire contient un champ de fichier: utiliser FormData en parametre
         Si le formulaire ne contient pas de champ de gichier: utiliser le stype */
-	public update = async (data: FormData): Promise<ApiResponse<Product>> => {
+	public update = async (
+		data: FormData,
+		token: string,
+	): Promise<ApiResponse<Product>> => {
 		// configurer la requête HTTP
 		// import.meta.env permet d'importer une variable d'environnement dans vite/react. Il n'y à pas d'éspace.
 		const request = new Request(
@@ -111,6 +121,9 @@ class ProductApiService {
                             "Content-Type": "application/json",
                             },
                    */
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
 			},
 		);
 
@@ -128,6 +141,7 @@ class ProductApiService {
 
 	public delete = async (
 		data: Partial<Product>,
+		token: string,
 	): Promise<ApiResponse<Product>> => {
 		// configurer la requête HTTP
 		// import.meta.env permet d'importer une variable d'environnement dans vite/react. Il n'y à pas d'éspace.
@@ -147,6 +161,8 @@ class ProductApiService {
 
 				headers: {
 					"Content-Type": "application/json",
+					Authorization: `Bearer ${token}`,
+
 					/* Serialiser = stringify ==> Transformer une donnée complexe (array, objet) en chaîne de caracteres
                             Deserialiser = parse ==> Transformer une chaine de caractere en donnée complexe (array, objet) */
 				},

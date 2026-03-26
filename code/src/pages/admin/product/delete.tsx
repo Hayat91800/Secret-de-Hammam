@@ -1,40 +1,38 @@
 "use client";
 
 import type React from "react";
-import type { AdminProductsParams } from "../../../models/params/admin_products_params";
 import { useEffect } from "react";
-import ProductApiService from "../../../services/product_api_service";
 import { useNavigate } from "react-router";
+import type { AdminProductsParams } from "../../../models/params/admin_products_params";
+import ProductApiService from "../../../services/product_api_service";
+import SecurityService from "../../../services/security_service";
 
+const AdminProductDelete = ({
+	params,
+}: AdminProductsParams): React.JSX.Element => {
+	// Récuperer la variable d'URL
+	const { id } = params;
 
-const AdminProductDelete = ({ params }: AdminProductsParams): React.JSX.Element => {
+	// useNavigate permet de créer une redirection
+	const navigate = useNavigate();
 
-    // Récuperer la variable d'URL
-    const { id } = params;
+	// Executer la suppression à l'affichage de la page
 
-    // useNavigate permet de créer une redirection
-    const navigate = useNavigate();
+	// La methode Then equivaut a Await lorsque les conditions d'await ne sont pas rempli( etre dans une fonction et asynchrone)
+	useEffect(() => {
+		new ProductApiService()
+			.delete({ id: id }, new SecurityService().getToken() as string)
+			.then(() => {
+				navigate("/admin/products");
+				return;
+			});
+	}, [id, navigate]);
 
-
-
-    // Executer la suppression à l'affichage de la page
-
-    // La methode Then equivaut a Await lorsque les conditions d'await ne sont pas rempli( etre dans une fonction et asynchrone)
-    useEffect(() => {
-        new ProductApiService().delete({ id: id }).then(() => {
-            navigate("/admin/products");
-            return;
-        });
-
-    }, [id, navigate]);
-
-    return (
-
-        <>
-            <title> Delete</title>
-        </>
-
-    );
+	return (
+		<>
+			<title> Delete</title>
+		</>
+	);
 };
 
 export default AdminProductDelete;

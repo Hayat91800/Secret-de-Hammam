@@ -8,6 +8,7 @@ import type { Product } from "../../models/product";
 import styles from "../assets/css/form.module.css";
 import type { AdminProductsAddProps } from "../models/props/admin_products_add_props";
 import ProductApiService from "../services/product_api_service";
+import SecurityService from "../services/security_service";
 
 const AdminForm = ({
 	categories,
@@ -119,8 +120,14 @@ const AdminForm = ({
 
 		// Requête HTTP vers l'API
 		const process = dataToUpdate
-			? await new ProductApiService().update(formData)
-			: await new ProductApiService().insert(formData);
+			? await new ProductApiService().update(
+					formData,
+					new SecurityService().getToken() as string,
+				)
+			: await new ProductApiService().insert(
+					formData,
+					new SecurityService().getToken() as string,
+				);
 
 		// Si la requête HTTP à réussie
 		/* est ce que le code de status est dans cette liste = different de -1 (-1= absent de la liste)

@@ -1,15 +1,33 @@
 /* Polices */
+@font-face {
+	font-family: "playfair_display";
+	src: url("../polices/PlayfairDisplay-VariableFont_wght.ttf");
+}
+
+@font-face {
+	font-family: "Poppins";
+	src: url("../polices/Poppins-VariableFont_wght.ttf");
+}
 
 /* Variables CSS */
 :root {
-	--background-color: #f3efe4;
-	--padding-left: 2rem;
-	--padding-right: 2rem;
-	--margin: 10px 0 10px 0;
-	--color: #7e5835;
-	--font-weight: bold;
-	--font-style: italic;
-	--line-height: 32px;
+	--color-primary: #645945;
+	--color-primary-dark: #040c34;
+	--color-secondary: #341967;
+	--color-accent: #c5a059;
+	--color-neutral-light: #ffffff;
+	--color-bg-light: #f3efe4;
+	--color-text-dark: #4a3f35;
+	--color-border: #eaddca;
+
+	--font-title: "playfair_display", serif;
+	--font-subtitle: "Poppins", sans-serif;
+
+	--text-sm: 0.875rem;
+	--text-md: 1rem;
+	--text-lg: 1.25rem;
+	--text-xl: 1.5rem;
+	--text-xxl: 2.2rem;
 }
 
 /* Balises HTML */
@@ -22,6 +40,8 @@ img {
 }
 
 body {
-	background-color: var(--background-color);
-	color: var(--color);
+	font-family: var(--font-text);
+	background-color: var(--color-bg-light);
+	color: var(--color-text-dark);
+	line-height: 1.6;
 }

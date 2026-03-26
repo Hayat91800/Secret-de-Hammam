@@ -2,7 +2,7 @@
 
 import { useId } from "react";
 import { useForm } from "react-hook-form";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import type { User } from "../../models/user";
 import styles from "../assets/css/form.module.css";
 import type { FormProps } from "../models/props/form_props";
@@ -45,10 +45,20 @@ const PublicForm = ({ title, buttonText, type }: FormProps) => {
 				// Stocker l'utilisateur avec getter/setter de security_service.ts
 				new SecurityService().setUser(user);
 
+				// Stocker le token JWT
+				await new SecurityService().setToken(user);
+
+				console.log(new SecurityService().getToken());
+
 				// Redirection vers une route react selon le role de l'utilisateur
 
 				if (user.role?.name === "admin") {
 					navigate("/admin");
+					return;
+				}
+
+				if (user.role?.name === "user") {
+					navigate("/user");
 					return;
 				}
 				navigate("/");

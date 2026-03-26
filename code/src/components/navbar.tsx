@@ -80,6 +80,23 @@ const NavBar = () => {
 						)
 					}
 
+					{
+						// Si l'utilisateur est user
+						new SecurityService().getUser()?.role?.name === "user" ? (
+							<li>
+								<NavLink
+									to="/user"
+									onClick={closeMenu}
+									className={styles.adminLink}
+								>
+									User
+								</NavLink>
+							</li>
+						) : (
+							<></>
+						)
+					}
+
 					<li>
 						{" "}
 						<NavLink to={"/contact"} onClick={closeMenu}>
