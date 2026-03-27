@@ -2,6 +2,7 @@ import cors from "cors";
 import express from "express";
 import Body_partRouter from "../router/body_part_router";
 import CategoryRouter from "../router/category_router";
+import ContactRouter from "../router/contact_router";
 import HomepageRouter from "../router/homepage_router";
 import PackRouter from "../router/pack_router";
 import ProductRouter from "../router/product_router";
@@ -47,6 +48,7 @@ class Server {
 		this.router.use("/api/product", new ProductRouter().getRoutes());
 		this.router.use("/api/user", new UserRouter().getRoutes());
 		this.router.use("/api", new SecurityRouter().getRoutes());
+		this.router.use("/api/contact", new ContactRouter().getRoutes());
 	};
 
 	// créer méthode pour démarrer le serveur

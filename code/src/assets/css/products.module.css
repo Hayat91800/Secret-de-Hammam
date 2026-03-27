@@ -1,4 +1,4 @@
-.productsSection {
+/* .productsSection {
 	padding: 60px 20px;
 	max-width: 1200px;
 	margin: 0 auto;
@@ -11,27 +11,27 @@
 	font-size: 2.5rem;
 	margin-bottom: 40px;
 	position: relative;
-}
+} */
 
 /* Petit trait décoratif sous le titre */
-.mainTitle::after {
+/* .mainTitle::after {
 	content: "";
 	display: block;
 	width: 60px;
 	height: 3px;
 	background: #c5a059;
 	margin: 10px auto;
-}
+} */
 
 /* Grille Responsive */
-.productsGrid {
+/* .productsGrid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	gap: 20px;
-}
+} */
 
 /* Carte Produit */
-.productCard {
+/* .productCard {
 	background: white;
 	border-radius: 15px;
 	overflow: hidden;
@@ -46,10 +46,9 @@
 .productCard:hover {
 	transform: translateY(-10px);
 	box-shadow: 0 10px 25px rgba(100, 89, 69, 0.1);
-}
-
+} */
 /* Image */
-.imageWrapper {
+/* .imageWrapper {
 	height: auto;
 	width: 100%;
 	background-color: #f3efe4;
@@ -64,10 +63,10 @@
 
 .productCard:hover .imageWrapper img {
 	transform: scale(1.1);
-}
+} */
 
 /* Infos */
-.productInfo {
+/* .productInfo {
 	padding: 15px 20px;
 	text-align: left;
 	align-items: stretch;
@@ -91,10 +90,10 @@
 	color: #c5a059;
 	font-weight: bold;
 	font-size: 1rem;
-}
+} */
 
 /* Bouton */
-.viewButton {
+/* .viewButton {
 	margin-top: auto;
 	background-color: #645945;
 	color: white;
@@ -109,10 +108,10 @@
 
 .viewButton:hover {
 	background-color: #c5a059;
-}
+} */
 
 /* centre la fiche */
-.productDetailContainer {
+/* .productDetailContainer {
 	max-width: 600px;
 	margin: 0 auto;
 }
@@ -190,4 +189,33 @@
 
 span {
 	gap: 15px;
+} */
+
+.productsGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+	/* Mobile : cartes plus petites */
+	gap: 15px;
+	padding: 15px;
+}
+
+.productCard {
+	background: white;
+	border-radius: 12px;
+	box-shadow: var(--shadow-soft);
+}
+
+.imageWrapper img {
+	height: 180px;
+	object-fit: cover;
+}
+
+@media (min-width: 768px) {
+	.productsGrid {
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		gap: 25px;
+	}
+	.imageWrapper img {
+		height: 250px;
+	}
 }

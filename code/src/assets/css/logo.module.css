@@ -1,4 +1,4 @@
-.logo {
+/* .logo {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -16,4 +16,45 @@
 
 .logo h1 {
 	display: none;
+} */
+
+.logo {
+	display: flex;
+	justify-content: center; /* Centré par défaut sur mobile */
+	align-items: center;
+	width: auto;
+	height: 40px; /* Taille légèrement réduite sur mobile */
+	transition: transform var(--transition-base, 0.3s ease);
+}
+
+.logo img {
+	width: auto;
+	height: 100%;
+	display: block;
+	object-fit: contain;
+}
+
+/* Accessibilité : On remplace display: none par un masquage safe pour le SEO */
+.logo h1 {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* DESKTOP & TABLETTE */
+@media (min-width: 768px) {
+	.logo {
+		height: 50px; /* Taille normale sur grand écran */
+		justify-content: flex-start; /* Aligné à gauche si dans un header standard */
+	}
+
+	.logo:hover {
+		transform: scale(1.05);
+	}
 }

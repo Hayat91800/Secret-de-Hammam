@@ -1,149 +1,181 @@
-.formWrapper {
-  max-width: 500px;
-  margin: 60px auto;
-  padding: 40px;
-  background: #ffffff;
-  border-radius: 20px;
-  /* Ombre douce pour un effet aérien */
-  box-shadow: 0 15px 35px rgba(140, 114, 91, 0.1);
-  border: 1px solid rgba(197, 160, 89, 0.1);
-  position: relative;
-  overflow: hidden;
+/* .formWrapper {
+	max-width: 500px;
+	margin: 60px auto;
+	padding: 40px;
+	background: #ffffff;
+	border-radius: 20px;
+	box-shadow: 0 15px 35px rgba(140, 114, 91, 0.1);
+	border: 1px solid rgba(197, 160, 89, 0.1);
+	position: relative;
+	overflow: hidden;
 }
 
-/* Petit motif floral ou organique en fond (optionnel) */
 .formWrapper::after {
-  content: "";
-  position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 150px;
-  height: 150px;
-  background: rgba(197, 160, 89, 0.05);
-  border-radius: 50%;
+	content: "";
+	position: absolute;
+	top: -50px;
+	right: -50px;
+	width: 150px;
+	height: 150px;
+	background: rgba(197, 160, 89, 0.05);
+	border-radius: 50%;
 }
 
 .formWrapper h2 {
-  font-family: 'Playfair Display', serif;
-  color: #5d6d5e; /* Vert sauge profond */
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 30px;
-  font-weight: 600;
+	font-family: "Playfair Display", serif;
+	color: #5d6d5e;
+	text-align: center;
+	font-size: 2rem;
+	margin-bottom: 30px;
+	font-weight: 600;
 }
 
 .orientalForm {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }
 
-/* Style des labels s'ils sont ajoutés, ou placeholder */
-.orientalForm input, 
+.orientalForm input,
 .orientalForm textarea {
-  font-family: 'Poppins', sans-serif;
-  width: 100%;
-  padding: 14px;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  background-color: #faf9f7; /* Couleur sable très clair */
-  font-size: 0.95rem;
-  transition: all 0.4s ease;
-  color: #4a4a4a;
+	font-family: "Poppins", sans-serif;
+	width: 100%;
+	padding: 14px;
+	border: 1px solid #e0e0e0;
+	border-radius: 10px;
+	background-color: #faf9f7;
+	font-size: 0.95rem;
+	transition: all 0.4s ease;
+	color: #4a4a4a;
 }
 
-.orientalForm input:focus, 
+.orientalForm input:focus,
 .orientalForm textarea:focus {
-  border-color: #c5a059; /* Or brossé */
-  background-color: #ffffff;
-  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.1);
-  outline: none;
+	border-color: #c5a059;
+	background-color: #ffffff;
+	box-shadow: 0 4px 12px rgba(197, 160, 89, 0.1);
+	outline: none;
 }
 
-/* Style spécifique pour le bouton "Rituel de Beauté" */
 .orientalForm button {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #8c725b 0%, #a68b74 100%);
-  color: white;
-  padding: 16px;
-  border: none;
-  border-radius: 50px; /* Bouton arrondi pour la douceur */
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  margin-top: 10px;
+	font-family: "Poppins", sans-serif;
+	background: linear-gradient(135deg, #8c725b 0%, #a68b74 100%);
+	color: white;
+	padding: 16px;
+	border: none;
+	border-radius: 50px;
+	font-size: 1rem;
+	font-weight: 500;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition:
+		transform 0.2s,
+		box-shadow 0.2s;
+	margin-top: 10px;
 }
 
 .orientalForm button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 7px 20px rgba(140, 114, 91, 0.3);
+	transform: translateY(-2px);
+	box-shadow: 0 7px 20px rgba(140, 114, 91, 0.3);
 }
 
-/* Texte d'aide ou liens sous le formulaire */
 .formFooter {
-  text-align: center;
-  margin-top: 20px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.85rem;
-  color: #8c725b;
+	text-align: center;
+	margin-top: 20px;
+	font-family: "Poppins", sans-serif;
+	font-size: 0.85rem;
+	color: #8c725b;
 }
-
-
-
-
-/*TEMPORAIRE*/
 
 .groupTitle {
-  font-family: 'Playfair Display', serif;
-  font-size: 0.85rem;
-  color: #8c725b;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
+	font-family: "Playfair Display", serif;
+	font-size: 0.85rem;
+	color: #8c725b;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	margin-bottom: 10px;
 }
 
-/* Style spécifique pour le SELECT dans le formGroup */
 .formGroup select {
-  width: 100%;
-  border: none;
-  background: transparent;
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  color: #4a4a4a;
-  cursor: pointer;
-  outline: none;
-  padding: 5px 0;
+	width: 100%;
+	border: none;
+	background: transparent;
+	font-family: "Poppins", sans-serif;
+	font-size: 1rem;
+	color: #4a4a4a;
+	cursor: pointer;
+	outline: none;
+	padding: 5px 0;
 }
 
-/* Conteneur pour aligner les checkbox proprement */
 .checkboxGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 10px;
-  padding-top: 5px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+	gap: 10px;
+	padding-top: 5px;
 }
 
-/* Style de chaque ligne de checkbox */
 .checkboxItem {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  color: #4a4a4a;
-  transition: color 0.2s;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	font-size: 0.9rem;
+	color: #4a4a4a;
+	transition: color 0.2s;
 }
 
-.checkboxItem:hover {
-  color: #c5a059;
-}
+.checkboxItem:hover 	{
+		color: #c5a059;
+	}
 
 .checkboxItem input[type="checkbox"] {
-  width: auto; /* Empêche la checkbox de prendre 100% de largeur */
-  accent-color: #c5a059; /* Colore la case en doré */
-  cursor: pointer;
+	width: auto;
+	accent-color: #c5a059;
+	cursor: pointer;
+} */
+
+/* code/src/assets/css/form.module.css */
+
+.formWrapper {
+	width: 90%;
+	margin: 40px auto;
+	padding: 25px;
+	background: var(--color-neutral-light);
+	border-radius: 20px;
+	box-shadow: var(--shadow-medium);
+}
+
+.orientalForm {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.orientalForm input,
+.orientalForm textarea {
+	width: 100%;
+	padding: 14px;
+	border: 1px solid var(--color-border);
+	border-radius: 10px;
+	background-color: #faf9f7;
+}
+
+.orientalForm button {
+	background: linear-gradient(135deg, var(--color-secondary) 0%, #a68b74 100%);
+	color: white;
+	padding: 16px;
+	border-radius: 50px;
+	border: none;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+	.formWrapper {
+		max-width: 500px;
+		padding: 40px;
+	}
 }

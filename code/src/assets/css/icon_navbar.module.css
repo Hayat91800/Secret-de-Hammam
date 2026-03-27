@@ -1,16 +1,16 @@
 .icon_navbar {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    color: #645945;
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	color: #645945;
 }
 
 .icon_navbar svg {
-    font-size: 1.3rem;
-    cursor: pointer;
-    transition: color 0.3s;
+	font-size: 1.3rem;
+	cursor: pointer;
+	transition: color 0.3s;
 }
 
 .icon_navbar svg:hover {
-    color: #c5a059;
+	color: #c5a059;
 }

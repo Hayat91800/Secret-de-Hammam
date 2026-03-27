@@ -1,4 +1,4 @@
-.homeWrapper {
+/* .homeWrapper {
 	background-color: #fffdf9;
 }
 
@@ -171,7 +171,7 @@
 .imageContainer img {
     width: 100%;
     height: 300px;
-    object-fit: contain; /* Garde les proportions du flacon/produit */
+    object-fit: contain; 
     transition: transform 0.5s ease;
 }
 
@@ -241,5 +241,58 @@
 
 	.featureCard {
 		padding: 30px 20px;
+	}
+} */
+
+.homeWrapper {
+	background-color: var(--color-bg);
+}
+
+.hero {
+	height: 70vh; /* Plus court sur mobile */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background:
+		linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+		url("/img/products/Hammam.png") center / cover no-repeat;
+	border-radius: 0 0 30px 30px;
+}
+
+.heroContent {
+	color: var(--color-white);
+	max-width: 800px;
+	padding: 20px;
+	text-align: center;
+}
+
+.heroContent h2 {
+	font-family: var(--font-title);
+	font-size: 2.2rem; /* Taille mobile */
+	margin-bottom: 20px;
+}
+
+.featuresSection {
+	display: grid;
+	grid-template-columns: 1fr; /* Stack vertical sur mobile */
+	gap: 20px;
+	max-width: 1200px;
+	margin: -30px auto 40px;
+	padding: 0 20px;
+}
+
+/* DESKTOP */
+@media (min-width: 768px) {
+	.hero {
+		height: 80vh;
+		border-radius: 0 0 40px 40px;
+	}
+	.heroContent h2 {
+		font-size: 4rem;
+	}
+	.featuresSection {
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		margin: -50px auto 80px;
+		gap: 30px;
 	}
 }

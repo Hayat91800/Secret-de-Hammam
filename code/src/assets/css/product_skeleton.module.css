@@ -1,5 +1,4 @@
-/* src/components/products/product_skeleton.module.css */
-.skeletonCard {
+/* .skeletonCard {
 	background: #fdfcf9;
 	border-radius: 8px;
 	overflow: hidden;
@@ -40,6 +39,93 @@
 	height: 35px;
 	width: 100%;
 	margin-top: 10px;
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: 200% 0;
+	}
+	100% {
+		background-position: -200% 0;
+	}
+} */
+
+.skeletonCard {
+	background: var(--color-white, #fdfcf9);
+	border-radius: 15px; /* Aligné sur le product_card mobile */
+	overflow: hidden;
+	border: 1px solid var(--color-light-tan, #eee);
+}
+
+.skeletonImage {
+	width: 100%;
+	aspect-ratio: 1 / 1; /* Aligné sur le product_card réel */
+	background: #e0e0e0;
+	position: relative;
+	overflow: hidden;
+}
+
+.skeletonInfo {
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	align-items: center; /* Centré par défaut comme vos cartes réelles */
+}
+
+/* Base de l'animation Shimmer */
+.skeletonTitle,
+.skeletonPrice,
+.skeletonButton,
+.skeletonImage::after {
+	background: linear-gradient(
+		90deg,
+		rgba(240, 240, 240, 0) 0%,
+		rgba(255, 255, 255, 0.6) 50%,
+		rgba(240, 240, 240, 0) 100%
+	);
+	background-size: 200% 100%;
+	animation: shimmer 1.5s infinite linear;
+}
+
+.skeletonTitle {
+	height: 18px; /* Un peu plus fin sur mobile */
+	width: 70%;
+	border-radius: 4px;
+}
+
+.skeletonPrice {
+	height: 14px;
+	width: 40%;
+	border-radius: 4px;
+}
+
+.skeletonButton {
+	height: 30px;
+	width: 90%;
+	margin-top: 5px;
+	border-radius: 20px;
+}
+
+/* TABLETTE & DESKTOP */
+@media (min-width: 768px) {
+	.skeletonCard {
+		border-radius: 20px;
+	}
+
+	.skeletonInfo {
+		padding: 20px;
+	}
+
+	.skeletonTitle {
+		height: 22px;
+		width: 80%;
+	}
+
+	.skeletonButton {
+		height: 35px;
+		margin-top: 10px;
+	}
 }
 
 @keyframes shimmer {

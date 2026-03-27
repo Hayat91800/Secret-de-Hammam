@@ -2,11 +2,13 @@
 @font-face {
 	font-family: "playfair_display";
 	src: url("../polices/PlayfairDisplay-VariableFont_wght.ttf");
+	font-display: swap;
 }
 
 @font-face {
 	font-family: "Poppins";
 	src: url("../polices/Poppins-VariableFont_wght.ttf");
+	font-display: swap;
 }
 
 /* Variables CSS */
@@ -14,34 +16,58 @@
 	--color-primary: #645945;
 	--color-primary-dark: #040c34;
 	--color-secondary: #341967;
-	--color-accent: #c5a059;
+	--color-accent: #8e6d2d;
 	--color-neutral-light: #ffffff;
-	--color-bg-light: #f3efe4;
-	--color-text-dark: #4a3f35;
-	--color-border: #eaddca;
+	--color-bg-light: #fdfaf3;
+	--color-text-dark: #3a322b;
+	--color-border: #e2d7c5;
+
+	/* Typographie */
 
 	--font-title: "playfair_display", serif;
-	--font-subtitle: "Poppins", sans-serif;
+	--font-body: "Poppins", sans-serif;
 
 	--text-sm: 0.875rem;
 	--text-md: 1rem;
-	--text-lg: 1.25rem;
+	--text-lg: 1.125rem;
 	--text-xl: 1.5rem;
-	--text-xxl: 2.2rem;
+	--text-xxl: 2rem;
+
+	--transition-base: 0.3s ease;
+	--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Balises HTML */
 * {
 	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 img {
-	width: 100%;
+	max-width: 100%;
+	height: auto;
+	display: block;
 }
 
 body {
-	font-family: var(--font-text);
+	font-family: var(--font-body);
 	background-color: var(--color-bg-light);
 	color: var(--color-text-dark);
 	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--font-title);
+	color: var(--color-primary);
+	line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+	:root {
+		--text-xxl: 2.8rem;
+	}
 }

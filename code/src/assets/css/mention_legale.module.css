@@ -1,4 +1,4 @@
-.container {
+/* .container {
 	padding: 60px 20px;
 	max-width: 900px;
 	margin: 0 auto;
@@ -102,4 +102,37 @@
 	position: absolute;
 	left: 0;
 	color: #c5a059;
+} */
+
+.container {
+	padding: 40px 20px;
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.pageTitle {
+	text-align: center;
+	font-family: var(--font-title);
+	color: var(--color-brown);
+	font-size: 2rem;
+}
+
+.contentCard {
+	background: var(--color-white);
+	border-radius: 20px;
+	padding: 20px; /* Padding réduit sur mobile */
+	box-shadow: var(--shadow-sm);
+}
+
+/* DESKTOP */
+@media (min-width: 768px) {
+	.container {
+		padding: 60px 20px;
+	}
+	.pageTitle {
+		font-size: 2.5rem;
+	}
+	.contentCard {
+		padding: 40px;
+	}
 }

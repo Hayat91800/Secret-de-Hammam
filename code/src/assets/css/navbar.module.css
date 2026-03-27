@@ -1,86 +1,31 @@
-/* Polices */
-
-/* Variables CSS */
-
-/* Balises HTML */
-/* MOBILE FIRST */
-
-* {
-	box-sizing: border-box;
-}
-
-.navContainer {
-	display: flex;
-	align-items: center;
-}
-
-.navContainer button {
-	display: flex;
-	flex-direction: column;
-	gap: 0.35rem;
-	background: none;
-	border: none;
-	cursor: pointer;
-	padding: 10px;
-	z-index: 1100;
-}
-
-.line {
-	width: 1.8rem;
-	height: 2px;
-	background-color: #645945;
-	transition:
-		transform 0.3s ease,
-		opacity 0.3s ease;
-}
-
-.one {
-	transform-origin: left top;
-	transform: rotate(45deg) translate(0px, -3px);
-}
-.two {
-	opacity: 0;
-}
-.three {
-	transform-origin: left bottom;
-	transform: rotate(-45deg) translate(0px, 3px);
-}
-
 .navbar {
 	position: fixed;
-    top: 125px;
-    left: 0;
-    width: 250px;
-    height: calc(100vh-125px);
-    background-color: #645945;
-    transition: transform 0.4s ease;
-    z-index: 1050;
-    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+	top: 70px;
+	left: 0;
+	width: 100%;
+	height: auto;
+	background-color: var(--color-primary);
+	transform: translateY(-150%);
+	transition: transform 0.4s ease;
+	z-index: 1050;
 }
 
 .nav-visible {
-	transform: translateX(-100%);
+	transform: translateY(0);
 }
 
 .menu li a {
-    display: block;
-    padding: 15px 30px;
-    color: #f3efe4;
-    text-decoration: none;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    transition: all 0.3s;
+	color: var(--color-neutral-light, #ffffff);
+	padding: 15px;
+	text-align: center;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.menu li a:hover {
-    background-color: rgba(197, 160, 89, 0.2);
-    color: #c5a059;
-    padding-left: 40px;
+.menu li a.active {
+	color: #eaddca;
+	font-weight: bold;
 }
 
-.adminLink {
-    margin-top: 20px;
-    border-top: 1px solid rgba(243, 239, 228, 0.2);
-    font-weight: bold;
-    color: #c5a059 !important;
+@media (min-width: 1024px) {
+	/* Style desktop si nécessaire ou sidebar latérale */
 }

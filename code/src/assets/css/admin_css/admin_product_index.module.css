@@ -1,18 +1,18 @@
-.crudContainer {
+/* .crudContainer {
     padding: 20px;
     max-width: 1200px;
     margin:0 auto;
-}
+} */
 
-.crudHeader {
+/* .crudHeader {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: 30px;
     gap: 20px;
-}
+} */
 
-.addButton {
+/*.addButton {
     background-color: #645945;
     color: white;
     padding: 12px 24px;
@@ -20,79 +20,138 @@
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s;
-    white-space: nowrap; /*Empeche le texte du bouton de revenir à la ligne*/
+    white-space: nowrap; Empeche le texte du bouton de revenir à la ligne
     display: inline-block;
-}
+}*/
 
-.addButton:hover {
+/* .addButton:hover {
     background-color: #c5a059;
     transform: translateY(-2px);
-}
+} */
 
-.tableWrapper {
+/* .tableWrapper {
     background: white;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     overflow-x: auto;
-}
+} */
 
-.crudTable {
+/* .crudTable {
     width: 100%;
     border-collapse: collapse;
-}
+} */
 
-.crudTable th {
+/* .crudTable th {
     text-align: left;
     padding: 15px;
     border-bottom: 2px solid #f3efe4;
     color: #8c725b;
-}
+} */
 
-.crudTable td {
+/* .crudTable td {
     padding: 15px;
     border-bottom: 1px solid #f3efe4;
-}
+} */
 
-.productName {
+/* .productName {
     font-weight: 600;
     color: #8c725b;
-}
+} */
 
-.actions {
+/* .actions {
     display: flex;
     gap: 10px;
-}
+} */
 
-.modif {
+/* .modif {
     color:  #8c725b;
 
-}
+} */
 
-.supp {
+/* .supp {
     color: red;
-}
+} */
 
-
-.editBtn, .deleteBtn {
+/* .editBtn, .deleteBtn {
     padding: 6px 12px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 0.85rem;
-}
+} */
 
-.editBtn {
+/* .editBtn {
     background-color: #eaddca;
     color: #645945;
-}
+} */
 
-.deleteBtn {
+/* .deleteBtn {
     background-color: #fdf2f2;
     color: #d9534f;
-}
+} */
 
-.deleteBtn:hover {
+/* .deleteBtn:hover {
     background-color: #d9534f;
     color: white;
+} */
+
+.crudContainer {
+	padding: 15px;
+}
+
+.crudHeader {
+	display: flex;
+	flex-direction: column; /* Mobile */
+	gap: 15px;
+	margin-bottom: 20px;
+}
+
+.addButton {
+	background-color: var(--color-primary);
+	color: white;
+	padding: 12px 20px;
+	border-radius: 8px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.tableWrapper {
+	background: white;
+	padding: 10px;
+	border-radius: 12px;
+	overflow-x: auto; /* Scroll horizontal sur petit mobile */
+	box-shadow: var(--shadow-soft);
+}
+
+.crudTable {
+	width: 100%;
+	border-collapse: collapse;
+	min-width: 600px; /* Force le scroll si trop étroit */
+}
+
+.crudTable th {
+	text-align: left;
+	padding: 12px;
+	border-bottom: 2px solid var(--color-bg-light);
+	color: var(--color-secondary);
+}
+
+.crudTable td {
+	padding: 12px;
+	border-bottom: 1px solid var(--color-bg-light);
+}
+
+@media (min-width: 768px) {
+	.crudContainer {
+		padding: 40px;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	.crudHeader {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
 }

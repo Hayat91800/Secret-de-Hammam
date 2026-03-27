@@ -1,4 +1,3 @@
-import "../assets/css/reset.css";
 import "../assets/css/base.css";
 import { Outlet } from "react-router";
 import styles from "/app/src/assets/css/admin_layout.module.css";

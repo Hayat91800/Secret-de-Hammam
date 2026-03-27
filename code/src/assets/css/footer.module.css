@@ -1,4 +1,4 @@
-.footer {
+/* .footer {
     background-color: #645945;
     color: #f3efe4;
     padding: 40px 20px;
@@ -6,10 +6,9 @@
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    margin-top: 50px; /* Espace avec le contenu de la page */
+    margin-top: 50px; 
 }
 
-/* Logo */
 .logo {
     width: 100px;
     transition: transform 0.3s ease;
@@ -18,14 +17,13 @@
 .logo img {
     width: 100%;
     height: auto;
-    filter: brightness(0) invert(1); /* Rend le logo blanc pour ressortir sur le marron */
+    filter: brightness(0) invert(1); 
 }
 
 .logo:hover {
     transform: scale(1.05);
 }
 
-/* Navigation */
 .nav {
     width: 100%;
 }
@@ -35,7 +33,7 @@
     padding: 0;
     margin: 0;
     display: flex;
-    flex-wrap: wrap; /* Pour mobile : les liens passent à la ligne */
+    flex-wrap: wrap; 
     justify-content: center;
     gap: 20px;
 }
@@ -53,7 +51,6 @@
     color: #c5a059;
 }
 
-/* Icône Sociale */
 .icone {
     font-size: 1.8rem;
     color: #f3efe4;
@@ -66,7 +63,6 @@
     transform: translateY(-3px);
 }
 
-/* Responsive Ordinateur */
 @media (min-width: 768px) {
     .footer {
         flex-direction: row;
@@ -81,4 +77,42 @@
     .nav {
         width: auto;
     }
+} */
+
+/* code/src/assets/css/footer.module.css */
+
+.footer {
+	background-color: var(--color-primary);
+	color: var(--color-bg-light);
+	padding: 40px 20px;
+	display: flex;
+	flex-direction: column; /* Mobile */
+	align-items: center;
+	gap: 30px;
+}
+
+.menu {
+	display: flex;
+	flex-direction: column; /* Mobile */
+	align-items: center;
+	gap: 15px;
+	list-style: none;
+}
+
+.menu li a {
+	color: var(--color-bg-light);
+	text-decoration: none;
+	font-size: var(--text-sm);
+}
+
+@media (min-width: 768px) {
+	.footer {
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 40px 60px;
+	}
+	.menu {
+		flex-direction: row;
+		gap: 30px;
+	}
 }
