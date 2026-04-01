@@ -42,6 +42,7 @@ jobs:
           mysql -uroot -proot -e "source secrets_de_hammam_test.dev.sql;"
           mysql -uroot -proot -e "source contenu-ia_test.sql;"
           mysql -uroot -proot -e "show databases;" 
+          
     # compilation du projet
       -
         name: Executer les tests
