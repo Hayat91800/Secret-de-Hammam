@@ -80,7 +80,7 @@ describe("product controller test suites", async () => {
 			.field("pack_ids", data.pack_ids as string)
 			.attach("image", `${process.env.PUBLIC_DIR}/img/products/${data.image}`);
 
-		console.log(response);
+		// console.log(response);
 
 		const actual = response.status;
 
