@@ -32,3 +32,13 @@ jobs:
         name: Compiler le projet react
         working-directory: code
         run: npm run build
+    
+    # 
+      -
+        name: Démarrer MySQL et importer la base de données de tests
+        working-directory: code/mysql
+        run: |
+          sudo service mysql start
+          mysql -uroot -proot -e "source secrets_de_hammam_test.dev.sql;"
+          mysql -uroot -proot -e "source contenu-ia_test.sql;"
+          mysql -uroot -proot -e "show databases;" 
