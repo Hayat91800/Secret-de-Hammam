@@ -1,6 +1,6 @@
 "use client";
 import { NavLink } from "react-router";
-import styles from "/app/src/assets/css/admin_css/sidebar.module.css";
+import styles from "../assets/css/admin_css/sidebar.module.css";
 
 const Sidebar = () => {
 	return (

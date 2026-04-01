@@ -1,4 +1,4 @@
-import styles from "../assets/css/admin_layout.module.css";
+import styles from "../../assets/css/admin_layout.module.css";
 
 const AdminHome = () => {
 	return (
