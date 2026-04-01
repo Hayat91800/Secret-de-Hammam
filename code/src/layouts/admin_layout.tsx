@@ -1,6 +1,6 @@
 import "../assets/css/base.css";
 import { Outlet } from "react-router";
-import styles from "/app/src/assets/css/admin_layout.module.css";
+import styles from "../assets/css/admin_layout.module.css";
 import Guard from "../components/guard";
 import Sidebar from "../components/sidebar";
 
