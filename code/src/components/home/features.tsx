@@ -1,4 +1,4 @@
-import styles from "../../assets/css/homepage.module.css";
+import styles from "../../assets/css/features.module.css";
 
 const Features = () => {
 	return (

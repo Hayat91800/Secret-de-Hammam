@@ -1,35 +1,19 @@
-/* .appContainer {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.mainContent {
-    flex: 1;
-} */
-
 .appContainer {
 	display: flex;
 	flex-direction: column;
-	/* Force le site à faire au moins la hauteur de l'écran pour garder le footer en bas */
 	min-height: 100vh;
 	background-color: var(--color-bg, #fffdf9);
 }
 
 .mainContent {
-	/* Prend tout l'espace disponible entre le header et le footer */
 	flex: 1;
 	display: flex;
 	flex-direction: column;
-
-	/* Espacement de sécurité pour le contenu sur mobile */
 	padding-bottom: 30px;
 }
 
-/* DESKTOP & TABLETTE */
 @media (min-width: 768px) {
 	.mainContent {
-		/* Plus d'espace aéré sur les grands écrans */
 		padding-bottom: 60px;
 	}
 }

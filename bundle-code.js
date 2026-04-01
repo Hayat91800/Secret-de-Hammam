@@ -9,7 +9,7 @@ const IGNORE_LIST = [
 ];
 
 // 2. Extensions de fichiers que nous voulons inclure
-const ALLOWED_EXTENSIONS = ['.css'];// '.ts', '.tsx', '.js', '.jsx', , '.json', '.html', '.md'
+const ALLOWED_EXTENSIONS = ['.css', '.ts', '.tsx', '.js', '.jsx', , '.json', '.html', '.md'];
 
 const outputFile = 'mon_projet_certification.md';
 

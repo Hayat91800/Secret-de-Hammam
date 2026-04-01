@@ -13,13 +13,16 @@
 
 /* Variables CSS */
 :root {
-	--color-primary: #645945;
+	/*Couleurs fixes*/
 	--color-primary-dark: #040c34;
 	--color-secondary: #341967;
-	--color-accent: #8e6d2d;
+
+	/* Variable thème claire*/
+	--color-primary: #645945;
+	--color-accent: #8b6d35;
 	--color-neutral-light: #ffffff;
 	--color-bg-light: #fdfaf3;
-	--color-text-dark: #3a322b;
+	--color-text-dark: #3d342c;
 	--color-border: #e2d7c5;
 
 	/* Typographie */
@@ -27,14 +30,23 @@
 	--font-title: "playfair_display", serif;
 	--font-body: "Poppins", sans-serif;
 
-	--text-sm: 0.875rem;
+	--text-sm: 0.938rem;
 	--text-md: 1rem;
 	--text-lg: 1.125rem;
-	--text-xl: 1.5rem;
-	--text-xxl: 2rem;
-
+	--text-xl: 1.75rem;
+	--text-xxl: 2.5rem;
 	--transition-base: 0.3s ease;
-	--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Variable thème dark*/
+[data-theme="dark"] {
+	--color-bg-light: #1a1612; /* Brun très sombre */
+	--color-surface: #26211c; /* Cartes sombres */
+	--color-text-dark: #eee4d8; /* Texte crème clair */
+	--color-primary: #a08d6d; /* Marron doré plus clair */
+	--color-accent: #d4b375; /* Or plus brillant */
+	--color-border: #3d342c; /* Bordures discrètes */
+	--shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -53,8 +65,15 @@ body {
 	font-family: var(--font-body);
 	background-color: var(--color-bg-light);
 	color: var(--color-text-dark);
+	font-size: 1rem;
 	line-height: 1.6;
 	-webkit-font-smoothing: antialiased;
+	/* font-family: var(--font-body); */
+	/* background-color: var(--color-bg-light); */
+	/* color: var(--color-text-dark); */
+	transition:
+		background-color var(--transition-base),
+		color var(--transition-base);
 }
 
 h1,
@@ -66,8 +85,49 @@ h4 {
 	line-height: 1.2;
 }
 
+main {
+	padding-top: 100px;
+}
+
+a:focus {
+	outline: 2px dashed var(--color-accent);
+	outline-offset: 4px;
+}
+
+/* Lien */
+.skipLink:not(:focus) {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.skipLink:focus {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	z-index: 9999; /* Toujours au-dessus de la navbar */
+	padding: 15px 25px;
+	background-color: var(--color-accent); /* Ton bronze accessible #8b6d35 */
+	color: white;
+	font-family: var(--font-title);
+	text-decoration: none;
+	font-weight: bold;
+	border-radius: 8px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
 @media (min-width: 768px) {
 	:root {
 		--text-xxl: 2.8rem;
+	}
+
+	main {
+		padding-top: 90px;
 	}
 }

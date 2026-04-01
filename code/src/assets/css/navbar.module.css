@@ -1,31 +1,115 @@
 .navbar {
 	position: fixed;
-	top: 70px;
+	top: 0;
 	left: 0;
 	width: 100%;
-	height: auto;
-	background-color: var(--color-primary);
+	height: 100vh;
+	background-color: rgba(253, 250, 243, 0.85);
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
 	transform: translateY(-150%);
-	transition: transform 0.4s ease;
+	transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
 	z-index: 1050;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.navContainer {
+	display: flex;
+	align-items: center;
+}
+
+.logoWrapper {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 2100;
+}
+
+.navContainer button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+	z-index: 2100;
+	position: relative;
+	padding: 10px;
+}
+
+.line {
+	width: 28px;
+	height: 2px;
+	background-color: var(--color-primary, #645945);
+	transition:
+		transform 0.4s ease,
+		background-color 0.4s ease,
+		opacity 0.3s ease;
+	border-radius: 2px;
+}
+
+.one {
+	transform: translateY(9px) rotate(45deg);
+}
+.two {
+	opacity: 0;
+	transform: translateX(-10px);
+}
+.three {
+	transform: translateY(-9px) rotate(-45deg);
 }
 
 .nav-visible {
 	transform: translateY(0);
 }
 
-.menu li a {
-	color: var(--color-neutral-light, #ffffff);
-	padding: 15px;
+.menu {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 	text-align: center;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.menu li a {
+	font-family: var(--font-title);
+	font-size: var(--text-xl);
+	font-weight: 600;
+	color: var(--color-primary, #645945);
+	text-decoration: none;
+	padding: 15px 25px;
+	transition: var(--transition-base);
+	display: block;
+	letter-spacing: 1px;
+}
+.menu li a:hover,
 .menu li a.active {
-	color: #eaddca;
-	font-weight: bold;
+	color: var(--color-accent);
+	transform: translateX(10px);
 }
 
+.adminLink {
+	border: 1px solid var(--color-accent);
+	border-radius: 50px;
+	margin-top: 10px;
+	font-size: var(--text-md);
+}
 @media (min-width: 1024px) {
-	/* Style desktop si nécessaire ou sidebar latérale */
+	.navbar {
+		top: 70px;
+		height: auto;
+		padding: 40px 0;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+	}
+
+	.nav-visible {
+		transform: translateY(0);
+	}
+
+	.menu {
+		justify-content: center;
+		gap: 50px;
+	}
 }

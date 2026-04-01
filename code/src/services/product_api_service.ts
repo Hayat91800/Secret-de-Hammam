@@ -6,7 +6,7 @@ class ProductApiService {
 	private préfix = "/api/product";
 
 	// selection de tous les enregistrement
-	// On nrecoit une promesse (car mode async) qui est typer: on recoit un type ApiResponse qui est lui même un Array( un type dans un type)
+	// On recoit une promesse (car mode async) qui est typer: on recoit un type ApiResponse qui est lui même un Array( un type dans un type)
 	public selectAll = async (): Promise<ApiResponse<Product[]>> => {
 		// configurer la requête HTTP
 		// import.meta.env permet d'importer une variable d'environnement dans vite/react. Il n'y à pas d'éspace.

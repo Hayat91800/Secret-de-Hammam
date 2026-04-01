@@ -1,49 +1,6 @@
-/* .featuredProducts {
-	max-width: 1200px;
-	margin: 100px auto;
-	padding: 0 20px;
-}
-
-.sectionHeader {
-	text-align: center;
-	margin-bottom: 60px;
-}
-
-.sectionHeader span {
-	color: #c5a059;
-	text-transform: uppercase;
-	letter-spacing: 3px;
-	font-size: 0.85rem;
-	font-weight: 700;
-	display: block;
-	margin-bottom: 10px;
-}
-
-.sectionHeader h2 {
-	font-family: "Playfair Display", serif;
-	color: #645945;
-	font-size: 2.8rem;
-	margin: 0;
-}
-
-.productGrid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-	gap: 50px 30px; 
-}
-
-@media (max-width: 768px) {
-	.sectionHeader h2 {
-		font-size: 2rem;
-	}
-	.featuredProducts {
-		margin: 60px auto;
-	}
-} */
-
 .featuredProducts {
 	max-width: 1200px;
-	margin: 60px auto; /* Marge réduite sur mobile */
+	margin: 60px auto;
 	padding: 0 20px;
 }
 
@@ -65,17 +22,16 @@
 .sectionHeader h2 {
 	font-family: var(--font-title);
 	color: var(--color-brown);
-	font-size: 2rem; /* Taille mobile */
+	font-size: 2rem;
 	margin: 0;
 }
 
 .productGrid {
 	display: grid;
-	grid-template-columns: 1fr; /* Une seule colonne par défaut */
+	grid-template-columns: 1fr;
 	gap: 30px;
 }
 
-/* TABLETTE & DESKTOP */
 @media (min-width: 768px) {
 	.featuredProducts {
 		margin: 100px auto;

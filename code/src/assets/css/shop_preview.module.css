@@ -1,35 +1,5 @@
-/* .shopPreview {
-	padding: 100px 20px;
-	text-align: center;
-	background-color: #f3efe4;
-}
-
-.shopPreview h2 {
-	font-family: "Playfair Display", serif;
-	color: #645945;
-	margin-bottom: 15px;
-}
-
-.shopPreview p {
-	color: #8a7d6a;
-	margin-bottom: 30px;
-}
-
-.secondaryLink {
-	color: #645945;
-	text-decoration: none;
-	font-weight: bold;
-	border-bottom: 2px solid #c5a059;
-	padding-bottom: 5px;
-	transition: color 0.3s;
-}
-
-.secondaryLink:hover {
-	color: #c5a059;
-} */
-
 .shopPreview {
-	padding: 60px 20px; /* Plus compact sur mobile */
+	padding: 60px 20px;
 	text-align: center;
 	background-color: var(--color-light-tan, #f3efe4);
 }
@@ -37,16 +7,16 @@
 .shopPreview h2 {
 	font-family: var(--font-title, "Playfair Display", serif);
 	color: var(--color-brown, #645945);
-	font-size: 1.8rem; /* Taille adaptée au mobile */
+	font-size: 1.8rem;
 	margin-bottom: 15px;
 }
 
 .shopPreview p {
-	color: var(--color-text-light, #8a7d6a);
-	font-size: 1rem;
+	color: var(--color-primary, #645945);
+	font-size: 1, 1rem;
 	line-height: 1.6;
 	max-width: 500px;
-	margin: 0 auto 30px; /* Centrage du paragraphe si le texte est long */
+	margin: 0 auto 30px;
 }
 
 .secondaryLink {
@@ -56,13 +26,12 @@
 	border-bottom: 2px solid var(--color-gold, #c5a059);
 	padding-bottom: 5px;
 	transition: all var(--transition-base, 0.3s ease);
-	display: inline-block; /* Assure que le padding et la bordure s'appliquent bien */
+	display: inline-block;
 }
 
-/* TABLETTE & DESKTOP */
 @media (min-width: 768px) {
 	.shopPreview {
-		padding: 100px 20px; /* On retrouve l'espacement large */
+		padding: 100px 20px;
 	}
 
 	.shopPreview h2 {
@@ -70,12 +39,12 @@
 	}
 
 	.shopPreview p {
-		font-size: 1.1rem;
+		font-size: 1.25rem;
 		margin-bottom: 40px;
 	}
 
 	.secondaryLink:hover {
 		color: var(--color-gold, #c5a059);
-		border-bottom-color: var(--color-brown); /* Inversion subtile au survol */
+		border-bottom-color: var(--color-brown);
 	}
 }

@@ -1,0 +1,34 @@
+# nom du workflow
+name: Secrets de hammam CI workflow
+
+# déclencheur du workflow
+on:
+  push:
+    branches: [ master ]
+
+# tâches
+jobs:
+  # nom de la tâche
+  CI:
+    # choix de l'OS
+    runs-on: ubuntu-latest
+
+    # étapes de la tâche
+    steps:
+      -
+        name: Cloner le repository
+        uses: actions/checkout@v6
+
+    # installer les dépendances
+      -
+        name: Installer les dépendances
+        working-directory: code
+        # npm ci = npm clean install (i)
+        # si plusieurs commandes: | puis lister commandes en dessous
+        run: npm ci
+
+    # compilation du projet
+      -
+        name: Compiler le projet react
+        working-directory: code
+        run: npm run build

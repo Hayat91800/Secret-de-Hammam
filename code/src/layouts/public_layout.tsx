@@ -9,9 +9,7 @@ const PublicLayout = () => {
 		<div className={styles.appContainer}>
 			<Header />
 
-			<main className={styles.mainContent}>
-				{/* <Lien d'évitement />*/}
-
+			<main id="main-content" className={styles.mainContent} tabIndex={-1}>
 				<Outlet />
 			</main>
 

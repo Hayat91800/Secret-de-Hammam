@@ -18,7 +18,7 @@ const NavBar = () => {
 			{/* Afficher l'utilisateur stocké pour phase de test */}
 			{JSON.stringify(new SecurityService().getUser())}
 
-			<button type="button" onClick={click}>
+			<button type="button" onClick={click} aria-label="Toggle navigation">
 				<div
 					className={`${styles.line} ${styles.line1} ${navVisible ? styles.one : ""}`}
 				></div>
@@ -33,7 +33,7 @@ const NavBar = () => {
 			</button>
 
 			<nav
-				className={`${styles.navbar} ${navVisible ? "" : styles["nav-visible"]}`}
+				className={`${styles.navbar} ${navVisible ? styles["nav-visible"] : ""}`}
 			>
 				<ul className={styles.menu}>
 					<li>
@@ -96,26 +96,6 @@ const NavBar = () => {
 							<></>
 						)
 					}
-
-					<li>
-						{" "}
-						<NavLink to={"/contact"} onClick={closeMenu}>
-							{" "}
-							Contact{" "}
-						</NavLink>{" "}
-					</li>
-					<li>
-						{" "}
-						<NavLink to={"/a_propos"} onClick={closeMenu}>
-							A propos{" "}
-						</NavLink>{" "}
-					</li>
-					<li>
-						{" "}
-						<NavLink to={"/mentions_legales"} onClick={closeMenu}>
-							Mentions légales{" "}
-						</NavLink>{" "}
-					</li>
 
 					{
 						// Si l'utilisateur est admin

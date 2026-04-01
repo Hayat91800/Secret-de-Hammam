@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import styles from "../../assets/css/mention_legale.module.css";
+import Seo from "../../components/seo";
 
 const MentionsLegales = () => {
 	// uniquement des composants
@@ -7,6 +8,7 @@ const MentionsLegales = () => {
 
 	return (
 		<section className={styles.container}>
+			<Seo title="Mention légale" description="Mentions legale " url="/" />
 			<h1 className={styles.pageTitle}>Informations Légales</h1>
 
 			<div className={styles.contentCard}>
