@@ -96,13 +96,13 @@
     color: white;
 } */
 
-.crudContainer {
+/* .crudContainer {
 	padding: 15px;
 }
 
 .crudHeader {
 	display: flex;
-	flex-direction: column; /* Mobile */
+	flex-direction: column; 
 	gap: 15px;
 	margin-bottom: 20px;
 }
@@ -121,14 +121,14 @@
 	background: white;
 	padding: 10px;
 	border-radius: 12px;
-	overflow-x: auto; /* Scroll horizontal sur petit mobile */
+	overflow-x: auto; 
 	box-shadow: var(--shadow-soft);
 }
 
 .crudTable {
 	width: 100%;
 	border-collapse: collapse;
-	min-width: 600px; /* Force le scroll si trop étroit */
+	min-width: 600px; 
 }
 
 .crudTable th {
@@ -153,5 +153,94 @@
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
+	}
+} */
+
+.crudContainer {
+	padding: 20px 15px;
+}
+
+.crudHeader {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	margin-bottom: 30px;
+}
+
+.addButton {
+	background-color: var(--color-primary);
+	color: white;
+	padding: 14px;
+	border-radius: 8px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 1rem;
+}
+
+.tableWrapper {
+	background: white;
+	border-radius: 12px;
+	box-shadow: var(--shadow-soft);
+	overflow-x: auto;
+	border: 1px solid var(--color-border);
+}
+
+.crudTable {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.crudTable th {
+	background-color: var(--color-bg-light);
+	padding: 15px;
+	text-align: left;
+	color: var(--color-primary);
+	font-size: 0.9rem;
+}
+
+.crudTable td {
+	padding: 15px;
+	border-bottom: 1px solid var(--color-bg-light);
+}
+
+/* Actions : Boutons larges sur mobile pour le tactile */
+.actions {
+	display: flex;
+	gap: 15px;
+}
+
+.modif,
+.supp {
+	padding: 8px 12px;
+	border-radius: 6px;
+	text-decoration: none;
+	font-size: 0.85rem;
+	font-weight: 600;
+}
+
+.modif {
+	background: #eaddca;
+	color: var(--color-primary-dark);
+}
+.supp {
+	background: #fee2e2;
+	color: #dc2626;
+}
+
+/* Desktop Adjustment */
+@media (min-width: 1024px) {
+	.crudContainer {
+		margin-left: 260px; /* Espace pour la sidebar fixe */
+		padding: 40px;
+	}
+	.crudHeader {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.addButton {
+		padding: 12px 25px;
+		width: auto;
 	}
 }

@@ -1,13 +1,15 @@
 /* Polices */
 @font-face {
-	font-family: "playfair_display";
-	src: url("../polices/PlayfairDisplay-VariableFont_wght.ttf");
+	font-family: "El Messiri";
+	src: url("../polices/ElMessiri-VariableFont_wght.ttf");
+	font-weight: 400 700;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: "Poppins";
-	src: url("../polices/Poppins-VariableFont_wght.ttf");
+	font-family: "Cairo";
+	src: url("../polices/Cairo-VariableFont_slnt,wght.ttf");
+	font-weight: 200 900;
 	font-display: swap;
 }
 
@@ -27,8 +29,8 @@
 
 	/* Typographie */
 
-	--font-title: "playfair_display", serif;
-	--font-body: "Poppins", sans-serif;
+	--font-title: "El Messiri", serif;
+	--font-body: "Cairo", sans-serif;
 
 	--text-sm: 0.938rem;
 	--text-md: 1rem;
@@ -39,7 +41,8 @@
 }
 
 /* Variable thème dark*/
-[data-theme="dark"] {
+
+:root[data-theme="dark"] {
 	--color-bg-light: #1a1612; /* Brun très sombre */
 	--color-surface: #26211c; /* Cartes sombres */
 	--color-text-dark: #eee4d8; /* Texte crème clair */

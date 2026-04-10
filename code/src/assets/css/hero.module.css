@@ -14,7 +14,19 @@
 
 .heroContent h2 {
 	font-size: 1.8rem;
-	color: white;
+	color: var(--color-border);
+	padding: 0 15px;
+}
+
+.heroContent p {
+	font-size: 1.8rem;
+	color: var(--color-border);
+	padding: 0 15px;
+}
+
+.ctaButton {
+	font-size: 1.8rem;
+	color: var(--color-border);
 	padding: 0 15px;
 }
 

@@ -14,7 +14,7 @@ const ProductsList = () => {
 		new ProductApiService().selectAll(),
 	);
 
-	console.log(results);
+	// console.log(results);
 	return (
 		<section className={styles.productsSection}>
 			<h2 className={styles.mainTitle}> Nos Soins Orientaux </h2>

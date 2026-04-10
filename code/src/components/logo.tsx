@@ -4,10 +4,7 @@ const Logo = () => {
 	return (
 		<div className={styles.logo}>
 			<h1>Secret de Hammam</h1>
-			<img
-				src="/img/products/logo_secret_de_hammam_1.png"
-				alt="Logo Secret de Hammam"
-			/>
+			<img src="/img/products/logo_ok2.jfif" alt="Logo Secret de Hammam" />
 		</div>
 	);
 };

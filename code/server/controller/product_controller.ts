@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
+import type { Product } from "../../models/product";
 import ProductRepository from "../repository/product_repository";
 import FileService from "../service/file_service";
-import type { Product } from "../../models/product";
 
 class ProductController {
 	// Méthode relié à la route en GET située dans le routeur
@@ -30,7 +30,7 @@ class ProductController {
 	public selectOne = async (req: Request, res: Response) => {
 		// récupérer la variable de route
 		// req.params : récupére les variables de route
-		console.log(req.params);
+		// console.log(req.params);
 		// récupération des resultats de la requete
 		const results = await new ProductRepository().selectOne(req.params);
 		// Si la raquete renvoi une erreur
@@ -56,7 +56,9 @@ class ProductController {
 		// req.files: permet de récuperer les fichiers transferés
 		// console.log(req.files);
 		// const file = req.files[0];
-		const file = (req.files as Express.Multer.File[]).shift() as Express.Multer.File;
+		const file = (
+			req.files as Express.Multer.File[]
+		).shift() as Express.Multer.File;
 
 		// Instancier le service de fichiers
 		const fileService = new FileService();
@@ -64,12 +66,14 @@ class ProductController {
 		// Renommer le fichier transféré et on recupere le nom complet avec extension
 		const fullname = await fileService.rename(file);
 
-
 		// req.body : récupérer les données contenues dans la requête HTTP
 		// console.log(req.body);
 
 		// insertion d'un enregistrement
-		const results = await new ProductRepository().insert({...req.body, image: fullname,});
+		const results = await new ProductRepository().insert({
+			...req.body,
+			image: fullname,
+		});
 
 		// Si la raquete renvoi une erreur
 		if (results instanceof Error) {
@@ -93,30 +97,32 @@ class ProductController {
 	public update = async (req: Request, res: Response) => {
 		// req.body : récupérer les données contenues dans la requête HTTP
 		// console.log(req.body);
-		const file = (req.files as Express.Multer.File[]).shift() as Express.Multer.File;
+		const file = (
+			req.files as Express.Multer.File[]
+		).shift() as Express.Multer.File;
 
 		// Instancier le service de fichiers
 		const fileService = new FileService();
 
-
 		let fullname: string;
 
 		if (file) {
-		// Renommer le fichier transféré et on recupere le nom complet avec extension
-		 fullname = await fileService.rename(file);
-			
+			// Renommer le fichier transféré et on recupere le nom complet avec extension
+			fullname = await fileService.rename(file);
 		} else {
-		 fullname = (await new ProductRepository().selectOne(req.body) as Product).image;
+			fullname = (
+				(await new ProductRepository().selectOne(req.body)) as Product
+			).image;
 		}
 
-		console.log(fullname);
-		
+		// console.log(fullname);
 
 		// modification d'un enregistrement
-		const results = await new ProductRepository().update({...req.body, image: fullname,});
+		const results = await new ProductRepository().update({
+			...req.body,
+			image: fullname,
+		});
 		// console.log(file);
-		
-
 
 		// Si la raquete renvoi une erreur
 		if (results instanceof Error) {

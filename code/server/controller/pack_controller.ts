@@ -28,7 +28,7 @@ class PackController {
 	public selectOne = async (req: Request, res: Response) => {
 		// récupérer la variable de route
 		// req.params : récupére les variables de route
-		console.log(req.params);
+		// console.log(req.params);
 		// récupération des resultats de la requete
 		const results = await new PackRepository().selectOne(req.params);
 		// Si la raquete renvoi une erreur

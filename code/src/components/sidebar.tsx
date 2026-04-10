@@ -26,19 +26,17 @@ const Sidebar = () => {
 					Gestion Produits
 				</NavLink>
 
-				<NavLink
+				{/* <NavLink
 					to="/admin/orders"
 					className={({ isActive }) => (isActive ? styles.active : styles.link)}
 				>
 					Commandes
-				</NavLink>
-			</nav>
+				</NavLink> */}
 
-			<div className={styles.sidebarFooter}>
 				<NavLink to="/logout" className={styles.exitLink}>
 					Quitter l'admin
 				</NavLink>
-			</div>
+			</nav>
 		</aside>
 	);
 };

@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import styles from "../../assets/css/mention_legale.module.css";
 import Seo from "../../components/seo";
 
@@ -19,8 +19,9 @@ const MentionsLegales = () => {
 				<p>
 					Le site <strong>Secret de hammam</strong> est édité par{" "}
 					<strong>Hayat ZAKHOUKH</strong>.<br />
-					Contact: admin@secretdehammam.fr <br /> Statut: projet étudiant non
-					commercial
+					Contact: <NavLink to={"/contact"}> Contact </NavLink>
+					<br />
+					Statut: projet étudiant non commercial
 				</p>
 
 				<h3>2. Hébergement</h3>

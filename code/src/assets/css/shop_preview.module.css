@@ -1,7 +1,7 @@
 .shopPreview {
 	padding: 60px 20px;
 	text-align: center;
-	background-color: var(--color-light-tan, #f3efe4);
+	background-color: var(--color-bg-light);
 }
 
 .shopPreview h2 {

@@ -15,8 +15,9 @@ const NavBar = () => {
 
 	return (
 		<div className={styles.navContainer}>
-			{/* Afficher l'utilisateur stocké pour phase de test */}
+			{/* Afficher l'utilisateur stocké pour phase de test 
 			{JSON.stringify(new SecurityService().getUser())}
+			*/}
 
 			<button type="button" onClick={click} aria-label="Toggle navigation">
 				<div

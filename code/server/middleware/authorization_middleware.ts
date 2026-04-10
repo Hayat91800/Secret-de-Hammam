@@ -41,7 +41,7 @@ class AuthorizationMiddleware {
 							: "Unauthorized - Role not authorized",
 				});
 			}
-			console.log;
+			// console.log;
 
 			// Passer au middleware suivant avec la fonction "next"
 			next();

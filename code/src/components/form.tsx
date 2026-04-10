@@ -1,13 +1,12 @@
 "use client";
 
-import { useId } from "react";
+import { useId, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import type { Contact } from "../../models/contact";
 import type { User } from "../../models/user";
 import styles from "../assets/css/form.module.css";
 import type { FormProps } from "../models/props/form_props";
-import ContactApiService from "../services/contact_api_service";
 import SecurityApiService from "../services/security_api_service";
 import SecurityService from "../services/security_service";
 
@@ -22,11 +21,8 @@ const PublicForm = ({ title, buttonText, type }: FormProps) => {
 	// useNavigtate hook: permet de créer une redirection
 	const navigate = useNavigate();
 
-	// // Stocker les messages d'erreur de validation côté serveur
-	// const [serverErrors, setserverErrors] = useState<Partial<User>>();
-
-	// // Message lié à la soumission du formulaire en cas d'echec
-	// const [message, setMessage] = useState<string>("");
+	// Message lié à la soumission du formulaire en cas d'echec
+	const [message] = useState<string>("");
 
 	const {
 		register,
@@ -36,12 +32,22 @@ const PublicForm = ({ title, buttonText, type }: FormProps) => {
 
 	const submitForm = async (data: FormValues) => {
 		if (type === "contact") {
-			const process = await new ContactApiService().insert(data as Contact);
 		}
 
 		if (type === "register") {
 			// console.log(data)
 			const process = await new SecurityApiService().register(data);
+			const user = process.data as User;
+			if (user.role?.name === "admin") {
+				navigate("/login");
+				return;
+			}
+
+			if (user.role?.name === "user") {
+				navigate("/login");
+				return;
+			}
+			navigate("/login");
 		}
 
 		if (type === "login") {
@@ -55,7 +61,7 @@ const PublicForm = ({ title, buttonText, type }: FormProps) => {
 				// Stocker le token JWT
 				await new SecurityService().setToken(user);
 
-				console.log(new SecurityService().getToken());
+				// console.log(new SecurityService().getToken());
 
 				// Redirection vers une route react selon le role de l'utilisateur
 
@@ -77,6 +83,8 @@ const PublicForm = ({ title, buttonText, type }: FormProps) => {
 
 	return (
 		<section className={styles.formWrapper}>
+			{/* Afficher le message via une condition ternaire*/}
+			{message ? <p role="alert">{message}</p> : null}
 			<h2>{title}</h2>
 			<form className={styles.orientalForm} onSubmit={handleSubmit(submitForm)}>
 				{/* Rendu conditionnel des champs */}
@@ -124,8 +132,19 @@ const PublicForm = ({ title, buttonText, type }: FormProps) => {
 							type="password"
 							id={passwordId}
 							placeholder="Mot de passe"
-							{...register("password")}
-							required
+							{...register("password", {
+								required: "Le mot de passe est obligatoire",
+								minLength: {
+									value: 8,
+									message:
+										"Un mot de passe doit comporter au minimum 8 caractères",
+								},
+								maxLength: {
+									value: 30,
+									message:
+										"Un mot de passe doit comporté au maximum 30 caracteres",
+								},
+							})}
 						/>
 					</>
 				)}
@@ -143,13 +162,30 @@ submitForm: fonction que l'on crée*/}
 							{...register("email")}
 						/>
 
-						<label htmlFor={passwordId}>Password</label>
-						<input
-							type="password"
-							id={passwordId}
-							placeholder="Mot de passe"
-							{...register("password")}
-						/>
+						<label htmlFor={passwordId}>
+							{" "}
+							{
+								<input
+									type="password"
+									id={passwordId}
+									placeholder="Mot de passe"
+									{...register("password", {
+										required: "Le mot de passe est obligatoire",
+										minLength: {
+											value: 8,
+											message:
+												"Un mot de passe doit comporter au minimum 8 caractères",
+										},
+										maxLength: {
+											value: 30,
+											message:
+												"Un mot de passe doit comporté au maximum 30 caracteres",
+										},
+									})}
+								/>
+							}
+						</label>
+						<small role="alert"> {errors.password?.message}</small>
 						{/* <input
 							type="password"
 							placeholder="Confirmer mot de passe"

@@ -1,6 +1,7 @@
 import { Link } from "react-router";
-import styles from "../../assets/css/products.module.css";
+import styles from "../../assets/css/product_details.module.css";
 import type { ProductsContentsProps } from "../../models/props/products_contents_props";
+import ProductGuide from "./product_guide";
 
 // Récupération de la props data envoyé par le parent (page) à l'enfant (composant)
 const ProductsContents = ({ data }: ProductsContentsProps) => {
@@ -16,16 +17,18 @@ const ProductsContents = ({ data }: ProductsContentsProps) => {
 						<h3>{data.name}</h3>
 						<p className={styles.price}>{data.price} €</p>
 						<p className={styles.descriptionText}>{data.description}</p>
-						<button type="button" className={styles.viewButton}>
-							Ajouter au panier
-						</button>
+
 						<Link to="/produits">
-							<span>Retour aux produits</span>
+							<button type="button" className={styles.viewButton}>
+								Retour aux produits
+							</button>
 						</Link>
 					</div>
 
 					<div className={styles.Info}></div>
 				</article>
+
+				<ProductGuide productId={data.id} />
 			</div>
 		</section>
 	);

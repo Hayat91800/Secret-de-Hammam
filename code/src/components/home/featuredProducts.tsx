@@ -5,14 +5,14 @@ import ProductCard from "../products/product_card";
 
 const FeaturedProducts = () => {
 	const results = use(new ProductApiService().selectAll()).data;
-	const title = "Séléctionnés pour vous";
-	const subtitle = "Nos Incontournables";
+	// const title = "Séléctionnés pour vous";
+	// const subtitle = "Nos Incontournables";
 
 	return (
 		<section className={styles.featuredProducts}>
 			<div className={styles.sectionHeader}>
-				<span>{subtitle}</span>
-				<h2>{title}</h2>
+				<span>Séléctionnés pour vous</span>
+				<h2>Séléctionnés pour vous</h2>
 			</div>
 
 			<div className={styles.productGrid}>

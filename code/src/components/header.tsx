@@ -14,8 +14,8 @@ const Header = () => {
 				<Logo />
 			</div>
 			<div className={styles.iconSide}>
-				<ThemeToggle />
 				<IconNavbar />
+				{/* <ThemeToggle /> */}
 			</div>
 		</header>
 	);

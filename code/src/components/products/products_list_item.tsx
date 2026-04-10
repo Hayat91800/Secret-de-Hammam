@@ -13,7 +13,7 @@ const ProductsListItem = ({ data }: ProductsListItemProps) => {
 			<div className={styles.productInfo}>
 				<h3>{data.name}</h3>
 
-				<p className={styles.price}>{data.price}</p>
+				<p className={styles.price}>{data.price} €</p>
 
 				<Link to={`/produits/${data.id}`}>
 					<button type="button" className={styles.viewButton}>
