@@ -1,5 +1,4 @@
 import type { unstable_RSCRouteConfig as RSCRouteConfig } from "react-router";
-import DashboardClient from "../pages/user/dashboard_client";
 
 class RouterService {
 	public getRouter = () => {
@@ -37,7 +36,7 @@ class RouterService {
 							{
 								id: "produits_details",
 								// path représente la route
-								// variable d'URL est préfixée d'in :
+								// variable d'URL est préfixée d'un? :
 								path: "produits/:id",
 								lazy: () => import("../pages/public/produits_details"),
 							},

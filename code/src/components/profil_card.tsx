@@ -19,7 +19,6 @@ const ProfileCard = ({ user }: ProfileCardProps) => {
 					<span>Type de peau :</span>
 					<strong>{user.skin_id || "Non renseigné"}</strong>
 				</div>
-				{/* Ajoute d'autres champs de ta BDD ici */}
 			</article>
 
 			<div className={styles.sidebarFooter}>

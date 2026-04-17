@@ -5,38 +5,6 @@ import type { Product } from "../../models/product";
 import styles from "../assets/css/carroussel.module.css";
 import ProductApiService from "../services/product_api_service";
 
-// const Carousel = () => {
-
-// 	const fetchedResults = use(new ProductApiService().selectAll());
-// 	const products = (fetchedResults.data as Product[]) || [];
-
-// 	const [currentIndex, setCurrentIndex] = useState(0);
-
-// 	const nextSlide = () => {
-// 		if (products.length === 0) return;
-// 		setCurrentIndex((prev) => (prev + 1) % products.length);
-// 	};
-
-// 	const prevSlide = () => {
-// 		if (products.length === 0) return;
-// 		setCurrentIndex((prev) => (prev - 1 + products.length) % products.length);
-// 	};
-
-// 	useEffect(() => {
-// 		if (!products || products.length <= 1) return;
-
-// 		const timer = setInterval(() => {
-// 			setCurrentIndex((current) => {
-// 				const nextIndex = current + 1;
-// 				return nextIndex >= products.length ? 0 : nextIndex;
-// 			});
-// 		}, 3000);
-
-// 		return () => clearInterval(timer);
-// 	}, [products.length]);
-
-// 	if (products.length === 0) return null;
-
 const Carousel = () => {
 	const apiService = useMemo(() => new ProductApiService(), []);
 	const [products, setProducts] = useState<Product[]>([]);

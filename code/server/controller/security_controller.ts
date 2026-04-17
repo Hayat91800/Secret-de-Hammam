@@ -65,6 +65,8 @@ class SecurityController {
 		// vérifier si le mot de passe est correct
 		// (result as user).password: recupere le mot de passe haché dans la base de donné
 		// req.body.password/  recupere le mot de passe en claire dans la raquete
+		console.log("HASH EN BASE:", (results as User).password);
+		console.log("PASSWORD REÇU:", req.body.password);
 		const passwordIsValid = await argon2.verify(
 			(results as User).password,
 			req.body.password,

@@ -2,7 +2,7 @@
 
 import { useId, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 import type { Contact } from "../../models/contact";
 import type { User } from "../../models/user";
 import styles from "../assets/css/form.module.css";
@@ -135,9 +135,9 @@ const PublicForm = ({ title, buttonText, type }: FormProps) => {
 							{...register("password", {
 								required: "Le mot de passe est obligatoire",
 								minLength: {
-									value: 8,
+									value: 2,
 									message:
-										"Un mot de passe doit comporter au minimum 8 caractères",
+										"Un mot de passe doit comporter au minimum 2 caractères",
 								},
 								maxLength: {
 									value: 30,
@@ -197,9 +197,16 @@ submitForm: fonction que l'on crée*/}
 			</form>
 
 			<div className={styles.formFooter}>
-				{type === "login" && <p>Mot de passe oublié ?</p>}
+				{type === "login" && (
+					<NavLink to={"/register"} className={styles.formFooter}>
+						<p>Pas encore de compte? Inscrivez vous!</p>
+					</NavLink>
+				)}
+
 				{type === "register" && (
-					<p>En vous inscrivant, vous rejoignez notre rituel de fidélité.</p>
+					<NavLink to={"/login"} className={styles.formFooter}>
+						<p>Déja un compte? Connectez vous!</p>
+					</NavLink>
 				)}
 			</div>
 		</section>

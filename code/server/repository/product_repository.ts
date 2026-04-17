@@ -85,7 +85,7 @@ class ProductRepository {
 		// variable de requete : précédée d'un :, suivi du nom de la variable
 		// requetes préparées :sécurité;(utilisation des varibales de requetes)la requete est exécutée si elle ne représente pas de risque de sécurité
 		// DISTINCT: Evite les doublons
-		const sql = `SELECT ${this.table}.*,
+		const sql = `SELECT ${this.table}.*,                                      
 					GROUP_CONCAT(DISTINCT skin.id) AS skin_ids,
 					GROUP_CONCAT(DISTINCT pack.id) AS pack_ids,
 					GROUP_CONCAT(DISTINCT body_part.id) AS body_part_ids

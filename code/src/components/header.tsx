@@ -2,7 +2,8 @@ import styles from "../assets/css/header.module.css";
 import IconNavbar from "./icon_navbar";
 import Logo from "./logo";
 import NavBar from "./navbar";
-import ThemeToggle from "./theme_toggle";
+
+// import ThemeToggle from "./theme_toggle";
 
 const Header = () => {
 	return (

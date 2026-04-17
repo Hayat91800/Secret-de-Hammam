@@ -30,5 +30,4 @@ export const PRODUCT_GUIDE_DATA: Record<
 		usage:
 			"Une seule goutte suffit sur les zones ciblées (contour des yeux, ridules).",
 	},
-	// Ajoute les autres ID au besoin...
 };

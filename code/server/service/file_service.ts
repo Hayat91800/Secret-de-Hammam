@@ -3,20 +3,6 @@
 import fs from "node:fs/promises";
 import { fileTypeFromFile } from "file-type";
 
-//
-// [
-//   {
-//     fieldname: 'image',
-//     originalname: 'Argile_et_Rhassoul.png',
-//     encoding: '7bit',
-//     mimetype: 'image/png',
-//     destination: 'public/img/products',
-//     filename: 'bde194790217794769729886886c077b',
-//     path: 'public/img/products/bde194790217794769729886886c077b',
-//     size: 3468635
-//   }
-// ]
-
 class FileService {
 	// fonction qui renomme le fichier transferé en ajoutant l'extension
 	// Cette fonction doit retourner le nom complet du fichier

@@ -17,7 +17,7 @@
 :root {
 	/*Couleurs fixes*/
 	--color-primary-dark: #040c34;
-	--color-secondary: #341967;
+	--color-secondary: #8b6d35;
 
 	/* Variable thème claire*/
 	--color-primary: #645945;
@@ -43,12 +43,12 @@
 /* Variable thème dark*/
 
 :root[data-theme="dark"] {
-	--color-bg-light: #1a1612; /* Brun très sombre */
-	--color-surface: #26211c; /* Cartes sombres */
-	--color-text-dark: #eee4d8; /* Texte crème clair */
-	--color-primary: #a08d6d; /* Marron doré plus clair */
-	--color-accent: #d4b375; /* Or plus brillant */
-	--color-border: #3d342c; /* Bordures discrètes */
+	--color-bg-light: #1a1612;
+	--color-surface: #26211c;
+	--color-text-dark: #eee4d8;
+	--color-primary: #a08d6d;
+	--color-accent: #d4b375;
+	--color-border: #3d342c;
 	--shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -71,9 +71,6 @@ body {
 	font-size: 1rem;
 	line-height: 1.6;
 	-webkit-font-smoothing: antialiased;
-	/* font-family: var(--font-body); */
-	/* background-color: var(--color-bg-light); */
-	/* color: var(--color-text-dark); */
 	transition:
 		background-color var(--transition-base),
 		color var(--transition-base);
@@ -114,9 +111,9 @@ a:focus {
 	position: fixed;
 	top: 10px;
 	left: 10px;
-	z-index: 9999; /* Toujours au-dessus de la navbar */
+	z-index: 9999;
 	padding: 15px 25px;
-	background-color: var(--color-accent); /* Ton bronze accessible #8b6d35 */
+	background-color: var(--color-accent);
 	color: white;
 	font-family: var(--font-title);
 	text-decoration: none;

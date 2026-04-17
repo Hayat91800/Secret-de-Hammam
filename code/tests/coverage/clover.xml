@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1775730912999" clover="3.2.0">
-  <project timestamp="1775730913001" name="All files">
-    <metrics statements="500" coveredstatements="121" conditionals="96" coveredconditionals="3" methods="71" coveredmethods="23" elements="667" coveredelements="147" complexity="0" loc="500" ncloc="500" packages="6" files="33" classes="33"/>
+<coverage generated="1776158973449" clover="3.2.0">
+  <project timestamp="1776158973450" name="All files">
+    <metrics statements="502" coveredstatements="121" conditionals="96" coveredconditionals="3" methods="71" coveredmethods="23" elements="669" coveredelements="147" complexity="0" loc="502" ncloc="502" packages="6" files="33" classes="33"/>
     <package name="controller">
-      <metrics statements="139" coveredstatements="9" conditionals="86" coveredconditionals="1" methods="22" coveredmethods="2"/>
+      <metrics statements="141" coveredstatements="9" conditionals="86" coveredconditionals="1" methods="22" coveredmethods="2"/>
       <file name="body_part_controller.ts" path="/app/server/controller/body_part_controller.ts">
         <metrics statements="12" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="6" count="0" type="stmt"/>
@@ -121,7 +121,7 @@
         <line num="46" count="0" type="stmt"/>
       </file>
       <file name="security_controller.ts" path="/app/server/controller/security_controller.ts">
-        <metrics statements="20" coveredstatements="0" conditionals="16" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="22" coveredstatements="0" conditionals="16" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="8" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
         <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -138,10 +138,12 @@
         <line num="60" count="0" type="stmt"/>
         <line num="64" count="0" type="stmt"/>
         <line num="68" count="0" type="stmt"/>
-        <line num="74" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="75" count="0" type="stmt"/>
-        <line num="82" count="0" type="stmt"/>
-        <line num="85" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="76" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
       </file>
       <file name="skin_controller.ts" path="/app/server/controller/skin_controller.ts">
         <metrics statements="12" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>

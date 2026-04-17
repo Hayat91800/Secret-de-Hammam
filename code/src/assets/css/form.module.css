@@ -23,7 +23,7 @@
 }
 
 .orientalForm button {
-	background: linear-gradient(135deg, var(--color-secondary) 0%, #a68b74 100%);
+	background: var(--color-primary);
 	color: white;
 	padding: 16px;
 	border-radius: 50px;
@@ -32,9 +32,41 @@
 	text-transform: uppercase;
 }
 
+.formFooter {
+	margin-top: 1.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	padding: 10px;
+	transition: color 0.2s ease;
+}
+
+.formFooter p {
+	font-size: 0.9rem;
+	color: #4a5568;
+	margin: 0;
+	text-align: center;
+	line-height: 1.4;
+	font-weight: 500;
+}
+
 @media (min-width: 768px) {
 	.formWrapper {
 		max-width: 500px;
 		padding: 40px;
+	}
+	.formFooter {
+		margin-top: 2rem;
+	}
+
+	.formFooter p {
+		font-size: 1rem;
+	}
+
+	.formFooter:hover p {
+		color: #2d3748;
+		text-decoration: underline;
+		text-underline-offset: 5px;
 	}
 }

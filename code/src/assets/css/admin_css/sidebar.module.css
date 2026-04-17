@@ -1,136 +1,3 @@
-/* .sidebar {
-    width: 260px;
-    height: 100vh;
-    background-color: #645945; 
-    color: #f3efe4;
-    text-decoration: none;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    left: 0;
-    top: 0;
-    padding: 2rem 1rem;
-}
-
-.logoSection {
-    margin-bottom: 3rem;
-    text-align: center;
-}
-
-.logoSection h2 {
-    color: #c5a059;
-    font-family: 'Playfair Display', serif;
-    margin: 0;
-}
-
-.badge {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #8c725b;
-}
-
-.navLinks {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
-.link, .active {
-    display: flex;
-    align-items: center;
-    padding: 12px 15px;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: 0.3s;
-    color: #a89f91;
-}
-
-.link:hover {
-    background: rgba(197, 160, 89, 0.1);
-    color: #c5a059;
-}
-
-.active {
-    background: #c5a059;
-    color: white;
-}
-
-.icon {
-    margin-right: 12px;
-    font-size: 1.2rem;
-}
-
-.sidebarFooter {
-    margin-top: auto;
-    padding-top: 1rem;
-    border-top: 1px solid #333;
-} */
-
-/*.exitLink {
-    background-color: #c5a059;
-    color: white;
-    display: flex; /* Aligne le texte comme les autres liens */ /*
-    align-items: center;
-    padding: 12px 15px; */ /* Même espacement interne que .link */ /*
-    text-decoration: none;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    border-radius: 8px;
-    transition: 0.3s;
-}*/
-
-/*.exitLink:hover {
-    background-color: #d9534f;*/ /* Devient rouge plein au survol */
-/*color: white;
- } /* Texte blanc au survol */
-
-/* .sidebar {
-	width: 100%;
-	background-color: var(--color-primary);
-	color: var(--color-bg-light);
-	padding: 1rem;
-	display: flex;
-	flex-direction: row; 
-	justify-content: space-between;
-	align-items: center;
-	position: sticky;
-	top: 0;
-	z-index: 1000;
-}
-
-.logoSection h2 {
-	color: var(--color-accent);
-	font-size: var(--text-lg);
-}
-
-.navLinks {
-	display: none; 
-}
-
-
-@media (min-width: 1024px) {
-	.sidebar {
-		width: 260px;
-		height: 100vh;
-		flex-direction: column;
-		position: fixed;
-		left: 0;
-		top: 0;
-		padding: 2rem 1rem;
-		justify-content: flex-start;
-	}
-	.navLinks {
-		display: flex;
-		flex-direction: column;
-		gap: 0.8rem;
-		width: 100%;
-		margin-top: 2rem;
-	}
-} */
-
 .sidebar {
 	width: 100%;
 	background-color: var(--color-primary);
@@ -153,7 +20,7 @@
 }
 
 .badge {
-	display: none; /* Cache le badge sur mobile pour gagner de la place */
+	display: none;
 }
 
 .navLinks {
@@ -161,8 +28,13 @@
 	gap: 10px;
 }
 
-/* Style des liens commun */
-.link,
+.link:focus-visible,
+.active:focus-visible {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 2px;
+}
+
+/* .link,
 .active {
 	padding: 8px 12px;
 	text-decoration: none;
@@ -170,7 +42,7 @@
 	font-size: 0.85rem;
 	transition: 0.3s;
 	color: rgba(255, 255, 255, 0.8);
-}
+} */
 
 .active {
 	background: var(--color-accent);
@@ -178,10 +50,9 @@
 }
 
 .sidebarFooter {
-	display: none; /* Cache le footer admin sur mobile */
+	display: none;
 }
 
-/* --- Desktop Version --- */
 @media (min-width: 1024px) {
 	.sidebar {
 		width: 260px;
