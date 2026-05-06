@@ -6,7 +6,7 @@ import FileService from "../service/file_service";
 class ProductController {
 	// Méthode relié à la route en GET située dans le routeur
 	public index = async (_req: Request, res: Response) => {
-		// Récupération des relultats de la rêquete
+		// Récupération des resultats de la rêquete
 		const results = await new ProductRepository().selectAll();
 
 		// Si la requête renvoie une erreur

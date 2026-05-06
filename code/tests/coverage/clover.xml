@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1776158973449" clover="3.2.0">
-  <project timestamp="1776158973450" name="All files">
+<coverage generated="1777195062831" clover="3.2.0">
+  <project timestamp="1777195062831" name="All files">
     <metrics statements="502" coveredstatements="121" conditionals="96" coveredconditionals="3" methods="71" coveredmethods="23" elements="669" coveredelements="147" complexity="0" loc="502" ncloc="502" packages="6" files="33" classes="33"/>
     <package name="controller">
       <metrics statements="141" coveredstatements="9" conditionals="86" coveredconditionals="1" methods="22" coveredmethods="2"/>
@@ -608,10 +608,10 @@
       <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="file_service.ts" path="/app/server/service/file_service.ts">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="24" count="1" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
       </file>
       <file name="mysql_service.ts" path="/app/server/service/mysql_service.ts">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>

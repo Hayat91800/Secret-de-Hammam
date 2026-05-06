@@ -69,10 +69,9 @@
 	color: #dc2626;
 }
 
-/* Desktop Adjustment */
 @media (min-width: 1024px) {
 	.crudContainer {
-		margin-left: 260px; /* Espace pour la sidebar fixe */
+		margin-left: 260px;
 		padding: 40px;
 	}
 	.crudHeader {

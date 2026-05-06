@@ -1,3 +1,8 @@
+-- mysql -u root -p;
+-- show databases;
+-- source secrets_de_hammam.dev.sql;
+-- use secretsDeHammam_dev;
+-- show databases;
 -- ATTENTION: NE PAS SUPPRIMER LA BASE DE DONNEES EN PRODUCTION. POSSIBLE UNIQUEMENT EN PHASE DE DEVELOPPEMENT. 
 DROP DATABASE IF EXISTS secretsDeHammam_dev;
 

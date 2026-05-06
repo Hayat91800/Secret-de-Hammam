@@ -7,6 +7,7 @@ import type { Contact } from "../../models/contact";
 import type { User } from "../../models/user";
 import styles from "../assets/css/form.module.css";
 import type { FormProps } from "../models/props/form_props";
+import ContactApiService from "../services/contact_api_service";
 import SecurityApiService from "../services/security_api_service";
 import SecurityService from "../services/security_service";
 
@@ -32,6 +33,9 @@ const PublicForm = ({ title, buttonText, type }: FormProps) => {
 
 	const submitForm = async (data: FormValues) => {
 		if (type === "contact") {
+			const process = await new ContactApiService().insert(data as Contact);
+			navigate("/");
+			return;
 		}
 
 		if (type === "register") {

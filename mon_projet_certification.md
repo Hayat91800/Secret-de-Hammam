@@ -334,47 +334,176 @@ console.log(`Terminé ! Votre fichier est prêt : ${outputFile}`);
 ### FICHIER : code/README.md
 
 ```md
-# Vite + RSC
+# 🌿 Secret-de-Hammam
 
-This example shows how to set up a React application with [Server Component](https://react.dev/reference/rsc/server-components) features on Vite using [`@vitejs/plugin-rsc`](https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-rsc).
+![title](code/public/img/products/logo_secret_de_hammam_1.png)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vitejs/vite-plugin-react/tree/main/packages/plugin-rsc/examples/starter)
+## Description projet
 
-```sh
-# run dev server
-npm run dev
+Secret de Hammam est une application Fullstack conçue pour offrir une expérience boutique immersive couplée à des guides de soins. Le projet met l'accent sur la performance, la sécurité et une architecture robuste.
 
-# build for production and preview
-npm run build
-npm run preview
+## Fonctionnalités
+
+### 👩‍💻 Administrateur
+
+Gestion des produits via  dashboard : CRUD Complet
+* Ajouter produits
+* Modifier produit
+* Supprimer produit
+
+### 👩 Public 
+
+* Formulaire de contact
+
+### Utilisateur connecté
+
+* Dashboard profil
+
+### Stack Technique
+
+#### Frontend
+* **React 18 & TypeScript** : Interface dynamique et typage rigoureux.
+* **Vite** : Environnement de développement performant.
+* **Figma** : Prototypage UI/UX.
+* **CSS Modules** : Styles isolés pour une meilleure maintenabilité.
+* **React Hook Form** : Validation fluide des formulaires.
+
+#### Backend & API
+* **Node.js & Express** : Serveur d'API REST.
+* **Postman** : Tests et documentation des endpoints.
+* **Argon2 & JWT** : Sécurisation (hachage) et gestion de l'authentification.
+* **Zod** : Validation des schémas de données.
+
+#### Base de données
+* **Mysql** : Gestion du cœur de métier (Produits, Utilisateurs, Commandes).
+* **Mongodb** : Gestion souple des documents (Formulaires de contact).
+
+
+#### Infrastructure & DevOps
+* **Docker** : Conteneurisation pour l'isolation des services et la reproductibilité de l'environnement.
+* **Git & GitHub** : Gestion de version décentralisée et collaboration.
+* **GitHub Actions** : Automatisation du cycle CI/CD (Linting, Tests).
+
+#### Outils de développement
+* **VSCode**
+* **Terminal** (Zsh/Bash) : Gestion des scripts npm et commandes Docker.
+
+### Dépendances
+
+#### Backend
+
+* express => serveur API
+
+* mysql2 => connexion MySQL
+
+* argon2 => hash des mots de passe
+
+* cors => communication frontend/backend
+
+* zod => validation des données
+
+
+#### Frontend
+
+* react → interface utilisateur
+
+* typescript → typage du code
+
+* react-router → navigation
+
+* react-markdown → affichage des leçons
+
+## Installation
+
+Le projet est entièrement conteneurisé pour garantir un environnement stable.
+
+### 1. Prérequis: 
+
+- Installer vscode : [Vscode](https://code.visualstudio.com/)
+- Installer docker : [Docker](https://www.docker.com/)
+- Installer git : [Git](https://git-scm.com/)
+
+### 2. Lancement rapide
+
+``` Bash ```
+
+Cloner le projet
+```
+git clone https://github.com/ton-profil/secret-de-hammam.git 
+cd secret-de-hammam 
 ```
 
-## API usage
+Lancer l'infrastructure avec Docker
+```
 
-See [`@vitejs/plugin-rsc`](https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-rsc) for the documentation.
+docker compose up --build
+```
+### 3. Accès aux services
 
-- [`vite.config.ts`](./vite.config.ts)
-  - `@vitejs/plugin-rsc/plugin`
-- [`./src/framework/entry.rsc.tsx`](./src/framework/entry.rsc.tsx)
-  - `@vitejs/plugin-rsc/rsc`
-  - `import.meta.viteRsc.loadModule`
-- [`./src/framework/entry.ssr.tsx`](./src/framework/entry.ssr.tsx)
-  - `@vitejs/plugin-rsc/ssr`
-  - `import.meta.viteRsc.loadBootstrapScriptContent`
-  - `rsc-html-stream/server`
-- [`./src/framework/entry.browser.tsx`](./src/framework/entry.browser.tsx)
-  - `@vitejs/plugin-rsc/browser`
-  - `rsc-html-stream/client`
+Site Web (Frontend) : http://localhost:5173
 
-## Notes
+API (Backend) : http://localhost:3000
 
-- [`./src/framework/entry.{browser,rsc,ssr}.tsx`](./src/framework) (with inline comments) provides an overview of how low level RSC (React flight) API can be used to build RSC framework.
-- You can use [`vite-plugin-inspect`](https://github.com/antfu-collective/vite-plugin-inspect) to understand how `"use client"` and `"use server"` directives are transformed internally.
+### Procédure d'accès 
 
-## Deployment
+Frontend
+```
+npm run dev
+```
 
-See [vite-plugin-rsc-deploy-example](https://github.com/hi-ogawa/vite-plugin-rsc-deploy-example)
+Backend
+``` 
+npm run server
+```
 
+### Installation des dépendances en local
+
+```Bash```
+```
+npm install
+```
+
+### Procedure de test
+
+Des tests automatisés, garantissent que chaque fonctionnalité répond aux attentes.
+
+Tests unitaires
+```
+npm run test 
+```
+Tests de couverture
+```
+npm run test : coverage
+```
+### Schéma Merise
+
+### Point d'acces api REST (endpoints)
+
+Methode HTTP              | Route                  | Description
+---------------------------------------------------------------------------------
+POST       User           | /api/register          | Enregistrer un utilisateur
+---------------------------------------------------------------------------------
+POST       User           | /api/login             | Connecter un utilisateur (generation de JWT)
+--------------------------------------------------------------------------------- 
+GET        Product        | /api/products          | Récupérer la liste de tous les produits
+---------------------------------------------------------------------------------
+GET        Product        | /api/products/:id      | Récupérer les détails d'un produit spécifique
+--------------------------------------------------------------------------------- 
+POST       Product        | /api/products          | Ajouter un nouveau produit (Admin)
+---------------------------------------------------------------------------------
+PUT        Product        | /api/products/:id      | Modifier un produit existant (Admin)
+--------------------------------------------------------------------------------- 
+DELETE     Product        | /api/products/:id      | Supprimer un produit (Admin)
+----------------------------------------------------------------------------------
+GET        Category       | /api/categories        | Récupérer toutes les catégories de soins
+---------------------------------------------------------------------------------- 
+POST       Contact        | /api/contact           | Envoyer un message via le formulaire (Mongodb)
+----------------------------------------------------------------------------------
+
+
+### Telecharger document
+
+[Mon projet de certification pdf](Docs_projet/mon_projet_certification2.pdf)
 ```
 
 ---
@@ -908,7 +1037,7 @@ import ContactRepository from "../repository/contact_repository";
 class ContactController {
 	// Méthode relié à la route en GET située dans le routeur
 	public index = async (_req: Request, res: Response) => {
-		// Récupération des relultats de la rêquete
+		// Récupération des resultats de la rêquete
 		const results = await new ContactRepository().selectAll();
 
 		// renvoyer une reponse avec un code de status HTTP et au format json
@@ -1333,6 +1462,8 @@ class SecurityController {
 		// vérifier si le mot de passe est correct
 		// (result as user).password: recupere le mot de passe haché dans la base de donné
 		// req.body.password/  recupere le mot de passe en claire dans la raquete
+		console.log("HASH EN BASE:", (results as User).password);
+		console.log("PASSWORD REÇU:", req.body.password);
 		const passwordIsValid = await argon2.verify(
 			(results as User).password,
 			req.body.password,
@@ -1857,7 +1988,7 @@ class ContactRepository {
 
 	// Selectionner tous les documents
 	public selectAll = async (): Promise<Document[] | unknown> => {
-		// connexionau server Mongodb
+		// connexion au server Mongodb
 		const connection = await new MongodbService().connect();
 
 		// Selection d'une collection
@@ -2130,7 +2261,7 @@ class ProductRepository {
 		// variable de requete : précédée d'un :, suivi du nom de la variable
 		// requetes préparées :sécurité;(utilisation des varibales de requetes)la requete est exécutée si elle ne représente pas de risque de sécurité
 		// DISTINCT: Evite les doublons
-		const sql = `SELECT ${this.table}.*,
+		const sql = `SELECT ${this.table}.*,                                      
 					GROUP_CONCAT(DISTINCT skin.id) AS skin_ids,
 					GROUP_CONCAT(DISTINCT pack.id) AS pack_ids,
 					GROUP_CONCAT(DISTINCT body_part.id) AS body_part_ids
@@ -3287,20 +3418,6 @@ export default UserRouter;
 import fs from "node:fs/promises";
 import { fileTypeFromFile } from "file-type";
 
-//
-// [
-//   {
-//     fieldname: 'image',
-//     originalname: 'Argile_et_Rhassoul.png',
-//     encoding: '7bit',
-//     mimetype: 'image/png',
-//     destination: 'public/img/products',
-//     filename: 'bde194790217794769729886886c077b',
-//     path: 'public/img/products/bde194790217794769729886886c077b',
-//     size: 3468635
-//   }
-// ]
-
 class FileService {
 	// fonction qui renomme le fichier transferé en ajoutant l'extension
 	// Cette fonction doit retourner le nom complet du fichier
@@ -3491,233 +3608,6 @@ export default MySQLService;
 ### FICHIER : code/src/assets/css/admin_css/add.module.css
 
 ```css
-/* Conteneur principal pour centrer le formulaire */
-/* .formContainer {
-    max-width: 850px;
-    margin: 0 auto;
-    animation: fadeIn 0.5s ease-in-out;
-} */
-
-/* En-tête du formulaire */
-/* .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2.5rem;
-}
-
-.header h1 {
-    font-family: 'Playfair Display', serif;
-    color: #4a3f35;
-    margin: 0;
-}
-
-.header p {
-    color: #8c725b;
-    margin: 5px 0 0 0;
-    font-style: italic;
-} */
-
-/* Bouton Retour / Annuler */
-/* .backBtn {
-    text-decoration: none;
-    color: #8c725b;
-    border: 1px solid #eaddca;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    background: white;
-}
-
-.backBtn:hover {
-    background: #fdf2f2;
-    color: #d9534f;
-    border-color: #fca5a5;
-} */
-
-/* Le bloc formulaire */
-/* .productForm {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid #f3efe4;
-} */
-
-/* Groupes de champs (Label + Input) */
-/* .formGroup {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.5rem;
-}
-
-.formGroup label {
-    font-weight: 600;
-    color: #645945;
-    margin-bottom: 0.6rem;
-    font-size: 0.95rem;
-} */
-
-/* Style des Inputs, Select et Textarea */
-/* .formGroup input, 
-.formGroup select, 
-.formGroup textarea {
-    padding: 12px 15px;
-    border: 1px solid #eaddca;
-    border-radius: 8px;
-    font-size: 1rem;
-    color: #4a3f35;
-    background-color: #fff;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.formGroup input:focus, 
-.formGroup select:focus, 
-.formGroup textarea:focus {
-    outline: none;
-    border-color: #c5a059;
-    box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1);
-} */
-
-/* Mise en page sur deux colonnes pour Prix et Stock */
-/* .formRow {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-} */
-
-/* Bouton de validation final */
-/* .submitBtn {
-    width: 100%;
-    padding: 15px;
-    background-color: #c5a059;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 1rem;
-    transition: background 0.3s ease, transform 0.2s active;
-}
-
-.submitBtn:hover {
-    background-color: #a68648;
-}
-
-.submitBtn:active {
-    transform: scale(0.98);
-} */
-
-/* Petit effet d'entrée */
-/* @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-} */
-
-/* Responsive pour les petits écrans */
-/* @media (max-width: 600px) {
-    .formRow {
-        grid-template-columns: 1fr;
-    }
-} */
-
-/* code/src/assets/css/admin_css/add.module.css */
-
-/* .formContainer {
-	width: 100%;
-	padding: 15px;
-	animation: fadeIn 0.5s ease-in-out;
-}
-
-.header {
-	text-align: center;
-	margin-bottom: 2rem;
-}
-
-.header h1 {
-	color: var(--color-primary-dark);
-	font-size: var(--text-xl);
-}
-
-.productForm {
-	background: var(--color-neutral-light);
-	padding: 1.5rem;
-	border-radius: 15px;
-	box-shadow: var(--shadow-soft);
-	border: 1px solid var(--color-bg-light);
-}
-
-.formGroup {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 1.2rem;
-}
-
-.formGroup label {
-	font-weight: 600;
-	color: var(--color-primary);
-	margin-bottom: 0.5rem;
-	font-size: var(--text-sm);
-}
-
-.formGroup input,
-.formGroup select,
-.formGroup textarea {
-	padding: 12px;
-	border: 1px solid var(--color-border);
-	border-radius: 8px;
-	font-family: var(--font-text);
-}
-
-.formRow {
-	display: grid;
-	grid-template-columns: 1fr; 
-	gap: 15px;
-}
-
-.submitBtn {
-	width: 100%;
-	padding: 15px;
-	background-color: var(--color-accent);
-	color: white;
-	border: none;
-	border-radius: 8px;
-	font-weight: bold;
-	cursor: pointer;
-}
-
-@media (min-width: 768px) {
-	.formContainer {
-		max-width: 850px;
-		margin: 0 auto;
-		padding: 40px;
-	}
-	.header {
-		display: flex;
-		justify-content: space-between;
-		text-align: left;
-	}
-	.productForm {
-		padding: 2.5rem;
-	}
-	.formRow {
-		grid-template-columns: 1fr 1fr;
-	}
-}
-
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-		transform: translateY(10px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-} */
-
 .formContainer {
 	width: 100%;
 	padding: 20px 15px;
@@ -3817,164 +3707,6 @@ export default MySQLService;
 ### FICHIER : code/src/assets/css/admin_css/admin_product_index.module.css
 
 ```css
-/* .crudContainer {
-    padding: 20px;
-    max-width: 1200px;
-    margin:0 auto;
-} */
-
-/* .crudHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 30px;
-    gap: 20px;
-} */
-
-/*.addButton {
-    background-color: #645945;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s;
-    white-space: nowrap; Empeche le texte du bouton de revenir à la ligne
-    display: inline-block;
-}*/
-
-/* .addButton:hover {
-    background-color: #c5a059;
-    transform: translateY(-2px);
-} */
-
-/* .tableWrapper {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    overflow-x: auto;
-} */
-
-/* .crudTable {
-    width: 100%;
-    border-collapse: collapse;
-} */
-
-/* .crudTable th {
-    text-align: left;
-    padding: 15px;
-    border-bottom: 2px solid #f3efe4;
-    color: #8c725b;
-} */
-
-/* .crudTable td {
-    padding: 15px;
-    border-bottom: 1px solid #f3efe4;
-} */
-
-/* .productName {
-    font-weight: 600;
-    color: #8c725b;
-} */
-
-/* .actions {
-    display: flex;
-    gap: 10px;
-} */
-
-/* .modif {
-    color:  #8c725b;
-
-} */
-
-/* .supp {
-    color: red;
-} */
-
-/* .editBtn, .deleteBtn {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.85rem;
-} */
-
-/* .editBtn {
-    background-color: #eaddca;
-    color: #645945;
-} */
-
-/* .deleteBtn {
-    background-color: #fdf2f2;
-    color: #d9534f;
-} */
-
-/* .deleteBtn:hover {
-    background-color: #d9534f;
-    color: white;
-} */
-
-/* .crudContainer {
-	padding: 15px;
-}
-
-.crudHeader {
-	display: flex;
-	flex-direction: column; 
-	gap: 15px;
-	margin-bottom: 20px;
-}
-
-.addButton {
-	background-color: var(--color-primary);
-	color: white;
-	padding: 12px 20px;
-	border-radius: 8px;
-	text-align: center;
-	text-decoration: none;
-	font-weight: bold;
-}
-
-.tableWrapper {
-	background: white;
-	padding: 10px;
-	border-radius: 12px;
-	overflow-x: auto; 
-	box-shadow: var(--shadow-soft);
-}
-
-.crudTable {
-	width: 100%;
-	border-collapse: collapse;
-	min-width: 600px; 
-}
-
-.crudTable th {
-	text-align: left;
-	padding: 12px;
-	border-bottom: 2px solid var(--color-bg-light);
-	color: var(--color-secondary);
-}
-
-.crudTable td {
-	padding: 12px;
-	border-bottom: 1px solid var(--color-bg-light);
-}
-
-@media (min-width: 768px) {
-	.crudContainer {
-		padding: 40px;
-		max-width: 1200px;
-		margin: 0 auto;
-	}
-	.crudHeader {
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-	}
-} */
-
 .crudContainer {
 	padding: 20px 15px;
 }
@@ -4023,7 +3755,6 @@ export default MySQLService;
 	border-bottom: 1px solid var(--color-bg-light);
 }
 
-/* Actions : Boutons larges sur mobile pour le tactile */
 .actions {
 	display: flex;
 	gap: 15px;
@@ -4070,139 +3801,6 @@ export default MySQLService;
 ### FICHIER : code/src/assets/css/admin_css/sidebar.module.css
 
 ```css
-/* .sidebar {
-    width: 260px;
-    height: 100vh;
-    background-color: #645945; 
-    color: #f3efe4;
-    text-decoration: none;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    left: 0;
-    top: 0;
-    padding: 2rem 1rem;
-}
-
-.logoSection {
-    margin-bottom: 3rem;
-    text-align: center;
-}
-
-.logoSection h2 {
-    color: #c5a059;
-    font-family: 'Playfair Display', serif;
-    margin: 0;
-}
-
-.badge {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #8c725b;
-}
-
-.navLinks {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
-.link, .active {
-    display: flex;
-    align-items: center;
-    padding: 12px 15px;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: 0.3s;
-    color: #a89f91;
-}
-
-.link:hover {
-    background: rgba(197, 160, 89, 0.1);
-    color: #c5a059;
-}
-
-.active {
-    background: #c5a059;
-    color: white;
-}
-
-.icon {
-    margin-right: 12px;
-    font-size: 1.2rem;
-}
-
-.sidebarFooter {
-    margin-top: auto;
-    padding-top: 1rem;
-    border-top: 1px solid #333;
-} */
-
-/*.exitLink {
-    background-color: #c5a059;
-    color: white;
-    display: flex; /* Aligne le texte comme les autres liens */ /*
-    align-items: center;
-    padding: 12px 15px; */ /* Même espacement interne que .link */ /*
-    text-decoration: none;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    border-radius: 8px;
-    transition: 0.3s;
-}*/
-
-/*.exitLink:hover {
-    background-color: #d9534f;*/ /* Devient rouge plein au survol */
-/*color: white;
- } /* Texte blanc au survol */
-
-/* .sidebar {
-	width: 100%;
-	background-color: var(--color-primary);
-	color: var(--color-bg-light);
-	padding: 1rem;
-	display: flex;
-	flex-direction: row; 
-	justify-content: space-between;
-	align-items: center;
-	position: sticky;
-	top: 0;
-	z-index: 1000;
-}
-
-.logoSection h2 {
-	color: var(--color-accent);
-	font-size: var(--text-lg);
-}
-
-.navLinks {
-	display: none; 
-}
-
-
-@media (min-width: 1024px) {
-	.sidebar {
-		width: 260px;
-		height: 100vh;
-		flex-direction: column;
-		position: fixed;
-		left: 0;
-		top: 0;
-		padding: 2rem 1rem;
-		justify-content: flex-start;
-	}
-	.navLinks {
-		display: flex;
-		flex-direction: column;
-		gap: 0.8rem;
-		width: 100%;
-		margin-top: 2rem;
-	}
-} */
-
 .sidebar {
 	width: 100%;
 	background-color: var(--color-primary);
@@ -4225,7 +3823,7 @@ export default MySQLService;
 }
 
 .badge {
-	display: none; /* Cache le badge sur mobile pour gagner de la place */
+	display: none;
 }
 
 .navLinks {
@@ -4233,8 +3831,13 @@ export default MySQLService;
 	gap: 10px;
 }
 
-/* Style des liens commun */
-.link,
+.link:focus-visible,
+.active:focus-visible {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 2px;
+}
+
+/* .link,
 .active {
 	padding: 8px 12px;
 	text-decoration: none;
@@ -4242,7 +3845,7 @@ export default MySQLService;
 	font-size: 0.85rem;
 	transition: 0.3s;
 	color: rgba(255, 255, 255, 0.8);
-}
+} */
 
 .active {
 	background: var(--color-accent);
@@ -4250,10 +3853,9 @@ export default MySQLService;
 }
 
 .sidebarFooter {
-	display: none; /* Cache le footer admin sur mobile */
+	display: none;
 }
 
-/* --- Desktop Version --- */
 @media (min-width: 1024px) {
 	.sidebar {
 		width: 260px;
@@ -4631,7 +4233,7 @@ export default MySQLService;
 :root {
 	/*Couleurs fixes*/
 	--color-primary-dark: #040c34;
-	--color-secondary: #341967;
+	--color-secondary: #8b6d35;
 
 	/* Variable thème claire*/
 	--color-primary: #645945;
@@ -4657,12 +4259,12 @@ export default MySQLService;
 /* Variable thème dark*/
 
 :root[data-theme="dark"] {
-	--color-bg-light: #1a1612; /* Brun très sombre */
-	--color-surface: #26211c; /* Cartes sombres */
-	--color-text-dark: #eee4d8; /* Texte crème clair */
-	--color-primary: #a08d6d; /* Marron doré plus clair */
-	--color-accent: #d4b375; /* Or plus brillant */
-	--color-border: #3d342c; /* Bordures discrètes */
+	--color-bg-light: #1a1612;
+	--color-surface: #26211c;
+	--color-text-dark: #eee4d8;
+	--color-primary: #a08d6d;
+	--color-accent: #d4b375;
+	--color-border: #3d342c;
 	--shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -4685,9 +4287,6 @@ body {
 	font-size: 1rem;
 	line-height: 1.6;
 	-webkit-font-smoothing: antialiased;
-	/* font-family: var(--font-body); */
-	/* background-color: var(--color-bg-light); */
-	/* color: var(--color-text-dark); */
 	transition:
 		background-color var(--transition-base),
 		color var(--transition-base);
@@ -4711,7 +4310,7 @@ a:focus {
 	outline-offset: 4px;
 }
 
-/* Lien */
+/* Lien d'évitement */
 .skipLink:not(:focus) {
 	position: absolute;
 	width: 1px;
@@ -4728,9 +4327,9 @@ a:focus {
 	position: fixed;
 	top: 10px;
 	left: 10px;
-	z-index: 9999; /* Toujours au-dessus de la navbar */
+	z-index: 9999;
 	padding: 15px 25px;
-	background-color: var(--color-accent); /* Ton bronze accessible #8b6d35 */
+	background-color: var(--color-accent);
 	color: white;
 	font-family: var(--font-title);
 	text-decoration: none;
@@ -5073,7 +4672,7 @@ a:focus {
 }
 
 .orientalForm button {
-	background: linear-gradient(135deg, var(--color-secondary) 0%, #a68b74 100%);
+	background: var(--color-primary);
 	color: white;
 	padding: 16px;
 	border-radius: 50px;
@@ -5900,97 +5499,6 @@ a:focus {
 		/* Aligne le contenu à gauche sur desktop si tu préfères, 
            sinon garde center pour le look "infographie" */
 		align-items: center;
-	}
-}
-
-```
-
----
-### FICHIER : code/src/assets/css/product_skeleton.module.css
-
-```css
-.skeletonCard {
-	background: var(--color-white, #fdfcf9);
-	border-radius: 15px;
-	overflow: hidden;
-	border: 1px solid var(--color-light-tan, #eee);
-}
-
-.skeletonImage {
-	width: 100%;
-	aspect-ratio: 1 / 1;
-	background: #e0e0e0;
-	position: relative;
-	overflow: hidden;
-}
-
-.skeletonInfo {
-	padding: 15px;
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-	align-items: center;
-}
-
-.skeletonTitle,
-.skeletonPrice,
-.skeletonButton,
-.skeletonImage::after {
-	background: linear-gradient(
-		90deg,
-		rgba(240, 240, 240, 0) 0%,
-		rgba(255, 255, 255, 0.6) 50%,
-		rgba(240, 240, 240, 0) 100%
-	);
-	background-size: 200% 100%;
-	animation: shimmer 1.5s infinite linear;
-}
-
-.skeletonTitle {
-	height: 18px;
-	width: 70%;
-	border-radius: 4px;
-}
-
-.skeletonPrice {
-	height: 14px;
-	width: 40%;
-	border-radius: 4px;
-}
-
-.skeletonButton {
-	height: 30px;
-	width: 90%;
-	margin-top: 5px;
-	border-radius: 20px;
-}
-
-@media (min-width: 768px) {
-	.skeletonCard {
-		border-radius: 20px;
-	}
-
-	.skeletonInfo {
-		padding: 20px;
-	}
-
-	.skeletonTitle {
-		height: 22px;
-		width: 80%;
-	}
-
-	.skeletonButton {
-		height: 35px;
-		margin-top: 10px;
-	}
-}
-
-@keyframes shimmer {
-	0% {
-		background-position: 200% 0;
-	}
-	100% {
-		background-position: -200% 0;
 	}
 }
 
@@ -6955,38 +6463,6 @@ import type { Product } from "../../models/product";
 import styles from "../assets/css/carroussel.module.css";
 import ProductApiService from "../services/product_api_service";
 
-// const Carousel = () => {
-
-// 	const fetchedResults = use(new ProductApiService().selectAll());
-// 	const products = (fetchedResults.data as Product[]) || [];
-
-// 	const [currentIndex, setCurrentIndex] = useState(0);
-
-// 	const nextSlide = () => {
-// 		if (products.length === 0) return;
-// 		setCurrentIndex((prev) => (prev + 1) % products.length);
-// 	};
-
-// 	const prevSlide = () => {
-// 		if (products.length === 0) return;
-// 		setCurrentIndex((prev) => (prev - 1 + products.length) % products.length);
-// 	};
-
-// 	useEffect(() => {
-// 		if (!products || products.length <= 1) return;
-
-// 		const timer = setInterval(() => {
-// 			setCurrentIndex((current) => {
-// 				const nextIndex = current + 1;
-// 				return nextIndex >= products.length ? 0 : nextIndex;
-// 			});
-// 		}, 3000);
-
-// 		return () => clearInterval(timer);
-// 	}, [products.length]);
-
-// 	if (products.length === 0) return null;
-
 const Carousel = () => {
 	const apiService = useMemo(() => new ProductApiService(), []);
 	const [products, setProducts] = useState<Product[]>([]);
@@ -7045,13 +6521,6 @@ const Carousel = () => {
 };
 
 export default Carousel;
-
-```
-
----
-### FICHIER : code/src/components/favicon.tsx
-
-```tsx
 
 ```
 
@@ -7137,6 +6606,7 @@ import type { Contact } from "../../models/contact";
 import type { User } from "../../models/user";
 import styles from "../assets/css/form.module.css";
 import type { FormProps } from "../models/props/form_props";
+import ContactApiService from "../services/contact_api_service";
 import SecurityApiService from "../services/security_api_service";
 import SecurityService from "../services/security_service";
 
@@ -7162,6 +6632,9 @@ const PublicForm = ({ title, buttonText, type }: FormProps) => {
 
 	const submitForm = async (data: FormValues) => {
 		if (type === "contact") {
+			const process = await new ContactApiService().insert(data as Contact);
+			navigate("/");
+			return;
 		}
 
 		if (type === "register") {
@@ -7265,9 +6738,9 @@ const PublicForm = ({ title, buttonText, type }: FormProps) => {
 							{...register("password", {
 								required: "Le mot de passe est obligatoire",
 								minLength: {
-									value: 8,
+									value: 2,
 									message:
-										"Un mot de passe doit comporter au minimum 8 caractères",
+										"Un mot de passe doit comporter au minimum 2 caractères",
 								},
 								maxLength: {
 									value: 30,
@@ -7386,7 +6859,8 @@ import styles from "../assets/css/header.module.css";
 import IconNavbar from "./icon_navbar";
 import Logo from "./logo";
 import NavBar from "./navbar";
-import ThemeToggle from "./theme_toggle";
+
+// import ThemeToggle from "./theme_toggle";
 
 const Header = () => {
 	return (
@@ -7507,48 +6981,6 @@ export default Hero;
 ```
 
 ---
-### FICHIER : code/src/components/home/product_skeleton.tsx
-
-```tsx
-import styles from "./../../assets/css/product_skeleton.module.css";
-
-const ProductSkeleton = () => {
-	return (
-		<div className={styles.skeletonCard}>
-			<div className={styles.skeletonImage}></div>
-			<div className={styles.skeletonInfo}>
-				<div className={styles.skeletonTitle}></div>
-				<div className={styles.skeletonPrice}></div>
-				<div className={styles.skeletonButton}></div>
-			</div>
-		</div>
-	);
-};
-
-export const FeaturedSkeleton = () => {
-	return (
-		<section style={{ padding: "40px 20px" }}>
-			{/* On imite la grille de produits (par exemple 4 cartes) */}
-			<div
-				style={{
-					display: "grid",
-					gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
-					gap: "20px",
-					maxWidth: "1200px",
-					margin: "0 auto",
-				}}
-			>
-				{[1, 2, 3, 4].map((i) => (
-					<ProductSkeleton key={i} />
-				))}
-			</div>
-		</section>
-	);
-};
-
-```
-
----
 ### FICHIER : code/src/components/home/shopPreview.tsx
 
 ```tsx
@@ -7589,7 +7021,7 @@ const IconNavbar = () => {
 	return (
 		<div className={styles.icon_navbar}>
 			{/* <FaMagnifyingGlass /> */}
-			<NavLink to={"/login"}>
+			<NavLink to={"/login"} aria-label="Accéder à la page de connexion">
 				<FaUser />
 			</NavLink>
 		</div>
@@ -7988,7 +7420,6 @@ const ProfileCard = ({ user }: ProfileCardProps) => {
 					<span>Type de peau :</span>
 					<strong>{user.skin_id || "Non renseigné"}</strong>
 				</div>
-				{/* Ajoute d'autres champs de ta BDD ici */}
 			</article>
 
 			<div className={styles.sidebarFooter}>
@@ -8181,7 +7612,6 @@ export const PRODUCT_GUIDE_DATA: Record<
 		usage:
 			"Une seule goutte suffit sur les zones ciblées (contour des yeux, ridules).",
 	},
-	// Ajoute les autres ID au besoin...
 };
 
 ```
@@ -9158,12 +8588,9 @@ export default Contact;
 ### FICHIER : code/src/pages/public/homepage.tsx
 
 ```tsx
-import { Suspense } from "react";
 import Carrousel from "../../components/carrousel";
-// import FeaturedProducts from "../../components/home/featuredProducts";
 import Features from "../../components/home/features";
 import Hero from "../../components/home/hero";
-import { FeaturedSkeleton } from "../../components/home/product_skeleton";
 import ShopPreview from "../../components/home/shopPreview";
 import Seo from "../../components/seo";
 
@@ -9176,10 +8603,7 @@ const HomePage = () => {
 			<Seo title="Accueil" description="Accueil - Desk" url="/" />
 			<Hero />
 			<Features />
-			<Suspense fallback={<FeaturedSkeleton />}>
-				{/* <FeaturedProducts /> */}
-				<Carrousel />
-			</Suspense>
+			<Carrousel />
 			<ShopPreview />
 		</main>
 	);
@@ -9655,7 +9079,7 @@ import type { ApiResponse } from "../models/api_response";
 
 class ContactApiService {
 	// Préfixe de l'API
-	private préfix = "/api/contact";
+	private prefix = "/api/contact";
 
 	// selection de tous les enregistrement
 	// On recoit une promesse (car mode async) qui est typer: on recoit un type ApiResponse qui est lui même un Array( un type dans un type)
@@ -9663,7 +9087,7 @@ class ContactApiService {
 		// configurer la requête HTTP
 		// import.meta.env permet d'importer une variable d'environnement dans vite/react. Il n'y à pas d'éspace.
 		const request = new Request(
-			`${import.meta.env.VITE_API_URL}${this.préfix}`,
+			`${import.meta.env.VITE_API_URL}${this.prefix}`,
 		);
 
 		// éxecuter la requête HTTP
@@ -9684,7 +9108,7 @@ class ContactApiService {
 		// configurer la requête HTTP
 		// import.meta.env permet d'importer une variable d'environnement dans vite/react. Il n'y à pas d'éspace.
 		const request = new Request(
-			`${import.meta.env.VITE_API_URL}${this.préfix}`,
+			`${import.meta.env.VITE_API_URL}${this.prefix}`,
 			{
 				method: "post",
 				/* Si le formulaire contient un champs de fichier 
@@ -9693,8 +9117,8 @@ class ContactApiService {
 
 				/*         
                       Si le formulaire ne contient pas de champs de fichier
-                            la propriété body renvoir du JSON : JSON.stringify(...)
-                            ajouter l'en-tête Content-Type: applicatio,/json */
+                            la propriété body renvoie du JSON : JSON.stringify(...)
+                            ajouter l'en-tête Content-Type: application/json */
 
 				body: JSON.stringify(data),
 				headers: {
@@ -9974,7 +9398,6 @@ export default ProductApiService;
 
 ```ts
 import type { unstable_RSCRouteConfig as RSCRouteConfig } from "react-router";
-import DashboardClient from "../pages/user/dashboard_client";
 
 class RouterService {
 	public getRouter = () => {
@@ -10012,7 +9435,7 @@ class RouterService {
 							{
 								id: "produits_details",
 								// path représente la route
-								// variable d'URL est préfixée d'in :
+								// variable d'URL est préfixée d'un? :
 								path: "produits/:id",
 								lazy: () => import("../pages/public/produits_details"),
 							},
@@ -10914,7 +10337,7 @@ export default Body_PartController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -11167,7 +10590,7 @@ export default CategoryController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -11360,7 +10783,7 @@ export default ContactController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -11493,7 +10916,7 @@ export default HomepageController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -11537,9 +10960,9 @@ export default HomepageController;
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">6.47% </span>
+                <span class="strong">6.38% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/139</span>
+                <span class='fraction'>9/141</span>
             </div>
         
             
@@ -11558,9 +10981,9 @@ export default HomepageController;
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">6.47% </span>
+                <span class="strong">6.38% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/139</span>
+                <span class='fraction'>9/141</span>
             </div>
         
             
@@ -11703,13 +11126,13 @@ export default HomepageController;
 	<div class="chart"><div class="cover-fill" style="width: 0%"></div><div class="cover-empty" style="width: 100%"></div></div>
 	</td>
 	<td data-value="0" class="pct low">0%</td>
-	<td data-value="20" class="abs low">0/20</td>
+	<td data-value="22" class="abs low">0/22</td>
 	<td data-value="0" class="pct low">0%</td>
 	<td data-value="16" class="abs low">0/16</td>
 	<td data-value="0" class="pct low">0%</td>
 	<td data-value="2" class="abs low">0/2</td>
 	<td data-value="0" class="pct low">0%</td>
-	<td data-value="20" class="abs low">0/20</td>
+	<td data-value="22" class="abs low">0/22</td>
 	</tr>
 
 <tr>
@@ -11750,7 +11173,7 @@ export default HomepageController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -12003,7 +11426,7 @@ export default PackController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -12613,7 +12036,7 @@ export default ProductController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -12866,7 +12289,7 @@ export default RoleController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -12912,7 +12335,7 @@ export default RoleController;
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/20</span>
+                <span class='fraction'>0/22</span>
             </div>
         
             
@@ -12933,7 +12356,7 @@ export default RoleController;
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/20</span>
+                <span class='fraction'>0/22</span>
             </div>
         
             
@@ -13043,7 +12466,9 @@ export default RoleController;
 <a name='L91'></a><a href='#L91'>91</a>
 <a name='L92'></a><a href='#L92'>92</a>
 <a name='L93'></a><a href='#L93'>93</a>
-<a name='L94'></a><a href='#L94'>94</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -13110,6 +12535,8 @@ export default RoleController;
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -13203,6 +12630,8 @@ class SecurityController {
 		// vérifier si le mot de passe est correct
 		// (result as user).password: recupere le mot de passe haché dans la base de donné
 		// req.body.password/  recupere le mot de passe en claire dans la raquete
+<span class="cstat-no" title="statement not covered" >		console.log("HASH EN BASE:", (results as User).password);</span>
+<span class="cstat-no" title="statement not covered" >		console.log("PASSWORD REÇU:", req.body.password);</span>
 		const passwordIsValid = <span class="cstat-no" title="statement not covered" >await argon2.verify(</span>
 			(results as User).password,
 			req.body.password,
@@ -13236,7 +12665,7 @@ export default SecurityController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -13489,7 +12918,7 @@ export default SkinController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -13742,7 +13171,7 @@ export default UserController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -13864,7 +13293,7 @@ export default UserController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -14135,7 +13564,7 @@ export default Server;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -14161,7 +13590,7 @@ export default Server;
 ,"/app/server/controller/pack_controller.ts": {"path":"/app/server/controller/pack_controller.ts","statementMap":{"0":{"start":{"line":6,"column":16},"end":{"line":26,"column":null}},"1":{"start":{"line":28,"column":20},"end":{"line":51,"column":null}},"2":{"start":{"line":8,"column":18},"end":{"line":8,"column":null}},"3":{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},"4":{"start":{"line":12,"column":3},"end":{"line":16,"column":null}},"5":{"start":{"line":17,"column":3},"end":{"line":17,"column":null}},"6":{"start":{"line":21,"column":2},"end":{"line":25,"column":null}},"7":{"start":{"line":33,"column":18},"end":{"line":33,"column":null}},"8":{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},"9":{"start":{"line":36,"column":3},"end":{"line":40,"column":null}},"10":{"start":{"line":41,"column":3},"end":{"line":41,"column":null}},"11":{"start":{"line":46,"column":2},"end":{"line":50,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":6,"column":16},"end":{"line":6,"column":23}},"loc":{"start":{"line":6,"column":56},"end":{"line":26,"column":null}},"line":6},"1":{"name":"(anonymous_1)","decl":{"start":{"line":28,"column":20},"end":{"line":28,"column":27}},"loc":{"start":{"line":28,"column":59},"end":{"line":51,"column":null}},"line":28}},"branchMap":{"0":{"loc":{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},"type":"if","locations":[{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},{"start":{},"end":{}}],"line":11},"1":{"loc":{"start":{"line":15,"column":5},"end":{"line":15,"column":null}},"type":"cond-expr","locations":[{"start":{"line":15,"column":45},"end":{"line":15,"column":55}},{"start":{"line":15,"column":55},"end":{"line":15,"column":null}}],"line":15},"2":{"loc":{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},"type":"if","locations":[{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},{"start":{},"end":{}}],"line":35},"3":{"loc":{"start":{"line":39,"column":5},"end":{"line":39,"column":null}},"type":"cond-expr","locations":[{"start":{"line":39,"column":45},"end":{"line":39,"column":55}},{"start":{"line":39,"column":55},"end":{"line":39,"column":null}}],"line":39}},"s":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0},"f":{"0":0,"1":0},"b":{"0":[0,0],"1":[0,0],"2":[0,0],"3":[0,0]},"meta":{"lastBranch":4,"lastFunction":2,"lastStatement":12,"seen":{"s:6:16:26:Infinity":0,"s:28:20:51:Infinity":1,"f:6:16:6:23":0,"s:8:18:8:Infinity":2,"b:11:2:18:Infinity:undefined:undefined:undefined:undefined":0,"s:11:2:18:Infinity":3,"s:12:3:16:Infinity":4,"b:15:45:15:55:15:55:15:Infinity":1,"s:17:3:17:Infinity":5,"s:21:2:25:Infinity":6,"f:28:20:28:27":1,"s:33:18:33:Infinity":7,"b:35:2:42:Infinity:undefined:undefined:undefined:undefined":2,"s:35:2:42:Infinity":8,"s:36:3:40:Infinity":9,"b:39:45:39:55:39:55:39:Infinity":3,"s:41:3:41:Infinity":10,"s:46:2:50:Infinity":11}}}
 ,"/app/server/controller/product_controller.ts": {"path":"/app/server/controller/product_controller.ts","statementMap":{"0":{"start":{"line":8,"column":16},"end":{"line":28,"column":null}},"1":{"start":{"line":30,"column":20},"end":{"line":53,"column":null}},"2":{"start":{"line":55,"column":17},"end":{"line":95,"column":null}},"3":{"start":{"line":97,"column":17},"end":{"line":144,"column":null}},"4":{"start":{"line":146,"column":17},"end":{"line":170,"column":null}},"5":{"start":{"line":10,"column":18},"end":{"line":10,"column":null}},"6":{"start":{"line":13,"column":2},"end":{"line":20,"column":null}},"7":{"start":{"line":14,"column":3},"end":{"line":18,"column":null}},"8":{"start":{"line":19,"column":3},"end":{"line":19,"column":null}},"9":{"start":{"line":23,"column":2},"end":{"line":27,"column":null}},"10":{"start":{"line":35,"column":18},"end":{"line":35,"column":null}},"11":{"start":{"line":37,"column":2},"end":{"line":44,"column":null}},"12":{"start":{"line":38,"column":3},"end":{"line":42,"column":null}},"13":{"start":{"line":43,"column":3},"end":{"line":43,"column":null}},"14":{"start":{"line":48,"column":2},"end":{"line":52,"column":null}},"15":{"start":{"line":60,"column":3},"end":{"line":61,"column":null}},"16":{"start":{"line":64,"column":22},"end":{"line":64,"column":null}},"17":{"start":{"line":67,"column":19},"end":{"line":67,"column":null}},"18":{"start":{"line":73,"column":18},"end":{"line":76,"column":null}},"19":{"start":{"line":79,"column":2},"end":{"line":86,"column":null}},"20":{"start":{"line":80,"column":3},"end":{"line":84,"column":null}},"21":{"start":{"line":85,"column":3},"end":{"line":85,"column":null}},"22":{"start":{"line":90,"column":2},"end":{"line":94,"column":null}},"23":{"start":{"line":101,"column":3},"end":{"line":102,"column":null}},"24":{"start":{"line":105,"column":22},"end":{"line":105,"column":null}},"25":{"start":{"line":109,"column":2},"end":{"line":116,"column":null}},"26":{"start":{"line":111,"column":3},"end":{"line":111,"column":null}},"27":{"start":{"line":113,"column":3},"end":{"line":115,"column":null}},"28":{"start":{"line":121,"column":18},"end":{"line":124,"column":null}},"29":{"start":{"line":128,"column":2},"end":{"line":135,"column":null}},"30":{"start":{"line":129,"column":3},"end":{"line":133,"column":null}},"31":{"start":{"line":134,"column":3},"end":{"line":134,"column":null}},"32":{"start":{"line":139,"column":2},"end":{"line":143,"column":null}},"33":{"start":{"line":148,"column":2},"end":{"line":148,"column":null}},"34":{"start":{"line":151,"column":18},"end":{"line":151,"column":null}},"35":{"start":{"line":154,"column":2},"end":{"line":161,"column":null}},"36":{"start":{"line":155,"column":3},"end":{"line":159,"column":null}},"37":{"start":{"line":160,"column":3},"end":{"line":160,"column":null}},"38":{"start":{"line":165,"column":2},"end":{"line":169,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":8,"column":16},"end":{"line":8,"column":23}},"loc":{"start":{"line":8,"column":56},"end":{"line":28,"column":null}},"line":8},"1":{"name":"(anonymous_1)","decl":{"start":{"line":30,"column":20},"end":{"line":30,"column":27}},"loc":{"start":{"line":30,"column":59},"end":{"line":53,"column":null}},"line":30},"2":{"name":"(anonymous_2)","decl":{"start":{"line":55,"column":17},"end":{"line":55,"column":24}},"loc":{"start":{"line":55,"column":56},"end":{"line":95,"column":null}},"line":55},"3":{"name":"(anonymous_3)","decl":{"start":{"line":97,"column":17},"end":{"line":97,"column":24}},"loc":{"start":{"line":97,"column":56},"end":{"line":144,"column":null}},"line":97},"4":{"name":"(anonymous_4)","decl":{"start":{"line":146,"column":17},"end":{"line":146,"column":24}},"loc":{"start":{"line":146,"column":56},"end":{"line":170,"column":null}},"line":146}},"branchMap":{"0":{"loc":{"start":{"line":13,"column":2},"end":{"line":20,"column":null}},"type":"if","locations":[{"start":{"line":13,"column":2},"end":{"line":20,"column":null}},{"start":{},"end":{}}],"line":13},"1":{"loc":{"start":{"line":17,"column":5},"end":{"line":17,"column":null}},"type":"cond-expr","locations":[{"start":{"line":17,"column":45},"end":{"line":17,"column":55}},{"start":{"line":17,"column":55},"end":{"line":17,"column":null}}],"line":17},"2":{"loc":{"start":{"line":37,"column":2},"end":{"line":44,"column":null}},"type":"if","locations":[{"start":{"line":37,"column":2},"end":{"line":44,"column":null}},{"start":{},"end":{}}],"line":37},"3":{"loc":{"start":{"line":41,"column":5},"end":{"line":41,"column":null}},"type":"cond-expr","locations":[{"start":{"line":41,"column":45},"end":{"line":41,"column":55}},{"start":{"line":41,"column":55},"end":{"line":41,"column":null}}],"line":41},"4":{"loc":{"start":{"line":79,"column":2},"end":{"line":86,"column":null}},"type":"if","locations":[{"start":{"line":79,"column":2},"end":{"line":86,"column":null}},{"start":{},"end":{}}],"line":79},"5":{"loc":{"start":{"line":83,"column":5},"end":{"line":83,"column":null}},"type":"cond-expr","locations":[{"start":{"line":83,"column":45},"end":{"line":83,"column":55}},{"start":{"line":83,"column":55},"end":{"line":83,"column":null}}],"line":83},"6":{"loc":{"start":{"line":109,"column":2},"end":{"line":116,"column":null}},"type":"if","locations":[{"start":{"line":109,"column":2},"end":{"line":116,"column":null}},{"start":{"line":112,"column":9},"end":{"line":116,"column":null}}],"line":109},"7":{"loc":{"start":{"line":128,"column":2},"end":{"line":135,"column":null}},"type":"if","locations":[{"start":{"line":128,"column":2},"end":{"line":135,"column":null}},{"start":{},"end":{}}],"line":128},"8":{"loc":{"start":{"line":132,"column":5},"end":{"line":132,"column":null}},"type":"cond-expr","locations":[{"start":{"line":132,"column":45},"end":{"line":132,"column":55}},{"start":{"line":132,"column":55},"end":{"line":132,"column":null}}],"line":132},"9":{"loc":{"start":{"line":154,"column":2},"end":{"line":161,"column":null}},"type":"if","locations":[{"start":{"line":154,"column":2},"end":{"line":161,"column":null}},{"start":{},"end":{}}],"line":154},"10":{"loc":{"start":{"line":158,"column":5},"end":{"line":158,"column":null}},"type":"cond-expr","locations":[{"start":{"line":158,"column":45},"end":{"line":158,"column":55}},{"start":{"line":158,"column":55},"end":{"line":158,"column":null}}],"line":158}},"s":{"0":0,"1":0,"2":1,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":1,"16":1,"17":1,"18":1,"19":1,"20":0,"21":0,"22":1,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0},"f":{"0":0,"1":0,"2":1,"3":0,"4":0},"b":{"0":[0,0],"1":[0,0],"2":[0,0],"3":[0,0],"4":[0,1],"5":[0,0],"6":[0,0],"7":[0,0],"8":[0,0],"9":[0,0],"10":[0,0]},"meta":{"lastBranch":11,"lastFunction":5,"lastStatement":39,"seen":{"s:8:16:28:Infinity":0,"s:30:20:53:Infinity":1,"s:55:17:95:Infinity":2,"s:97:17:144:Infinity":3,"s:146:17:170:Infinity":4,"f:8:16:8:23":0,"s:10:18:10:Infinity":5,"b:13:2:20:Infinity:undefined:undefined:undefined:undefined":0,"s:13:2:20:Infinity":6,"s:14:3:18:Infinity":7,"b:17:45:17:55:17:55:17:Infinity":1,"s:19:3:19:Infinity":8,"s:23:2:27:Infinity":9,"f:30:20:30:27":1,"s:35:18:35:Infinity":10,"b:37:2:44:Infinity:undefined:undefined:undefined:undefined":2,"s:37:2:44:Infinity":11,"s:38:3:42:Infinity":12,"b:41:45:41:55:41:55:41:Infinity":3,"s:43:3:43:Infinity":13,"s:48:2:52:Infinity":14,"f:55:17:55:24":2,"s:60:3:61:Infinity":15,"s:64:22:64:Infinity":16,"s:67:19:67:Infinity":17,"s:73:18:76:Infinity":18,"b:79:2:86:Infinity:undefined:undefined:undefined:undefined":4,"s:79:2:86:Infinity":19,"s:80:3:84:Infinity":20,"b:83:45:83:55:83:55:83:Infinity":5,"s:85:3:85:Infinity":21,"s:90:2:94:Infinity":22,"f:97:17:97:24":3,"s:101:3:102:Infinity":23,"s:105:22:105:Infinity":24,"b:109:2:116:Infinity:112:9:116:Infinity":6,"s:109:2:116:Infinity":25,"s:111:3:111:Infinity":26,"s:113:3:115:Infinity":27,"s:121:18:124:Infinity":28,"b:128:2:135:Infinity:undefined:undefined:undefined:undefined":7,"s:128:2:135:Infinity":29,"s:129:3:133:Infinity":30,"b:132:45:132:55:132:55:132:Infinity":8,"s:134:3:134:Infinity":31,"s:139:2:143:Infinity":32,"f:146:17:146:24":4,"s:148:2:148:Infinity":33,"s:151:18:151:Infinity":34,"b:154:2:161:Infinity:undefined:undefined:undefined:undefined":9,"s:154:2:161:Infinity":35,"s:155:3:159:Infinity":36,"b:158:45:158:55:158:55:158:Infinity":10,"s:160:3:160:Infinity":37,"s:165:2:169:Infinity":38}}}
 ,"/app/server/controller/role_controller.ts": {"path":"/app/server/controller/role_controller.ts","statementMap":{"0":{"start":{"line":6,"column":16},"end":{"line":26,"column":null}},"1":{"start":{"line":28,"column":20},"end":{"line":51,"column":null}},"2":{"start":{"line":8,"column":18},"end":{"line":8,"column":null}},"3":{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},"4":{"start":{"line":12,"column":3},"end":{"line":16,"column":null}},"5":{"start":{"line":17,"column":3},"end":{"line":17,"column":null}},"6":{"start":{"line":21,"column":2},"end":{"line":25,"column":null}},"7":{"start":{"line":33,"column":18},"end":{"line":33,"column":null}},"8":{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},"9":{"start":{"line":36,"column":3},"end":{"line":40,"column":null}},"10":{"start":{"line":41,"column":3},"end":{"line":41,"column":null}},"11":{"start":{"line":46,"column":2},"end":{"line":50,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":6,"column":16},"end":{"line":6,"column":23}},"loc":{"start":{"line":6,"column":56},"end":{"line":26,"column":null}},"line":6},"1":{"name":"(anonymous_1)","decl":{"start":{"line":28,"column":20},"end":{"line":28,"column":27}},"loc":{"start":{"line":28,"column":59},"end":{"line":51,"column":null}},"line":28}},"branchMap":{"0":{"loc":{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},"type":"if","locations":[{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},{"start":{},"end":{}}],"line":11},"1":{"loc":{"start":{"line":15,"column":5},"end":{"line":15,"column":null}},"type":"cond-expr","locations":[{"start":{"line":15,"column":45},"end":{"line":15,"column":55}},{"start":{"line":15,"column":55},"end":{"line":15,"column":null}}],"line":15},"2":{"loc":{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},"type":"if","locations":[{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},{"start":{},"end":{}}],"line":35},"3":{"loc":{"start":{"line":39,"column":5},"end":{"line":39,"column":null}},"type":"cond-expr","locations":[{"start":{"line":39,"column":45},"end":{"line":39,"column":55}},{"start":{"line":39,"column":55},"end":{"line":39,"column":null}}],"line":39}},"s":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0},"f":{"0":0,"1":0},"b":{"0":[0,0],"1":[0,0],"2":[0,0],"3":[0,0]},"meta":{"lastBranch":4,"lastFunction":2,"lastStatement":12,"seen":{"s:6:16:26:Infinity":0,"s:28:20:51:Infinity":1,"f:6:16:6:23":0,"s:8:18:8:Infinity":2,"b:11:2:18:Infinity:undefined:undefined:undefined:undefined":0,"s:11:2:18:Infinity":3,"s:12:3:16:Infinity":4,"b:15:45:15:55:15:55:15:Infinity":1,"s:17:3:17:Infinity":5,"s:21:2:25:Infinity":6,"f:28:20:28:27":1,"s:33:18:33:Infinity":7,"b:35:2:42:Infinity:undefined:undefined:undefined:undefined":2,"s:35:2:42:Infinity":8,"s:36:3:40:Infinity":9,"b:39:45:39:55:39:55:39:Infinity":3,"s:41:3:41:Infinity":10,"s:46:2:50:Infinity":11}}}
-,"/app/server/controller/security_controller.ts": {"path":"/app/server/controller/security_controller.ts","statementMap":{"0":{"start":{"line":8,"column":19},"end":{"line":32,"column":null}},"1":{"start":{"line":36,"column":16},"end":{"line":90,"column":null}},"2":{"start":{"line":11,"column":18},"end":{"line":14,"column":null}},"3":{"start":{"line":17,"column":2},"end":{"line":24,"column":null}},"4":{"start":{"line":18,"column":3},"end":{"line":22,"column":null}},"5":{"start":{"line":23,"column":3},"end":{"line":23,"column":null}},"6":{"start":{"line":27,"column":2},"end":{"line":31,"column":null}},"7":{"start":{"line":38,"column":16},"end":{"line":38,"column":null}},"8":{"start":{"line":41,"column":2},"end":{"line":48,"column":null}},"9":{"start":{"line":42,"column":3},"end":{"line":46,"column":null}},"10":{"start":{"line":47,"column":3},"end":{"line":47,"column":null}},"11":{"start":{"line":52,"column":2},"end":{"line":61,"column":null}},"12":{"start":{"line":53,"column":3},"end":{"line":59,"column":null}},"13":{"start":{"line":60,"column":3},"end":{"line":60,"column":null}},"14":{"start":{"line":64,"column":2},"end":{"line":64,"column":null}},"15":{"start":{"line":68,"column":26},"end":{"line":71,"column":null}},"16":{"start":{"line":74,"column":2},"end":{"line":83,"column":null}},"17":{"start":{"line":75,"column":3},"end":{"line":81,"column":null}},"18":{"start":{"line":82,"column":3},"end":{"line":82,"column":null}},"19":{"start":{"line":85,"column":2},"end":{"line":89,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":8,"column":19},"end":{"line":8,"column":26}},"loc":{"start":{"line":8,"column":58},"end":{"line":32,"column":null}},"line":8},"1":{"name":"(anonymous_1)","decl":{"start":{"line":36,"column":16},"end":{"line":36,"column":23}},"loc":{"start":{"line":36,"column":55},"end":{"line":90,"column":null}},"line":36}},"branchMap":{"0":{"loc":{"start":{"line":17,"column":2},"end":{"line":24,"column":null}},"type":"if","locations":[{"start":{"line":17,"column":2},"end":{"line":24,"column":null}},{"start":{},"end":{}}],"line":17},"1":{"loc":{"start":{"line":21,"column":5},"end":{"line":21,"column":null}},"type":"cond-expr","locations":[{"start":{"line":21,"column":45},"end":{"line":21,"column":55}},{"start":{"line":21,"column":55},"end":{"line":21,"column":null}}],"line":21},"2":{"loc":{"start":{"line":41,"column":2},"end":{"line":48,"column":null}},"type":"if","locations":[{"start":{"line":41,"column":2},"end":{"line":48,"column":null}},{"start":{},"end":{}}],"line":41},"3":{"loc":{"start":{"line":45,"column":5},"end":{"line":45,"column":null}},"type":"cond-expr","locations":[{"start":{"line":45,"column":45},"end":{"line":45,"column":55}},{"start":{"line":45,"column":55},"end":{"line":45,"column":null}}],"line":45},"4":{"loc":{"start":{"line":52,"column":2},"end":{"line":61,"column":null}},"type":"if","locations":[{"start":{"line":52,"column":2},"end":{"line":61,"column":null}},{"start":{},"end":{}}],"line":52},"5":{"loc":{"start":{"line":56,"column":5},"end":{"line":58,"column":null}},"type":"cond-expr","locations":[{"start":{"line":57,"column":8},"end":{"line":57,"column":null}},{"start":{"line":58,"column":8},"end":{"line":58,"column":null}}],"line":56},"6":{"loc":{"start":{"line":74,"column":2},"end":{"line":83,"column":null}},"type":"if","locations":[{"start":{"line":74,"column":2},"end":{"line":83,"column":null}},{"start":{},"end":{}}],"line":74},"7":{"loc":{"start":{"line":78,"column":5},"end":{"line":80,"column":null}},"type":"cond-expr","locations":[{"start":{"line":79,"column":8},"end":{"line":79,"column":null}},{"start":{"line":80,"column":8},"end":{"line":80,"column":null}}],"line":78}},"s":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0},"f":{"0":0,"1":0},"b":{"0":[0,0],"1":[0,0],"2":[0,0],"3":[0,0],"4":[0,0],"5":[0,0],"6":[0,0],"7":[0,0]},"meta":{"lastBranch":8,"lastFunction":2,"lastStatement":20,"seen":{"s:8:19:32:Infinity":0,"s:36:16:90:Infinity":1,"f:8:19:8:26":0,"s:11:18:14:Infinity":2,"b:17:2:24:Infinity:undefined:undefined:undefined:undefined":0,"s:17:2:24:Infinity":3,"s:18:3:22:Infinity":4,"b:21:45:21:55:21:55:21:Infinity":1,"s:23:3:23:Infinity":5,"s:27:2:31:Infinity":6,"f:36:16:36:23":1,"s:38:16:38:Infinity":7,"b:41:2:48:Infinity:undefined:undefined:undefined:undefined":2,"s:41:2:48:Infinity":8,"s:42:3:46:Infinity":9,"b:45:45:45:55:45:55:45:Infinity":3,"s:47:3:47:Infinity":10,"b:52:2:61:Infinity:undefined:undefined:undefined:undefined":4,"s:52:2:61:Infinity":11,"s:53:3:59:Infinity":12,"b:57:8:57:Infinity:58:8:58:Infinity":5,"s:60:3:60:Infinity":13,"s:64:2:64:Infinity":14,"s:68:26:71:Infinity":15,"b:74:2:83:Infinity:undefined:undefined:undefined:undefined":6,"s:74:2:83:Infinity":16,"s:75:3:81:Infinity":17,"b:79:8:79:Infinity:80:8:80:Infinity":7,"s:82:3:82:Infinity":18,"s:85:2:89:Infinity":19}}}
+,"/app/server/controller/security_controller.ts": {"path":"/app/server/controller/security_controller.ts","statementMap":{"0":{"start":{"line":8,"column":19},"end":{"line":32,"column":null}},"1":{"start":{"line":36,"column":16},"end":{"line":92,"column":null}},"2":{"start":{"line":11,"column":18},"end":{"line":14,"column":null}},"3":{"start":{"line":17,"column":2},"end":{"line":24,"column":null}},"4":{"start":{"line":18,"column":3},"end":{"line":22,"column":null}},"5":{"start":{"line":23,"column":3},"end":{"line":23,"column":null}},"6":{"start":{"line":27,"column":2},"end":{"line":31,"column":null}},"7":{"start":{"line":38,"column":16},"end":{"line":38,"column":null}},"8":{"start":{"line":41,"column":2},"end":{"line":48,"column":null}},"9":{"start":{"line":42,"column":3},"end":{"line":46,"column":null}},"10":{"start":{"line":47,"column":3},"end":{"line":47,"column":null}},"11":{"start":{"line":52,"column":2},"end":{"line":61,"column":null}},"12":{"start":{"line":53,"column":3},"end":{"line":59,"column":null}},"13":{"start":{"line":60,"column":3},"end":{"line":60,"column":null}},"14":{"start":{"line":64,"column":2},"end":{"line":64,"column":null}},"15":{"start":{"line":68,"column":2},"end":{"line":68,"column":null}},"16":{"start":{"line":69,"column":2},"end":{"line":69,"column":null}},"17":{"start":{"line":70,"column":26},"end":{"line":73,"column":null}},"18":{"start":{"line":76,"column":2},"end":{"line":85,"column":null}},"19":{"start":{"line":77,"column":3},"end":{"line":83,"column":null}},"20":{"start":{"line":84,"column":3},"end":{"line":84,"column":null}},"21":{"start":{"line":87,"column":2},"end":{"line":91,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":8,"column":19},"end":{"line":8,"column":26}},"loc":{"start":{"line":8,"column":58},"end":{"line":32,"column":null}},"line":8},"1":{"name":"(anonymous_1)","decl":{"start":{"line":36,"column":16},"end":{"line":36,"column":23}},"loc":{"start":{"line":36,"column":55},"end":{"line":92,"column":null}},"line":36}},"branchMap":{"0":{"loc":{"start":{"line":17,"column":2},"end":{"line":24,"column":null}},"type":"if","locations":[{"start":{"line":17,"column":2},"end":{"line":24,"column":null}},{"start":{},"end":{}}],"line":17},"1":{"loc":{"start":{"line":21,"column":5},"end":{"line":21,"column":null}},"type":"cond-expr","locations":[{"start":{"line":21,"column":45},"end":{"line":21,"column":55}},{"start":{"line":21,"column":55},"end":{"line":21,"column":null}}],"line":21},"2":{"loc":{"start":{"line":41,"column":2},"end":{"line":48,"column":null}},"type":"if","locations":[{"start":{"line":41,"column":2},"end":{"line":48,"column":null}},{"start":{},"end":{}}],"line":41},"3":{"loc":{"start":{"line":45,"column":5},"end":{"line":45,"column":null}},"type":"cond-expr","locations":[{"start":{"line":45,"column":45},"end":{"line":45,"column":55}},{"start":{"line":45,"column":55},"end":{"line":45,"column":null}}],"line":45},"4":{"loc":{"start":{"line":52,"column":2},"end":{"line":61,"column":null}},"type":"if","locations":[{"start":{"line":52,"column":2},"end":{"line":61,"column":null}},{"start":{},"end":{}}],"line":52},"5":{"loc":{"start":{"line":56,"column":5},"end":{"line":58,"column":null}},"type":"cond-expr","locations":[{"start":{"line":57,"column":8},"end":{"line":57,"column":null}},{"start":{"line":58,"column":8},"end":{"line":58,"column":null}}],"line":56},"6":{"loc":{"start":{"line":76,"column":2},"end":{"line":85,"column":null}},"type":"if","locations":[{"start":{"line":76,"column":2},"end":{"line":85,"column":null}},{"start":{},"end":{}}],"line":76},"7":{"loc":{"start":{"line":80,"column":5},"end":{"line":82,"column":null}},"type":"cond-expr","locations":[{"start":{"line":81,"column":8},"end":{"line":81,"column":null}},{"start":{"line":82,"column":8},"end":{"line":82,"column":null}}],"line":80}},"s":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0},"f":{"0":0,"1":0},"b":{"0":[0,0],"1":[0,0],"2":[0,0],"3":[0,0],"4":[0,0],"5":[0,0],"6":[0,0],"7":[0,0]},"meta":{"lastBranch":8,"lastFunction":2,"lastStatement":22,"seen":{"s:8:19:32:Infinity":0,"s:36:16:92:Infinity":1,"f:8:19:8:26":0,"s:11:18:14:Infinity":2,"b:17:2:24:Infinity:undefined:undefined:undefined:undefined":0,"s:17:2:24:Infinity":3,"s:18:3:22:Infinity":4,"b:21:45:21:55:21:55:21:Infinity":1,"s:23:3:23:Infinity":5,"s:27:2:31:Infinity":6,"f:36:16:36:23":1,"s:38:16:38:Infinity":7,"b:41:2:48:Infinity:undefined:undefined:undefined:undefined":2,"s:41:2:48:Infinity":8,"s:42:3:46:Infinity":9,"b:45:45:45:55:45:55:45:Infinity":3,"s:47:3:47:Infinity":10,"b:52:2:61:Infinity:undefined:undefined:undefined:undefined":4,"s:52:2:61:Infinity":11,"s:53:3:59:Infinity":12,"b:57:8:57:Infinity:58:8:58:Infinity":5,"s:60:3:60:Infinity":13,"s:64:2:64:Infinity":14,"s:68:2:68:Infinity":15,"s:69:2:69:Infinity":16,"s:70:26:73:Infinity":17,"b:76:2:85:Infinity:undefined:undefined:undefined:undefined":6,"s:76:2:85:Infinity":18,"s:77:3:83:Infinity":19,"b:81:8:81:Infinity:82:8:82:Infinity":7,"s:84:3:84:Infinity":20,"s:87:2:91:Infinity":21}}}
 ,"/app/server/controller/skin_controller.ts": {"path":"/app/server/controller/skin_controller.ts","statementMap":{"0":{"start":{"line":6,"column":16},"end":{"line":26,"column":null}},"1":{"start":{"line":28,"column":20},"end":{"line":51,"column":null}},"2":{"start":{"line":8,"column":18},"end":{"line":8,"column":null}},"3":{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},"4":{"start":{"line":12,"column":3},"end":{"line":16,"column":null}},"5":{"start":{"line":17,"column":3},"end":{"line":17,"column":null}},"6":{"start":{"line":21,"column":2},"end":{"line":25,"column":null}},"7":{"start":{"line":33,"column":18},"end":{"line":33,"column":null}},"8":{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},"9":{"start":{"line":36,"column":3},"end":{"line":40,"column":null}},"10":{"start":{"line":41,"column":3},"end":{"line":41,"column":null}},"11":{"start":{"line":46,"column":2},"end":{"line":50,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":6,"column":16},"end":{"line":6,"column":23}},"loc":{"start":{"line":6,"column":56},"end":{"line":26,"column":null}},"line":6},"1":{"name":"(anonymous_1)","decl":{"start":{"line":28,"column":20},"end":{"line":28,"column":27}},"loc":{"start":{"line":28,"column":59},"end":{"line":51,"column":null}},"line":28}},"branchMap":{"0":{"loc":{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},"type":"if","locations":[{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},{"start":{},"end":{}}],"line":11},"1":{"loc":{"start":{"line":15,"column":5},"end":{"line":15,"column":null}},"type":"cond-expr","locations":[{"start":{"line":15,"column":45},"end":{"line":15,"column":55}},{"start":{"line":15,"column":55},"end":{"line":15,"column":null}}],"line":15},"2":{"loc":{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},"type":"if","locations":[{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},{"start":{},"end":{}}],"line":35},"3":{"loc":{"start":{"line":39,"column":5},"end":{"line":39,"column":null}},"type":"cond-expr","locations":[{"start":{"line":39,"column":45},"end":{"line":39,"column":55}},{"start":{"line":39,"column":55},"end":{"line":39,"column":null}}],"line":39}},"s":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0},"f":{"0":0,"1":0},"b":{"0":[0,0],"1":[0,0],"2":[0,0],"3":[0,0]},"meta":{"lastBranch":4,"lastFunction":2,"lastStatement":12,"seen":{"s:6:16:26:Infinity":0,"s:28:20:51:Infinity":1,"f:6:16:6:23":0,"s:8:18:8:Infinity":2,"b:11:2:18:Infinity:undefined:undefined:undefined:undefined":0,"s:11:2:18:Infinity":3,"s:12:3:16:Infinity":4,"b:15:45:15:55:15:55:15:Infinity":1,"s:17:3:17:Infinity":5,"s:21:2:25:Infinity":6,"f:28:20:28:27":1,"s:33:18:33:Infinity":7,"b:35:2:42:Infinity:undefined:undefined:undefined:undefined":2,"s:35:2:42:Infinity":8,"s:36:3:40:Infinity":9,"b:39:45:39:55:39:55:39:Infinity":3,"s:41:3:41:Infinity":10,"s:46:2:50:Infinity":11}}}
 ,"/app/server/controller/user_controller.ts": {"path":"/app/server/controller/user_controller.ts","statementMap":{"0":{"start":{"line":6,"column":16},"end":{"line":26,"column":null}},"1":{"start":{"line":28,"column":20},"end":{"line":51,"column":null}},"2":{"start":{"line":8,"column":18},"end":{"line":8,"column":null}},"3":{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},"4":{"start":{"line":12,"column":3},"end":{"line":16,"column":null}},"5":{"start":{"line":17,"column":3},"end":{"line":17,"column":null}},"6":{"start":{"line":21,"column":2},"end":{"line":25,"column":null}},"7":{"start":{"line":33,"column":18},"end":{"line":33,"column":null}},"8":{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},"9":{"start":{"line":36,"column":3},"end":{"line":40,"column":null}},"10":{"start":{"line":41,"column":3},"end":{"line":41,"column":null}},"11":{"start":{"line":46,"column":2},"end":{"line":50,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":6,"column":16},"end":{"line":6,"column":23}},"loc":{"start":{"line":6,"column":56},"end":{"line":26,"column":null}},"line":6},"1":{"name":"(anonymous_1)","decl":{"start":{"line":28,"column":20},"end":{"line":28,"column":27}},"loc":{"start":{"line":28,"column":59},"end":{"line":51,"column":null}},"line":28}},"branchMap":{"0":{"loc":{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},"type":"if","locations":[{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},{"start":{},"end":{}}],"line":11},"1":{"loc":{"start":{"line":15,"column":5},"end":{"line":15,"column":null}},"type":"cond-expr","locations":[{"start":{"line":15,"column":45},"end":{"line":15,"column":55}},{"start":{"line":15,"column":55},"end":{"line":15,"column":null}}],"line":15},"2":{"loc":{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},"type":"if","locations":[{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},{"start":{},"end":{}}],"line":35},"3":{"loc":{"start":{"line":39,"column":5},"end":{"line":39,"column":null}},"type":"cond-expr","locations":[{"start":{"line":39,"column":45},"end":{"line":39,"column":55}},{"start":{"line":39,"column":55},"end":{"line":39,"column":null}}],"line":39}},"s":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0},"f":{"0":0,"1":0},"b":{"0":[0,0],"1":[0,0],"2":[0,0],"3":[0,0]},"meta":{"lastBranch":4,"lastFunction":2,"lastStatement":12,"seen":{"s:6:16:26:Infinity":0,"s:28:20:51:Infinity":1,"f:6:16:6:23":0,"s:8:18:8:Infinity":2,"b:11:2:18:Infinity:undefined:undefined:undefined:undefined":0,"s:11:2:18:Infinity":3,"s:12:3:16:Infinity":4,"b:15:45:15:55:15:55:15:Infinity":1,"s:17:3:17:Infinity":5,"s:21:2:25:Infinity":6,"f:28:20:28:27":1,"s:33:18:33:Infinity":7,"b:35:2:42:Infinity:undefined:undefined:undefined:undefined":2,"s:35:2:42:Infinity":8,"s:36:3:40:Infinity":9,"b:39:45:39:55:39:55:39:Infinity":3,"s:41:3:41:Infinity":10,"s:46:2:50:Infinity":11}}}
 ,"/app/server/core/server.ts": {"path":"/app/server/core/server.ts","statementMap":{"0":{"start":{"line":16,"column":9},"end":{"line":16,"column":null}},"1":{"start":{"line":17,"column":18},"end":{"line":17,"column":null}},"2":{"start":{"line":40,"column":23},"end":{"line":52,"column":null}},"3":{"start":{"line":55,"column":22},"end":{"line":57,"column":null}},"4":{"start":{"line":22,"column":2},"end":{"line":22,"column":null}},"5":{"start":{"line":25,"column":2},"end":{"line":29,"column":null}},"6":{"start":{"line":32,"column":2},"end":{"line":32,"column":null}},"7":{"start":{"line":35,"column":2},"end":{"line":35,"column":null}},"8":{"start":{"line":42,"column":2},"end":{"line":42,"column":null}},"9":{"start":{"line":43,"column":2},"end":{"line":43,"column":null}},"10":{"start":{"line":44,"column":2},"end":{"line":44,"column":null}},"11":{"start":{"line":45,"column":2},"end":{"line":45,"column":null}},"12":{"start":{"line":46,"column":2},"end":{"line":46,"column":null}},"13":{"start":{"line":47,"column":2},"end":{"line":47,"column":null}},"14":{"start":{"line":48,"column":2},"end":{"line":48,"column":null}},"15":{"start":{"line":49,"column":2},"end":{"line":49,"column":null}},"16":{"start":{"line":50,"column":2},"end":{"line":50,"column":null}},"17":{"start":{"line":51,"column":2},"end":{"line":51,"column":null}},"18":{"start":{"line":56,"column":2},"end":{"line":56,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":20,"column":1},"end":{"line":20,"column":15}},"loc":{"start":{"line":20,"column":15},"end":{"line":36,"column":null}},"line":20},"1":{"name":"(anonymous_1)","decl":{"start":{"line":40,"column":23},"end":{"line":40,"column":29}},"loc":{"start":{"line":40,"column":29},"end":{"line":52,"column":null}},"line":40},"2":{"name":"(anonymous_2)","decl":{"start":{"line":55,"column":22},"end":{"line":55,"column":28}},"loc":{"start":{"line":55,"column":28},"end":{"line":57,"column":null}},"line":55}},"branchMap":{},"s":{"0":2,"1":2,"2":2,"3":2,"4":2,"5":2,"6":2,"7":2,"8":2,"9":2,"10":2,"11":2,"12":2,"13":2,"14":2,"15":2,"16":2,"17":2,"18":2},"f":{"0":2,"1":2,"2":2},"b":{},"meta":{"lastBranch":0,"lastFunction":3,"lastStatement":19,"seen":{"s:16:9:16:Infinity":0,"s:17:18:17:Infinity":1,"s:40:23:52:Infinity":2,"s:55:22:57:Infinity":3,"f:20:1:20:15":0,"s:22:2:22:Infinity":4,"s:25:2:29:Infinity":5,"s:32:2:32:Infinity":6,"s:35:2:35:Infinity":7,"f:40:23:40:29":1,"s:42:2:42:Infinity":8,"s:43:2:43:Infinity":9,"s:44:2:44:Infinity":10,"s:45:2:45:Infinity":11,"s:46:2:46:Infinity":12,"s:47:2:47:Infinity":13,"s:48:2:48:Infinity":14,"s:49:2:49:Infinity":15,"s:50:2:50:Infinity":16,"s:51:2:51:Infinity":17,"f:55:22:55:28":2,"s:56:2:56:Infinity":18}}}
@@ -14185,7 +13614,7 @@ export default Server;
 ,"/app/server/router/security_router.ts": {"path":"/app/server/router/security_router.ts","statementMap":{"0":{"start":{"line":6,"column":18},"end":{"line":6,"column":null}},"1":{"start":{"line":9,"column":20},"end":{"line":16,"column":null}},"2":{"start":{"line":11,"column":2},"end":{"line":11,"column":null}},"3":{"start":{"line":12,"column":2},"end":{"line":12,"column":null}},"4":{"start":{"line":15,"column":2},"end":{"line":15,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":9,"column":20},"end":{"line":9,"column":26}},"loc":{"start":{"line":9,"column":26},"end":{"line":16,"column":null}},"line":9}},"branchMap":{},"s":{"0":2,"1":2,"2":2,"3":2,"4":2},"f":{"0":2},"b":{},"meta":{"lastBranch":0,"lastFunction":1,"lastStatement":5,"seen":{"s:6:18:6:Infinity":0,"s:9:20:16:Infinity":1,"f:9:20:9:26":0,"s:11:2:11:Infinity":2,"s:12:2:12:Infinity":3,"s:15:2:15:Infinity":4}}}
 ,"/app/server/router/skin_router.ts": {"path":"/app/server/router/skin_router.ts","statementMap":{"0":{"start":{"line":6,"column":18},"end":{"line":6,"column":null}},"1":{"start":{"line":9,"column":20},"end":{"line":19,"column":null}},"2":{"start":{"line":11,"column":2},"end":{"line":11,"column":null}},"3":{"start":{"line":15,"column":2},"end":{"line":15,"column":null}},"4":{"start":{"line":18,"column":2},"end":{"line":18,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":9,"column":20},"end":{"line":9,"column":26}},"loc":{"start":{"line":9,"column":26},"end":{"line":19,"column":null}},"line":9}},"branchMap":{},"s":{"0":2,"1":2,"2":2,"3":2,"4":2},"f":{"0":2},"b":{},"meta":{"lastBranch":0,"lastFunction":1,"lastStatement":5,"seen":{"s:6:18:6:Infinity":0,"s:9:20:19:Infinity":1,"f:9:20:9:26":0,"s:11:2:11:Infinity":2,"s:15:2:15:Infinity":3,"s:18:2:18:Infinity":4}}}
 ,"/app/server/router/user_router.ts": {"path":"/app/server/router/user_router.ts","statementMap":{"0":{"start":{"line":6,"column":18},"end":{"line":6,"column":null}},"1":{"start":{"line":9,"column":20},"end":{"line":19,"column":null}},"2":{"start":{"line":11,"column":2},"end":{"line":11,"column":null}},"3":{"start":{"line":15,"column":2},"end":{"line":15,"column":null}},"4":{"start":{"line":18,"column":2},"end":{"line":18,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":9,"column":20},"end":{"line":9,"column":26}},"loc":{"start":{"line":9,"column":26},"end":{"line":19,"column":null}},"line":9}},"branchMap":{},"s":{"0":2,"1":2,"2":2,"3":2,"4":2},"f":{"0":2},"b":{},"meta":{"lastBranch":0,"lastFunction":1,"lastStatement":5,"seen":{"s:6:18:6:Infinity":0,"s:9:20:19:Infinity":1,"f:9:20:9:26":0,"s:11:2:11:Infinity":2,"s:15:2:15:Infinity":3,"s:18:2:18:Infinity":4}}}
-,"/app/server/service/file_service.ts": {"path":"/app/server/service/file_service.ts","statementMap":{"0":{"start":{"line":24,"column":17},"end":{"line":32,"column":null}},"1":{"start":{"line":26,"column":19},"end":{"line":26,"column":null}},"2":{"start":{"line":29,"column":2},"end":{"line":29,"column":null}},"3":{"start":{"line":31,"column":2},"end":{"line":31,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":24,"column":17},"end":{"line":24,"column":24}},"loc":{"start":{"line":24,"column":71},"end":{"line":32,"column":null}},"line":24}},"branchMap":{},"s":{"0":1,"1":1,"2":1,"3":1},"f":{"0":1},"b":{},"meta":{"lastBranch":0,"lastFunction":1,"lastStatement":4,"seen":{"s:24:17:32:Infinity":0,"f:24:17:24:24":0,"s:26:19:26:Infinity":1,"s:29:2:29:Infinity":2,"s:31:2:31:Infinity":3}}}
+,"/app/server/service/file_service.ts": {"path":"/app/server/service/file_service.ts","statementMap":{"0":{"start":{"line":10,"column":17},"end":{"line":18,"column":null}},"1":{"start":{"line":12,"column":19},"end":{"line":12,"column":null}},"2":{"start":{"line":15,"column":2},"end":{"line":15,"column":null}},"3":{"start":{"line":17,"column":2},"end":{"line":17,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":10,"column":17},"end":{"line":10,"column":24}},"loc":{"start":{"line":10,"column":71},"end":{"line":18,"column":null}},"line":10}},"branchMap":{},"s":{"0":1,"1":1,"2":1,"3":1},"f":{"0":1},"b":{},"meta":{"lastBranch":0,"lastFunction":1,"lastStatement":4,"seen":{"s:10:17:18:Infinity":0,"f:10:17:10:24":0,"s:12:19:12:Infinity":1,"s:15:2:15:Infinity":2,"s:17:2:17:Infinity":3}}}
 ,"/app/server/service/mysql_service.ts": {"path":"/app/server/service/mysql_service.ts","statementMap":{"0":{"start":{"line":9,"column":18},"end":{"line":25,"column":null}},"1":{"start":{"line":11,"column":2},"end":{"line":21,"column":null}},"2":{"start":{"line":12,"column":3},"end":{"line":20,"column":null}},"3":{"start":{"line":24,"column":2},"end":{"line":24,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":9,"column":18},"end":{"line":9,"column":30}},"loc":{"start":{"line":9,"column":30},"end":{"line":25,"column":null}},"line":9}},"branchMap":{"0":{"loc":{"start":{"line":11,"column":2},"end":{"line":21,"column":null}},"type":"if","locations":[{"start":{"line":11,"column":2},"end":{"line":21,"column":null}},{"start":{},"end":{}}],"line":11}},"s":{"0":1,"1":1,"2":1,"3":1},"f":{"0":1},"b":{"0":[1,0]},"meta":{"lastBranch":1,"lastFunction":1,"lastStatement":4,"seen":{"s:9:18:25:Infinity":0,"f:9:18:9:30":0,"b:11:2:21:Infinity:undefined:undefined:undefined:undefined":0,"s:11:2:21:Infinity":1,"s:12:3:20:Infinity":2,"s:24:2:24:Infinity":3}}}
 }
 
@@ -14220,9 +13649,9 @@ export default Server;
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">23.91% </span>
+                <span class="strong">23.81% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>121/506</span>
+                <span class='fraction'>121/508</span>
             </div>
         
             
@@ -14241,9 +13670,9 @@ export default Server;
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">24.2% </span>
+                <span class="strong">24.1% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>121/500</span>
+                <span class='fraction'>121/502</span>
             </div>
         
             
@@ -14277,17 +13706,17 @@ export default Server;
 </thead>
 <tbody><tr>
 	<td class="file low" data-value="controller"><a href="controller/index.html">controller</a></td>
-	<td data-value="6.47" class="pic low">
+	<td data-value="6.38" class="pic low">
 	<div class="chart"><div class="cover-fill" style="width: 6%"></div><div class="cover-empty" style="width: 94%"></div></div>
 	</td>
-	<td data-value="6.47" class="pct low">6.47%</td>
-	<td data-value="139" class="abs low">9/139</td>
+	<td data-value="6.38" class="pct low">6.38%</td>
+	<td data-value="141" class="abs low">9/141</td>
 	<td data-value="1.16" class="pct low">1.16%</td>
 	<td data-value="86" class="abs low">1/86</td>
 	<td data-value="9.09" class="pct low">9.09%</td>
 	<td data-value="22" class="abs low">2/22</td>
-	<td data-value="6.47" class="pct low">6.47%</td>
-	<td data-value="139" class="abs low">9/139</td>
+	<td data-value="6.38" class="pct low">6.38%</td>
+	<td data-value="141" class="abs low">9/141</td>
 	</tr>
 
 <tr>
@@ -14373,7 +13802,7 @@ export default Server;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="prettify.js"></script>
         <script>
@@ -14620,7 +14049,7 @@ export default AuthorizationMiddleware;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -14742,7 +14171,7 @@ export default AuthorizationMiddleware;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -15282,7 +14711,7 @@ export default Body_partRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -15556,7 +14985,7 @@ export default CategoryRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -15755,7 +15184,7 @@ export default ContactRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -15997,7 +15426,7 @@ export default ContactRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -16523,7 +15952,7 @@ export default PackRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -17716,7 +17145,7 @@ class ProductRepository {
 		// variable de requete : précédée d'un :, suivi du nom de la variable
 		// requetes préparées :sécurité;(utilisation des varibales de requetes)la requete est exécutée si elle ne représente pas de risque de sécurité
 		// DISTINCT: Evite les doublons
-		const sql = <span class="cstat-no" title="statement not covered" >`SELECT ${this.table}.*,</span>
+		const sql = <span class="cstat-no" title="statement not covered" >`SELECT ${this.table}.*,                                      </span>
 					GROUP_CONCAT(DISTINCT skin.id) AS skin_ids,
 					GROUP_CONCAT(DISTINCT pack.id) AS pack_ids,
 					GROUP_CONCAT(DISTINCT body_part.id) AS body_part_ids
@@ -18147,7 +17576,7 @@ export default ProductRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -18415,7 +17844,7 @@ export default RoleRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -18842,7 +18271,7 @@ export default SecurityRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -19362,7 +18791,7 @@ export default SkinRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -19651,7 +19080,7 @@ export default UserRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -19808,7 +19237,7 @@ export default Body_partRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -19965,7 +19394,7 @@ export default CategoryRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -20125,7 +19554,7 @@ export default ContactRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -20270,7 +19699,7 @@ export default HomepageRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -20527,7 +19956,7 @@ export default HomepageRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -20684,7 +20113,7 @@ export default PackRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -20928,7 +20357,7 @@ export default ProductRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -21085,7 +20514,7 @@ export default RoleRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -21233,7 +20662,7 @@ export default SecurityRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -21390,7 +20819,7 @@ export default SkinRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -21547,7 +20976,7 @@ export default UserRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -21652,35 +21081,7 @@ export default UserRouter;
 <a name='L19'></a><a href='#L19'>19</a>
 <a name='L20'></a><a href='#L20'>20</a>
 <a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L22'></a><a href='#L22'>22</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -21706,20 +21107,6 @@ export default UserRouter;
 import fs from "node:fs/promises";
 import { fileTypeFromFile } from "file-type";
 &nbsp;
-//
-// [
-//   {
-//     fieldname: 'image',
-//     originalname: 'Argile_et_Rhassoul.png',
-//     encoding: '7bit',
-//     mimetype: 'image/png',
-//     destination: 'public/img/products',
-//     filename: 'bde194790217794769729886886c077b',
-//     path: 'public/img/products/bde194790217794769729886886c077b',
-//     size: 3468635
-//   }
-// ]
-&nbsp;
 class FileService {
 	// fonction qui renomme le fichier transferé en ajoutant l'extension
 	// Cette fonction doit retourner le nom complet du fichier
@@ -21743,7 +21130,7 @@ export default FileService;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -21880,7 +21267,7 @@ export default FileService;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -22055,7 +21442,7 @@ export default MySQLService;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -22923,47 +22310,176 @@ console.log(`Terminé ! Votre fichier est prêt : ${outputFile}`);
 ### FICHIER : code/README.md
 
 ```md
-# Vite + RSC
+# 🌿 Secret-de-Hammam
 
-This example shows how to set up a React application with [Server Component](https://react.dev/reference/rsc/server-components) features on Vite using [`@vitejs/plugin-rsc`](https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-rsc).
+![title](code/public/img/products/logo_secret_de_hammam_1.png)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vitejs/vite-plugin-react/tree/main/packages/plugin-rsc/examples/starter)
+## Description projet
 
-```sh
-# run dev server
-npm run dev
+Secret de Hammam est une application Fullstack conçue pour offrir une expérience boutique immersive couplée à des guides de soins. Le projet met l'accent sur la performance, la sécurité et une architecture robuste.
 
-# build for production and preview
-npm run build
-npm run preview
+## Fonctionnalités
+
+### 👩‍💻 Administrateur
+
+Gestion des produits via  dashboard : CRUD Complet
+* Ajouter produits
+* Modifier produit
+* Supprimer produit
+
+### 👩 Public 
+
+* Formulaire de contact
+
+### Utilisateur connecté
+
+* Dashboard profil
+
+### Stack Technique
+
+#### Frontend
+* **React 18 & TypeScript** : Interface dynamique et typage rigoureux.
+* **Vite** : Environnement de développement performant.
+* **Figma** : Prototypage UI/UX.
+* **CSS Modules** : Styles isolés pour une meilleure maintenabilité.
+* **React Hook Form** : Validation fluide des formulaires.
+
+#### Backend & API
+* **Node.js & Express** : Serveur d'API REST.
+* **Postman** : Tests et documentation des endpoints.
+* **Argon2 & JWT** : Sécurisation (hachage) et gestion de l'authentification.
+* **Zod** : Validation des schémas de données.
+
+#### Base de données
+* **Mysql** : Gestion du cœur de métier (Produits, Utilisateurs, Commandes).
+* **Mongodb** : Gestion souple des documents (Formulaires de contact).
+
+
+#### Infrastructure & DevOps
+* **Docker** : Conteneurisation pour l'isolation des services et la reproductibilité de l'environnement.
+* **Git & GitHub** : Gestion de version décentralisée et collaboration.
+* **GitHub Actions** : Automatisation du cycle CI/CD (Linting, Tests).
+
+#### Outils de développement
+* **VSCode**
+* **Terminal** (Zsh/Bash) : Gestion des scripts npm et commandes Docker.
+
+### Dépendances
+
+#### Backend
+
+* express => serveur API
+
+* mysql2 => connexion MySQL
+
+* argon2 => hash des mots de passe
+
+* cors => communication frontend/backend
+
+* zod => validation des données
+
+
+#### Frontend
+
+* react → interface utilisateur
+
+* typescript → typage du code
+
+* react-router → navigation
+
+* react-markdown → affichage des leçons
+
+## Installation
+
+Le projet est entièrement conteneurisé pour garantir un environnement stable.
+
+### 1. Prérequis: 
+
+- Installer vscode : [Vscode](https://code.visualstudio.com/)
+- Installer docker : [Docker](https://www.docker.com/)
+- Installer git : [Git](https://git-scm.com/)
+
+### 2. Lancement rapide
+
+``` Bash ```
+
+Cloner le projet
+```
+git clone https://github.com/ton-profil/secret-de-hammam.git 
+cd secret-de-hammam 
 ```
 
-## API usage
+Lancer l'infrastructure avec Docker
+```
 
-See [`@vitejs/plugin-rsc`](https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-rsc) for the documentation.
+docker compose up --build
+```
+### 3. Accès aux services
 
-- [`vite.config.ts`](./vite.config.ts)
-  - `@vitejs/plugin-rsc/plugin`
-- [`./src/framework/entry.rsc.tsx`](./src/framework/entry.rsc.tsx)
-  - `@vitejs/plugin-rsc/rsc`
-  - `import.meta.viteRsc.loadModule`
-- [`./src/framework/entry.ssr.tsx`](./src/framework/entry.ssr.tsx)
-  - `@vitejs/plugin-rsc/ssr`
-  - `import.meta.viteRsc.loadBootstrapScriptContent`
-  - `rsc-html-stream/server`
-- [`./src/framework/entry.browser.tsx`](./src/framework/entry.browser.tsx)
-  - `@vitejs/plugin-rsc/browser`
-  - `rsc-html-stream/client`
+Site Web (Frontend) : http://localhost:5173
 
-## Notes
+API (Backend) : http://localhost:3000
 
-- [`./src/framework/entry.{browser,rsc,ssr}.tsx`](./src/framework) (with inline comments) provides an overview of how low level RSC (React flight) API can be used to build RSC framework.
-- You can use [`vite-plugin-inspect`](https://github.com/antfu-collective/vite-plugin-inspect) to understand how `"use client"` and `"use server"` directives are transformed internally.
+### Procédure d'accès 
 
-## Deployment
+Frontend
+```
+npm run dev
+```
 
-See [vite-plugin-rsc-deploy-example](https://github.com/hi-ogawa/vite-plugin-rsc-deploy-example)
+Backend
+``` 
+npm run server
+```
 
+### Installation des dépendances en local
+
+```Bash```
+```
+npm install
+```
+
+### Procedure de test
+
+Des tests automatisés, garantissent que chaque fonctionnalité répond aux attentes.
+
+Tests unitaires
+```
+npm run test 
+```
+Tests de couverture
+```
+npm run test : coverage
+```
+### Schéma Merise
+
+### Point d'acces api REST (endpoints)
+
+Methode HTTP              | Route                  | Description
+---------------------------------------------------------------------------------
+POST       User           | /api/register          | Enregistrer un utilisateur
+---------------------------------------------------------------------------------
+POST       User           | /api/login             | Connecter un utilisateur (generation de JWT)
+--------------------------------------------------------------------------------- 
+GET        Product        | /api/products          | Récupérer la liste de tous les produits
+---------------------------------------------------------------------------------
+GET        Product        | /api/products/:id      | Récupérer les détails d'un produit spécifique
+--------------------------------------------------------------------------------- 
+POST       Product        | /api/products          | Ajouter un nouveau produit (Admin)
+---------------------------------------------------------------------------------
+PUT        Product        | /api/products/:id      | Modifier un produit existant (Admin)
+--------------------------------------------------------------------------------- 
+DELETE     Product        | /api/products/:id      | Supprimer un produit (Admin)
+----------------------------------------------------------------------------------
+GET        Category       | /api/categories        | Récupérer toutes les catégories de soins
+---------------------------------------------------------------------------------- 
+POST       Contact        | /api/contact           | Envoyer un message via le formulaire (Mongodb)
+----------------------------------------------------------------------------------
+
+
+### Telecharger document
+
+[Mon projet de certification pdf](Docs_projet/mon_projet_certification2.pdf)
 ```
 
 ---
@@ -23497,7 +23013,7 @@ import ContactRepository from "../repository/contact_repository";
 class ContactController {
 	// Méthode relié à la route en GET située dans le routeur
 	public index = async (_req: Request, res: Response) => {
-		// Récupération des relultats de la rêquete
+		// Récupération des resultats de la rêquete
 		const results = await new ContactRepository().selectAll();
 
 		// renvoyer une reponse avec un code de status HTTP et au format json
@@ -23922,6 +23438,8 @@ class SecurityController {
 		// vérifier si le mot de passe est correct
 		// (result as user).password: recupere le mot de passe haché dans la base de donné
 		// req.body.password/  recupere le mot de passe en claire dans la raquete
+		console.log("HASH EN BASE:", (results as User).password);
+		console.log("PASSWORD REÇU:", req.body.password);
 		const passwordIsValid = await argon2.verify(
 			(results as User).password,
 			req.body.password,
@@ -24446,7 +23964,7 @@ class ContactRepository {
 
 	// Selectionner tous les documents
 	public selectAll = async (): Promise<Document[] | unknown> => {
-		// connexionau server Mongodb
+		// connexion au server Mongodb
 		const connection = await new MongodbService().connect();
 
 		// Selection d'une collection
@@ -24719,7 +24237,7 @@ class ProductRepository {
 		// variable de requete : précédée d'un :, suivi du nom de la variable
 		// requetes préparées :sécurité;(utilisation des varibales de requetes)la requete est exécutée si elle ne représente pas de risque de sécurité
 		// DISTINCT: Evite les doublons
-		const sql = `SELECT ${this.table}.*,
+		const sql = `SELECT ${this.table}.*,                                      
 					GROUP_CONCAT(DISTINCT skin.id) AS skin_ids,
 					GROUP_CONCAT(DISTINCT pack.id) AS pack_ids,
 					GROUP_CONCAT(DISTINCT body_part.id) AS body_part_ids
@@ -25876,20 +25394,6 @@ export default UserRouter;
 import fs from "node:fs/promises";
 import { fileTypeFromFile } from "file-type";
 
-//
-// [
-//   {
-//     fieldname: 'image',
-//     originalname: 'Argile_et_Rhassoul.png',
-//     encoding: '7bit',
-//     mimetype: 'image/png',
-//     destination: 'public/img/products',
-//     filename: 'bde194790217794769729886886c077b',
-//     path: 'public/img/products/bde194790217794769729886886c077b',
-//     size: 3468635
-//   }
-// ]
-
 class FileService {
 	// fonction qui renomme le fichier transferé en ajoutant l'extension
 	// Cette fonction doit retourner le nom complet du fichier
@@ -26080,233 +25584,6 @@ export default MySQLService;
 ### FICHIER : code/src/assets/css/admin_css/add.module.css
 
 ```css
-/* Conteneur principal pour centrer le formulaire */
-/* .formContainer {
-    max-width: 850px;
-    margin: 0 auto;
-    animation: fadeIn 0.5s ease-in-out;
-} */
-
-/* En-tête du formulaire */
-/* .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2.5rem;
-}
-
-.header h1 {
-    font-family: 'Playfair Display', serif;
-    color: #4a3f35;
-    margin: 0;
-}
-
-.header p {
-    color: #8c725b;
-    margin: 5px 0 0 0;
-    font-style: italic;
-} */
-
-/* Bouton Retour / Annuler */
-/* .backBtn {
-    text-decoration: none;
-    color: #8c725b;
-    border: 1px solid #eaddca;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    background: white;
-}
-
-.backBtn:hover {
-    background: #fdf2f2;
-    color: #d9534f;
-    border-color: #fca5a5;
-} */
-
-/* Le bloc formulaire */
-/* .productForm {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid #f3efe4;
-} */
-
-/* Groupes de champs (Label + Input) */
-/* .formGroup {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.5rem;
-}
-
-.formGroup label {
-    font-weight: 600;
-    color: #645945;
-    margin-bottom: 0.6rem;
-    font-size: 0.95rem;
-} */
-
-/* Style des Inputs, Select et Textarea */
-/* .formGroup input, 
-.formGroup select, 
-.formGroup textarea {
-    padding: 12px 15px;
-    border: 1px solid #eaddca;
-    border-radius: 8px;
-    font-size: 1rem;
-    color: #4a3f35;
-    background-color: #fff;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.formGroup input:focus, 
-.formGroup select:focus, 
-.formGroup textarea:focus {
-    outline: none;
-    border-color: #c5a059;
-    box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.1);
-} */
-
-/* Mise en page sur deux colonnes pour Prix et Stock */
-/* .formRow {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-} */
-
-/* Bouton de validation final */
-/* .submitBtn {
-    width: 100%;
-    padding: 15px;
-    background-color: #c5a059;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 1rem;
-    transition: background 0.3s ease, transform 0.2s active;
-}
-
-.submitBtn:hover {
-    background-color: #a68648;
-}
-
-.submitBtn:active {
-    transform: scale(0.98);
-} */
-
-/* Petit effet d'entrée */
-/* @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-} */
-
-/* Responsive pour les petits écrans */
-/* @media (max-width: 600px) {
-    .formRow {
-        grid-template-columns: 1fr;
-    }
-} */
-
-/* code/src/assets/css/admin_css/add.module.css */
-
-/* .formContainer {
-	width: 100%;
-	padding: 15px;
-	animation: fadeIn 0.5s ease-in-out;
-}
-
-.header {
-	text-align: center;
-	margin-bottom: 2rem;
-}
-
-.header h1 {
-	color: var(--color-primary-dark);
-	font-size: var(--text-xl);
-}
-
-.productForm {
-	background: var(--color-neutral-light);
-	padding: 1.5rem;
-	border-radius: 15px;
-	box-shadow: var(--shadow-soft);
-	border: 1px solid var(--color-bg-light);
-}
-
-.formGroup {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 1.2rem;
-}
-
-.formGroup label {
-	font-weight: 600;
-	color: var(--color-primary);
-	margin-bottom: 0.5rem;
-	font-size: var(--text-sm);
-}
-
-.formGroup input,
-.formGroup select,
-.formGroup textarea {
-	padding: 12px;
-	border: 1px solid var(--color-border);
-	border-radius: 8px;
-	font-family: var(--font-text);
-}
-
-.formRow {
-	display: grid;
-	grid-template-columns: 1fr; 
-	gap: 15px;
-}
-
-.submitBtn {
-	width: 100%;
-	padding: 15px;
-	background-color: var(--color-accent);
-	color: white;
-	border: none;
-	border-radius: 8px;
-	font-weight: bold;
-	cursor: pointer;
-}
-
-@media (min-width: 768px) {
-	.formContainer {
-		max-width: 850px;
-		margin: 0 auto;
-		padding: 40px;
-	}
-	.header {
-		display: flex;
-		justify-content: space-between;
-		text-align: left;
-	}
-	.productForm {
-		padding: 2.5rem;
-	}
-	.formRow {
-		grid-template-columns: 1fr 1fr;
-	}
-}
-
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-		transform: translateY(10px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-} */
-
 .formContainer {
 	width: 100%;
 	padding: 20px 15px;
@@ -26406,164 +25683,6 @@ export default MySQLService;
 ### FICHIER : code/src/assets/css/admin_css/admin_product_index.module.css
 
 ```css
-/* .crudContainer {
-    padding: 20px;
-    max-width: 1200px;
-    margin:0 auto;
-} */
-
-/* .crudHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 30px;
-    gap: 20px;
-} */
-
-/*.addButton {
-    background-color: #645945;
-    color: white;
-    padding: 12px 24px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s;
-    white-space: nowrap; Empeche le texte du bouton de revenir à la ligne
-    display: inline-block;
-}*/
-
-/* .addButton:hover {
-    background-color: #c5a059;
-    transform: translateY(-2px);
-} */
-
-/* .tableWrapper {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    overflow-x: auto;
-} */
-
-/* .crudTable {
-    width: 100%;
-    border-collapse: collapse;
-} */
-
-/* .crudTable th {
-    text-align: left;
-    padding: 15px;
-    border-bottom: 2px solid #f3efe4;
-    color: #8c725b;
-} */
-
-/* .crudTable td {
-    padding: 15px;
-    border-bottom: 1px solid #f3efe4;
-} */
-
-/* .productName {
-    font-weight: 600;
-    color: #8c725b;
-} */
-
-/* .actions {
-    display: flex;
-    gap: 10px;
-} */
-
-/* .modif {
-    color:  #8c725b;
-
-} */
-
-/* .supp {
-    color: red;
-} */
-
-/* .editBtn, .deleteBtn {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.85rem;
-} */
-
-/* .editBtn {
-    background-color: #eaddca;
-    color: #645945;
-} */
-
-/* .deleteBtn {
-    background-color: #fdf2f2;
-    color: #d9534f;
-} */
-
-/* .deleteBtn:hover {
-    background-color: #d9534f;
-    color: white;
-} */
-
-/* .crudContainer {
-	padding: 15px;
-}
-
-.crudHeader {
-	display: flex;
-	flex-direction: column; 
-	gap: 15px;
-	margin-bottom: 20px;
-}
-
-.addButton {
-	background-color: var(--color-primary);
-	color: white;
-	padding: 12px 20px;
-	border-radius: 8px;
-	text-align: center;
-	text-decoration: none;
-	font-weight: bold;
-}
-
-.tableWrapper {
-	background: white;
-	padding: 10px;
-	border-radius: 12px;
-	overflow-x: auto; 
-	box-shadow: var(--shadow-soft);
-}
-
-.crudTable {
-	width: 100%;
-	border-collapse: collapse;
-	min-width: 600px; 
-}
-
-.crudTable th {
-	text-align: left;
-	padding: 12px;
-	border-bottom: 2px solid var(--color-bg-light);
-	color: var(--color-secondary);
-}
-
-.crudTable td {
-	padding: 12px;
-	border-bottom: 1px solid var(--color-bg-light);
-}
-
-@media (min-width: 768px) {
-	.crudContainer {
-		padding: 40px;
-		max-width: 1200px;
-		margin: 0 auto;
-	}
-	.crudHeader {
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-	}
-} */
-
 .crudContainer {
 	padding: 20px 15px;
 }
@@ -26612,7 +25731,6 @@ export default MySQLService;
 	border-bottom: 1px solid var(--color-bg-light);
 }
 
-/* Actions : Boutons larges sur mobile pour le tactile */
 .actions {
 	display: flex;
 	gap: 15px;
@@ -26659,139 +25777,6 @@ export default MySQLService;
 ### FICHIER : code/src/assets/css/admin_css/sidebar.module.css
 
 ```css
-/* .sidebar {
-    width: 260px;
-    height: 100vh;
-    background-color: #645945; 
-    color: #f3efe4;
-    text-decoration: none;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    left: 0;
-    top: 0;
-    padding: 2rem 1rem;
-}
-
-.logoSection {
-    margin-bottom: 3rem;
-    text-align: center;
-}
-
-.logoSection h2 {
-    color: #c5a059;
-    font-family: 'Playfair Display', serif;
-    margin: 0;
-}
-
-.badge {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #8c725b;
-}
-
-.navLinks {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-
-.link, .active {
-    display: flex;
-    align-items: center;
-    padding: 12px 15px;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: 0.3s;
-    color: #a89f91;
-}
-
-.link:hover {
-    background: rgba(197, 160, 89, 0.1);
-    color: #c5a059;
-}
-
-.active {
-    background: #c5a059;
-    color: white;
-}
-
-.icon {
-    margin-right: 12px;
-    font-size: 1.2rem;
-}
-
-.sidebarFooter {
-    margin-top: auto;
-    padding-top: 1rem;
-    border-top: 1px solid #333;
-} */
-
-/*.exitLink {
-    background-color: #c5a059;
-    color: white;
-    display: flex; /* Aligne le texte comme les autres liens */ /*
-    align-items: center;
-    padding: 12px 15px; */ /* Même espacement interne que .link */ /*
-    text-decoration: none;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    border-radius: 8px;
-    transition: 0.3s;
-}*/
-
-/*.exitLink:hover {
-    background-color: #d9534f;*/ /* Devient rouge plein au survol */
-/*color: white;
- } /* Texte blanc au survol */
-
-/* .sidebar {
-	width: 100%;
-	background-color: var(--color-primary);
-	color: var(--color-bg-light);
-	padding: 1rem;
-	display: flex;
-	flex-direction: row; 
-	justify-content: space-between;
-	align-items: center;
-	position: sticky;
-	top: 0;
-	z-index: 1000;
-}
-
-.logoSection h2 {
-	color: var(--color-accent);
-	font-size: var(--text-lg);
-}
-
-.navLinks {
-	display: none; 
-}
-
-
-@media (min-width: 1024px) {
-	.sidebar {
-		width: 260px;
-		height: 100vh;
-		flex-direction: column;
-		position: fixed;
-		left: 0;
-		top: 0;
-		padding: 2rem 1rem;
-		justify-content: flex-start;
-	}
-	.navLinks {
-		display: flex;
-		flex-direction: column;
-		gap: 0.8rem;
-		width: 100%;
-		margin-top: 2rem;
-	}
-} */
-
 .sidebar {
 	width: 100%;
 	background-color: var(--color-primary);
@@ -26814,7 +25799,7 @@ export default MySQLService;
 }
 
 .badge {
-	display: none; /* Cache le badge sur mobile pour gagner de la place */
+	display: none;
 }
 
 .navLinks {
@@ -26822,8 +25807,13 @@ export default MySQLService;
 	gap: 10px;
 }
 
-/* Style des liens commun */
-.link,
+.link:focus-visible,
+.active:focus-visible {
+	outline: 2px solid var(--color-accent);
+	outline-offset: 2px;
+}
+
+/* .link,
 .active {
 	padding: 8px 12px;
 	text-decoration: none;
@@ -26831,7 +25821,7 @@ export default MySQLService;
 	font-size: 0.85rem;
 	transition: 0.3s;
 	color: rgba(255, 255, 255, 0.8);
-}
+} */
 
 .active {
 	background: var(--color-accent);
@@ -26839,10 +25829,9 @@ export default MySQLService;
 }
 
 .sidebarFooter {
-	display: none; /* Cache le footer admin sur mobile */
+	display: none;
 }
 
-/* --- Desktop Version --- */
 @media (min-width: 1024px) {
 	.sidebar {
 		width: 260px;
@@ -27220,7 +26209,7 @@ export default MySQLService;
 :root {
 	/*Couleurs fixes*/
 	--color-primary-dark: #040c34;
-	--color-secondary: #341967;
+	--color-secondary: #8b6d35;
 
 	/* Variable thème claire*/
 	--color-primary: #645945;
@@ -27246,12 +26235,12 @@ export default MySQLService;
 /* Variable thème dark*/
 
 :root[data-theme="dark"] {
-	--color-bg-light: #1a1612; /* Brun très sombre */
-	--color-surface: #26211c; /* Cartes sombres */
-	--color-text-dark: #eee4d8; /* Texte crème clair */
-	--color-primary: #a08d6d; /* Marron doré plus clair */
-	--color-accent: #d4b375; /* Or plus brillant */
-	--color-border: #3d342c; /* Bordures discrètes */
+	--color-bg-light: #1a1612;
+	--color-surface: #26211c;
+	--color-text-dark: #eee4d8;
+	--color-primary: #a08d6d;
+	--color-accent: #d4b375;
+	--color-border: #3d342c;
 	--shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -27274,9 +26263,6 @@ body {
 	font-size: 1rem;
 	line-height: 1.6;
 	-webkit-font-smoothing: antialiased;
-	/* font-family: var(--font-body); */
-	/* background-color: var(--color-bg-light); */
-	/* color: var(--color-text-dark); */
 	transition:
 		background-color var(--transition-base),
 		color var(--transition-base);
@@ -27300,7 +26286,7 @@ a:focus {
 	outline-offset: 4px;
 }
 
-/* Lien */
+/* Lien d'évitement */
 .skipLink:not(:focus) {
 	position: absolute;
 	width: 1px;
@@ -27317,9 +26303,9 @@ a:focus {
 	position: fixed;
 	top: 10px;
 	left: 10px;
-	z-index: 9999; /* Toujours au-dessus de la navbar */
+	z-index: 9999;
 	padding: 15px 25px;
-	background-color: var(--color-accent); /* Ton bronze accessible #8b6d35 */
+	background-color: var(--color-accent);
 	color: white;
 	font-family: var(--font-title);
 	text-decoration: none;
@@ -27662,7 +26648,7 @@ a:focus {
 }
 
 .orientalForm button {
-	background: linear-gradient(135deg, var(--color-secondary) 0%, #a68b74 100%);
+	background: var(--color-primary);
 	color: white;
 	padding: 16px;
 	border-radius: 50px;
@@ -28489,97 +27475,6 @@ a:focus {
 		/* Aligne le contenu à gauche sur desktop si tu préfères, 
            sinon garde center pour le look "infographie" */
 		align-items: center;
-	}
-}
-
-```
-
----
-### FICHIER : code/src/assets/css/product_skeleton.module.css
-
-```css
-.skeletonCard {
-	background: var(--color-white, #fdfcf9);
-	border-radius: 15px;
-	overflow: hidden;
-	border: 1px solid var(--color-light-tan, #eee);
-}
-
-.skeletonImage {
-	width: 100%;
-	aspect-ratio: 1 / 1;
-	background: #e0e0e0;
-	position: relative;
-	overflow: hidden;
-}
-
-.skeletonInfo {
-	padding: 15px;
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-	align-items: center;
-}
-
-.skeletonTitle,
-.skeletonPrice,
-.skeletonButton,
-.skeletonImage::after {
-	background: linear-gradient(
-		90deg,
-		rgba(240, 240, 240, 0) 0%,
-		rgba(255, 255, 255, 0.6) 50%,
-		rgba(240, 240, 240, 0) 100%
-	);
-	background-size: 200% 100%;
-	animation: shimmer 1.5s infinite linear;
-}
-
-.skeletonTitle {
-	height: 18px;
-	width: 70%;
-	border-radius: 4px;
-}
-
-.skeletonPrice {
-	height: 14px;
-	width: 40%;
-	border-radius: 4px;
-}
-
-.skeletonButton {
-	height: 30px;
-	width: 90%;
-	margin-top: 5px;
-	border-radius: 20px;
-}
-
-@media (min-width: 768px) {
-	.skeletonCard {
-		border-radius: 20px;
-	}
-
-	.skeletonInfo {
-		padding: 20px;
-	}
-
-	.skeletonTitle {
-		height: 22px;
-		width: 80%;
-	}
-
-	.skeletonButton {
-		height: 35px;
-		margin-top: 10px;
-	}
-}
-
-@keyframes shimmer {
-	0% {
-		background-position: 200% 0;
-	}
-	100% {
-		background-position: -200% 0;
 	}
 }
 
@@ -29544,38 +28439,6 @@ import type { Product } from "../../models/product";
 import styles from "../assets/css/carroussel.module.css";
 import ProductApiService from "../services/product_api_service";
 
-// const Carousel = () => {
-
-// 	const fetchedResults = use(new ProductApiService().selectAll());
-// 	const products = (fetchedResults.data as Product[]) || [];
-
-// 	const [currentIndex, setCurrentIndex] = useState(0);
-
-// 	const nextSlide = () => {
-// 		if (products.length === 0) return;
-// 		setCurrentIndex((prev) => (prev + 1) % products.length);
-// 	};
-
-// 	const prevSlide = () => {
-// 		if (products.length === 0) return;
-// 		setCurrentIndex((prev) => (prev - 1 + products.length) % products.length);
-// 	};
-
-// 	useEffect(() => {
-// 		if (!products || products.length <= 1) return;
-
-// 		const timer = setInterval(() => {
-// 			setCurrentIndex((current) => {
-// 				const nextIndex = current + 1;
-// 				return nextIndex >= products.length ? 0 : nextIndex;
-// 			});
-// 		}, 3000);
-
-// 		return () => clearInterval(timer);
-// 	}, [products.length]);
-
-// 	if (products.length === 0) return null;
-
 const Carousel = () => {
 	const apiService = useMemo(() => new ProductApiService(), []);
 	const [products, setProducts] = useState<Product[]>([]);
@@ -29634,13 +28497,6 @@ const Carousel = () => {
 };
 
 export default Carousel;
-
-```
-
----
-### FICHIER : code/src/components/favicon.tsx
-
-```tsx
 
 ```
 
@@ -29726,6 +28582,7 @@ import type { Contact } from "../../models/contact";
 import type { User } from "../../models/user";
 import styles from "../assets/css/form.module.css";
 import type { FormProps } from "../models/props/form_props";
+import ContactApiService from "../services/contact_api_service";
 import SecurityApiService from "../services/security_api_service";
 import SecurityService from "../services/security_service";
 
@@ -29751,6 +28608,9 @@ const PublicForm = ({ title, buttonText, type }: FormProps) => {
 
 	const submitForm = async (data: FormValues) => {
 		if (type === "contact") {
+			const process = await new ContactApiService().insert(data as Contact);
+			navigate("/");
+			return;
 		}
 
 		if (type === "register") {
@@ -29854,9 +28714,9 @@ const PublicForm = ({ title, buttonText, type }: FormProps) => {
 							{...register("password", {
 								required: "Le mot de passe est obligatoire",
 								minLength: {
-									value: 8,
+									value: 2,
 									message:
-										"Un mot de passe doit comporter au minimum 8 caractères",
+										"Un mot de passe doit comporter au minimum 2 caractères",
 								},
 								maxLength: {
 									value: 30,
@@ -29975,7 +28835,8 @@ import styles from "../assets/css/header.module.css";
 import IconNavbar from "./icon_navbar";
 import Logo from "./logo";
 import NavBar from "./navbar";
-import ThemeToggle from "./theme_toggle";
+
+// import ThemeToggle from "./theme_toggle";
 
 const Header = () => {
 	return (
@@ -30096,48 +28957,6 @@ export default Hero;
 ```
 
 ---
-### FICHIER : code/src/components/home/product_skeleton.tsx
-
-```tsx
-import styles from "./../../assets/css/product_skeleton.module.css";
-
-const ProductSkeleton = () => {
-	return (
-		<div className={styles.skeletonCard}>
-			<div className={styles.skeletonImage}></div>
-			<div className={styles.skeletonInfo}>
-				<div className={styles.skeletonTitle}></div>
-				<div className={styles.skeletonPrice}></div>
-				<div className={styles.skeletonButton}></div>
-			</div>
-		</div>
-	);
-};
-
-export const FeaturedSkeleton = () => {
-	return (
-		<section style={{ padding: "40px 20px" }}>
-			{/* On imite la grille de produits (par exemple 4 cartes) */}
-			<div
-				style={{
-					display: "grid",
-					gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
-					gap: "20px",
-					maxWidth: "1200px",
-					margin: "0 auto",
-				}}
-			>
-				{[1, 2, 3, 4].map((i) => (
-					<ProductSkeleton key={i} />
-				))}
-			</div>
-		</section>
-	);
-};
-
-```
-
----
 ### FICHIER : code/src/components/home/shopPreview.tsx
 
 ```tsx
@@ -30178,7 +28997,7 @@ const IconNavbar = () => {
 	return (
 		<div className={styles.icon_navbar}>
 			{/* <FaMagnifyingGlass /> */}
-			<NavLink to={"/login"}>
+			<NavLink to={"/login"} aria-label="Accéder à la page de connexion">
 				<FaUser />
 			</NavLink>
 		</div>
@@ -30577,7 +29396,6 @@ const ProfileCard = ({ user }: ProfileCardProps) => {
 					<span>Type de peau :</span>
 					<strong>{user.skin_id || "Non renseigné"}</strong>
 				</div>
-				{/* Ajoute d'autres champs de ta BDD ici */}
 			</article>
 
 			<div className={styles.sidebarFooter}>
@@ -30770,7 +29588,6 @@ export const PRODUCT_GUIDE_DATA: Record<
 		usage:
 			"Une seule goutte suffit sur les zones ciblées (contour des yeux, ridules).",
 	},
-	// Ajoute les autres ID au besoin...
 };
 
 ```
@@ -31747,12 +30564,9 @@ export default Contact;
 ### FICHIER : code/src/pages/public/homepage.tsx
 
 ```tsx
-import { Suspense } from "react";
 import Carrousel from "../../components/carrousel";
-// import FeaturedProducts from "../../components/home/featuredProducts";
 import Features from "../../components/home/features";
 import Hero from "../../components/home/hero";
-import { FeaturedSkeleton } from "../../components/home/product_skeleton";
 import ShopPreview from "../../components/home/shopPreview";
 import Seo from "../../components/seo";
 
@@ -31765,10 +30579,7 @@ const HomePage = () => {
 			<Seo title="Accueil" description="Accueil - Desk" url="/" />
 			<Hero />
 			<Features />
-			<Suspense fallback={<FeaturedSkeleton />}>
-				{/* <FeaturedProducts /> */}
-				<Carrousel />
-			</Suspense>
+			<Carrousel />
 			<ShopPreview />
 		</main>
 	);
@@ -32244,7 +31055,7 @@ import type { ApiResponse } from "../models/api_response";
 
 class ContactApiService {
 	// Préfixe de l'API
-	private préfix = "/api/contact";
+	private prefix = "/api/contact";
 
 	// selection de tous les enregistrement
 	// On recoit une promesse (car mode async) qui est typer: on recoit un type ApiResponse qui est lui même un Array( un type dans un type)
@@ -32252,7 +31063,7 @@ class ContactApiService {
 		// configurer la requête HTTP
 		// import.meta.env permet d'importer une variable d'environnement dans vite/react. Il n'y à pas d'éspace.
 		const request = new Request(
-			`${import.meta.env.VITE_API_URL}${this.préfix}`,
+			`${import.meta.env.VITE_API_URL}${this.prefix}`,
 		);
 
 		// éxecuter la requête HTTP
@@ -32273,7 +31084,7 @@ class ContactApiService {
 		// configurer la requête HTTP
 		// import.meta.env permet d'importer une variable d'environnement dans vite/react. Il n'y à pas d'éspace.
 		const request = new Request(
-			`${import.meta.env.VITE_API_URL}${this.préfix}`,
+			`${import.meta.env.VITE_API_URL}${this.prefix}`,
 			{
 				method: "post",
 				/* Si le formulaire contient un champs de fichier 
@@ -32282,8 +31093,8 @@ class ContactApiService {
 
 				/*         
                       Si le formulaire ne contient pas de champs de fichier
-                            la propriété body renvoir du JSON : JSON.stringify(...)
-                            ajouter l'en-tête Content-Type: applicatio,/json */
+                            la propriété body renvoie du JSON : JSON.stringify(...)
+                            ajouter l'en-tête Content-Type: application/json */
 
 				body: JSON.stringify(data),
 				headers: {
@@ -32563,7 +31374,6 @@ export default ProductApiService;
 
 ```ts
 import type { unstable_RSCRouteConfig as RSCRouteConfig } from "react-router";
-import DashboardClient from "../pages/user/dashboard_client";
 
 class RouterService {
 	public getRouter = () => {
@@ -32601,7 +31411,7 @@ class RouterService {
 							{
 								id: "produits_details",
 								// path représente la route
-								// variable d'URL est préfixée d'in :
+								// variable d'URL est préfixée d'un? :
 								path: "produits/:id",
 								lazy: () => import("../pages/public/produits_details"),
 							},
@@ -33503,7 +32313,7 @@ export default Body_PartController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -33756,7 +32566,7 @@ export default CategoryController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -33949,7 +32759,7 @@ export default ContactController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -34082,7 +32892,7 @@ export default HomepageController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -34126,9 +32936,9 @@ export default HomepageController;
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">6.47% </span>
+                <span class="strong">6.38% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>9/139</span>
+                <span class='fraction'>9/141</span>
             </div>
         
             
@@ -34147,9 +32957,9 @@ export default HomepageController;
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">6.47% </span>
+                <span class="strong">6.38% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>9/139</span>
+                <span class='fraction'>9/141</span>
             </div>
         
             
@@ -34292,13 +33102,13 @@ export default HomepageController;
 	<div class="chart"><div class="cover-fill" style="width: 0%"></div><div class="cover-empty" style="width: 100%"></div></div>
 	</td>
 	<td data-value="0" class="pct low">0%</td>
-	<td data-value="20" class="abs low">0/20</td>
+	<td data-value="22" class="abs low">0/22</td>
 	<td data-value="0" class="pct low">0%</td>
 	<td data-value="16" class="abs low">0/16</td>
 	<td data-value="0" class="pct low">0%</td>
 	<td data-value="2" class="abs low">0/2</td>
 	<td data-value="0" class="pct low">0%</td>
-	<td data-value="20" class="abs low">0/20</td>
+	<td data-value="22" class="abs low">0/22</td>
 	</tr>
 
 <tr>
@@ -34339,7 +33149,7 @@ export default HomepageController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -34592,7 +33402,7 @@ export default PackController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -35202,7 +34012,7 @@ export default ProductController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -35455,7 +34265,7 @@ export default RoleController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -35501,7 +34311,7 @@ export default RoleController;
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/20</span>
+                <span class='fraction'>0/22</span>
             </div>
         
             
@@ -35522,7 +34332,7 @@ export default RoleController;
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/20</span>
+                <span class='fraction'>0/22</span>
             </div>
         
             
@@ -35632,7 +34442,9 @@ export default RoleController;
 <a name='L91'></a><a href='#L91'>91</a>
 <a name='L92'></a><a href='#L92'>92</a>
 <a name='L93'></a><a href='#L93'>93</a>
-<a name='L94'></a><a href='#L94'>94</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -35699,6 +34511,8 @@ export default RoleController;
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -35792,6 +34606,8 @@ class SecurityController {
 		// vérifier si le mot de passe est correct
 		// (result as user).password: recupere le mot de passe haché dans la base de donné
 		// req.body.password/  recupere le mot de passe en claire dans la raquete
+<span class="cstat-no" title="statement not covered" >		console.log("HASH EN BASE:", (results as User).password);</span>
+<span class="cstat-no" title="statement not covered" >		console.log("PASSWORD REÇU:", req.body.password);</span>
 		const passwordIsValid = <span class="cstat-no" title="statement not covered" >await argon2.verify(</span>
 			(results as User).password,
 			req.body.password,
@@ -35825,7 +34641,7 @@ export default SecurityController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -36078,7 +34894,7 @@ export default SkinController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -36331,7 +35147,7 @@ export default UserController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -36453,7 +35269,7 @@ export default UserController;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -36724,7 +35540,7 @@ export default Server;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -36750,7 +35566,7 @@ export default Server;
 ,"/app/server/controller/pack_controller.ts": {"path":"/app/server/controller/pack_controller.ts","statementMap":{"0":{"start":{"line":6,"column":16},"end":{"line":26,"column":null}},"1":{"start":{"line":28,"column":20},"end":{"line":51,"column":null}},"2":{"start":{"line":8,"column":18},"end":{"line":8,"column":null}},"3":{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},"4":{"start":{"line":12,"column":3},"end":{"line":16,"column":null}},"5":{"start":{"line":17,"column":3},"end":{"line":17,"column":null}},"6":{"start":{"line":21,"column":2},"end":{"line":25,"column":null}},"7":{"start":{"line":33,"column":18},"end":{"line":33,"column":null}},"8":{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},"9":{"start":{"line":36,"column":3},"end":{"line":40,"column":null}},"10":{"start":{"line":41,"column":3},"end":{"line":41,"column":null}},"11":{"start":{"line":46,"column":2},"end":{"line":50,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":6,"column":16},"end":{"line":6,"column":23}},"loc":{"start":{"line":6,"column":56},"end":{"line":26,"column":null}},"line":6},"1":{"name":"(anonymous_1)","decl":{"start":{"line":28,"column":20},"end":{"line":28,"column":27}},"loc":{"start":{"line":28,"column":59},"end":{"line":51,"column":null}},"line":28}},"branchMap":{"0":{"loc":{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},"type":"if","locations":[{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},{"start":{},"end":{}}],"line":11},"1":{"loc":{"start":{"line":15,"column":5},"end":{"line":15,"column":null}},"type":"cond-expr","locations":[{"start":{"line":15,"column":45},"end":{"line":15,"column":55}},{"start":{"line":15,"column":55},"end":{"line":15,"column":null}}],"line":15},"2":{"loc":{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},"type":"if","locations":[{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},{"start":{},"end":{}}],"line":35},"3":{"loc":{"start":{"line":39,"column":5},"end":{"line":39,"column":null}},"type":"cond-expr","locations":[{"start":{"line":39,"column":45},"end":{"line":39,"column":55}},{"start":{"line":39,"column":55},"end":{"line":39,"column":null}}],"line":39}},"s":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0},"f":{"0":0,"1":0},"b":{"0":[0,0],"1":[0,0],"2":[0,0],"3":[0,0]},"meta":{"lastBranch":4,"lastFunction":2,"lastStatement":12,"seen":{"s:6:16:26:Infinity":0,"s:28:20:51:Infinity":1,"f:6:16:6:23":0,"s:8:18:8:Infinity":2,"b:11:2:18:Infinity:undefined:undefined:undefined:undefined":0,"s:11:2:18:Infinity":3,"s:12:3:16:Infinity":4,"b:15:45:15:55:15:55:15:Infinity":1,"s:17:3:17:Infinity":5,"s:21:2:25:Infinity":6,"f:28:20:28:27":1,"s:33:18:33:Infinity":7,"b:35:2:42:Infinity:undefined:undefined:undefined:undefined":2,"s:35:2:42:Infinity":8,"s:36:3:40:Infinity":9,"b:39:45:39:55:39:55:39:Infinity":3,"s:41:3:41:Infinity":10,"s:46:2:50:Infinity":11}}}
 ,"/app/server/controller/product_controller.ts": {"path":"/app/server/controller/product_controller.ts","statementMap":{"0":{"start":{"line":8,"column":16},"end":{"line":28,"column":null}},"1":{"start":{"line":30,"column":20},"end":{"line":53,"column":null}},"2":{"start":{"line":55,"column":17},"end":{"line":95,"column":null}},"3":{"start":{"line":97,"column":17},"end":{"line":144,"column":null}},"4":{"start":{"line":146,"column":17},"end":{"line":170,"column":null}},"5":{"start":{"line":10,"column":18},"end":{"line":10,"column":null}},"6":{"start":{"line":13,"column":2},"end":{"line":20,"column":null}},"7":{"start":{"line":14,"column":3},"end":{"line":18,"column":null}},"8":{"start":{"line":19,"column":3},"end":{"line":19,"column":null}},"9":{"start":{"line":23,"column":2},"end":{"line":27,"column":null}},"10":{"start":{"line":35,"column":18},"end":{"line":35,"column":null}},"11":{"start":{"line":37,"column":2},"end":{"line":44,"column":null}},"12":{"start":{"line":38,"column":3},"end":{"line":42,"column":null}},"13":{"start":{"line":43,"column":3},"end":{"line":43,"column":null}},"14":{"start":{"line":48,"column":2},"end":{"line":52,"column":null}},"15":{"start":{"line":60,"column":3},"end":{"line":61,"column":null}},"16":{"start":{"line":64,"column":22},"end":{"line":64,"column":null}},"17":{"start":{"line":67,"column":19},"end":{"line":67,"column":null}},"18":{"start":{"line":73,"column":18},"end":{"line":76,"column":null}},"19":{"start":{"line":79,"column":2},"end":{"line":86,"column":null}},"20":{"start":{"line":80,"column":3},"end":{"line":84,"column":null}},"21":{"start":{"line":85,"column":3},"end":{"line":85,"column":null}},"22":{"start":{"line":90,"column":2},"end":{"line":94,"column":null}},"23":{"start":{"line":101,"column":3},"end":{"line":102,"column":null}},"24":{"start":{"line":105,"column":22},"end":{"line":105,"column":null}},"25":{"start":{"line":109,"column":2},"end":{"line":116,"column":null}},"26":{"start":{"line":111,"column":3},"end":{"line":111,"column":null}},"27":{"start":{"line":113,"column":3},"end":{"line":115,"column":null}},"28":{"start":{"line":121,"column":18},"end":{"line":124,"column":null}},"29":{"start":{"line":128,"column":2},"end":{"line":135,"column":null}},"30":{"start":{"line":129,"column":3},"end":{"line":133,"column":null}},"31":{"start":{"line":134,"column":3},"end":{"line":134,"column":null}},"32":{"start":{"line":139,"column":2},"end":{"line":143,"column":null}},"33":{"start":{"line":148,"column":2},"end":{"line":148,"column":null}},"34":{"start":{"line":151,"column":18},"end":{"line":151,"column":null}},"35":{"start":{"line":154,"column":2},"end":{"line":161,"column":null}},"36":{"start":{"line":155,"column":3},"end":{"line":159,"column":null}},"37":{"start":{"line":160,"column":3},"end":{"line":160,"column":null}},"38":{"start":{"line":165,"column":2},"end":{"line":169,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":8,"column":16},"end":{"line":8,"column":23}},"loc":{"start":{"line":8,"column":56},"end":{"line":28,"column":null}},"line":8},"1":{"name":"(anonymous_1)","decl":{"start":{"line":30,"column":20},"end":{"line":30,"column":27}},"loc":{"start":{"line":30,"column":59},"end":{"line":53,"column":null}},"line":30},"2":{"name":"(anonymous_2)","decl":{"start":{"line":55,"column":17},"end":{"line":55,"column":24}},"loc":{"start":{"line":55,"column":56},"end":{"line":95,"column":null}},"line":55},"3":{"name":"(anonymous_3)","decl":{"start":{"line":97,"column":17},"end":{"line":97,"column":24}},"loc":{"start":{"line":97,"column":56},"end":{"line":144,"column":null}},"line":97},"4":{"name":"(anonymous_4)","decl":{"start":{"line":146,"column":17},"end":{"line":146,"column":24}},"loc":{"start":{"line":146,"column":56},"end":{"line":170,"column":null}},"line":146}},"branchMap":{"0":{"loc":{"start":{"line":13,"column":2},"end":{"line":20,"column":null}},"type":"if","locations":[{"start":{"line":13,"column":2},"end":{"line":20,"column":null}},{"start":{},"end":{}}],"line":13},"1":{"loc":{"start":{"line":17,"column":5},"end":{"line":17,"column":null}},"type":"cond-expr","locations":[{"start":{"line":17,"column":45},"end":{"line":17,"column":55}},{"start":{"line":17,"column":55},"end":{"line":17,"column":null}}],"line":17},"2":{"loc":{"start":{"line":37,"column":2},"end":{"line":44,"column":null}},"type":"if","locations":[{"start":{"line":37,"column":2},"end":{"line":44,"column":null}},{"start":{},"end":{}}],"line":37},"3":{"loc":{"start":{"line":41,"column":5},"end":{"line":41,"column":null}},"type":"cond-expr","locations":[{"start":{"line":41,"column":45},"end":{"line":41,"column":55}},{"start":{"line":41,"column":55},"end":{"line":41,"column":null}}],"line":41},"4":{"loc":{"start":{"line":79,"column":2},"end":{"line":86,"column":null}},"type":"if","locations":[{"start":{"line":79,"column":2},"end":{"line":86,"column":null}},{"start":{},"end":{}}],"line":79},"5":{"loc":{"start":{"line":83,"column":5},"end":{"line":83,"column":null}},"type":"cond-expr","locations":[{"start":{"line":83,"column":45},"end":{"line":83,"column":55}},{"start":{"line":83,"column":55},"end":{"line":83,"column":null}}],"line":83},"6":{"loc":{"start":{"line":109,"column":2},"end":{"line":116,"column":null}},"type":"if","locations":[{"start":{"line":109,"column":2},"end":{"line":116,"column":null}},{"start":{"line":112,"column":9},"end":{"line":116,"column":null}}],"line":109},"7":{"loc":{"start":{"line":128,"column":2},"end":{"line":135,"column":null}},"type":"if","locations":[{"start":{"line":128,"column":2},"end":{"line":135,"column":null}},{"start":{},"end":{}}],"line":128},"8":{"loc":{"start":{"line":132,"column":5},"end":{"line":132,"column":null}},"type":"cond-expr","locations":[{"start":{"line":132,"column":45},"end":{"line":132,"column":55}},{"start":{"line":132,"column":55},"end":{"line":132,"column":null}}],"line":132},"9":{"loc":{"start":{"line":154,"column":2},"end":{"line":161,"column":null}},"type":"if","locations":[{"start":{"line":154,"column":2},"end":{"line":161,"column":null}},{"start":{},"end":{}}],"line":154},"10":{"loc":{"start":{"line":158,"column":5},"end":{"line":158,"column":null}},"type":"cond-expr","locations":[{"start":{"line":158,"column":45},"end":{"line":158,"column":55}},{"start":{"line":158,"column":55},"end":{"line":158,"column":null}}],"line":158}},"s":{"0":0,"1":0,"2":1,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":1,"16":1,"17":1,"18":1,"19":1,"20":0,"21":0,"22":1,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0},"f":{"0":0,"1":0,"2":1,"3":0,"4":0},"b":{"0":[0,0],"1":[0,0],"2":[0,0],"3":[0,0],"4":[0,1],"5":[0,0],"6":[0,0],"7":[0,0],"8":[0,0],"9":[0,0],"10":[0,0]},"meta":{"lastBranch":11,"lastFunction":5,"lastStatement":39,"seen":{"s:8:16:28:Infinity":0,"s:30:20:53:Infinity":1,"s:55:17:95:Infinity":2,"s:97:17:144:Infinity":3,"s:146:17:170:Infinity":4,"f:8:16:8:23":0,"s:10:18:10:Infinity":5,"b:13:2:20:Infinity:undefined:undefined:undefined:undefined":0,"s:13:2:20:Infinity":6,"s:14:3:18:Infinity":7,"b:17:45:17:55:17:55:17:Infinity":1,"s:19:3:19:Infinity":8,"s:23:2:27:Infinity":9,"f:30:20:30:27":1,"s:35:18:35:Infinity":10,"b:37:2:44:Infinity:undefined:undefined:undefined:undefined":2,"s:37:2:44:Infinity":11,"s:38:3:42:Infinity":12,"b:41:45:41:55:41:55:41:Infinity":3,"s:43:3:43:Infinity":13,"s:48:2:52:Infinity":14,"f:55:17:55:24":2,"s:60:3:61:Infinity":15,"s:64:22:64:Infinity":16,"s:67:19:67:Infinity":17,"s:73:18:76:Infinity":18,"b:79:2:86:Infinity:undefined:undefined:undefined:undefined":4,"s:79:2:86:Infinity":19,"s:80:3:84:Infinity":20,"b:83:45:83:55:83:55:83:Infinity":5,"s:85:3:85:Infinity":21,"s:90:2:94:Infinity":22,"f:97:17:97:24":3,"s:101:3:102:Infinity":23,"s:105:22:105:Infinity":24,"b:109:2:116:Infinity:112:9:116:Infinity":6,"s:109:2:116:Infinity":25,"s:111:3:111:Infinity":26,"s:113:3:115:Infinity":27,"s:121:18:124:Infinity":28,"b:128:2:135:Infinity:undefined:undefined:undefined:undefined":7,"s:128:2:135:Infinity":29,"s:129:3:133:Infinity":30,"b:132:45:132:55:132:55:132:Infinity":8,"s:134:3:134:Infinity":31,"s:139:2:143:Infinity":32,"f:146:17:146:24":4,"s:148:2:148:Infinity":33,"s:151:18:151:Infinity":34,"b:154:2:161:Infinity:undefined:undefined:undefined:undefined":9,"s:154:2:161:Infinity":35,"s:155:3:159:Infinity":36,"b:158:45:158:55:158:55:158:Infinity":10,"s:160:3:160:Infinity":37,"s:165:2:169:Infinity":38}}}
 ,"/app/server/controller/role_controller.ts": {"path":"/app/server/controller/role_controller.ts","statementMap":{"0":{"start":{"line":6,"column":16},"end":{"line":26,"column":null}},"1":{"start":{"line":28,"column":20},"end":{"line":51,"column":null}},"2":{"start":{"line":8,"column":18},"end":{"line":8,"column":null}},"3":{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},"4":{"start":{"line":12,"column":3},"end":{"line":16,"column":null}},"5":{"start":{"line":17,"column":3},"end":{"line":17,"column":null}},"6":{"start":{"line":21,"column":2},"end":{"line":25,"column":null}},"7":{"start":{"line":33,"column":18},"end":{"line":33,"column":null}},"8":{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},"9":{"start":{"line":36,"column":3},"end":{"line":40,"column":null}},"10":{"start":{"line":41,"column":3},"end":{"line":41,"column":null}},"11":{"start":{"line":46,"column":2},"end":{"line":50,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":6,"column":16},"end":{"line":6,"column":23}},"loc":{"start":{"line":6,"column":56},"end":{"line":26,"column":null}},"line":6},"1":{"name":"(anonymous_1)","decl":{"start":{"line":28,"column":20},"end":{"line":28,"column":27}},"loc":{"start":{"line":28,"column":59},"end":{"line":51,"column":null}},"line":28}},"branchMap":{"0":{"loc":{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},"type":"if","locations":[{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},{"start":{},"end":{}}],"line":11},"1":{"loc":{"start":{"line":15,"column":5},"end":{"line":15,"column":null}},"type":"cond-expr","locations":[{"start":{"line":15,"column":45},"end":{"line":15,"column":55}},{"start":{"line":15,"column":55},"end":{"line":15,"column":null}}],"line":15},"2":{"loc":{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},"type":"if","locations":[{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},{"start":{},"end":{}}],"line":35},"3":{"loc":{"start":{"line":39,"column":5},"end":{"line":39,"column":null}},"type":"cond-expr","locations":[{"start":{"line":39,"column":45},"end":{"line":39,"column":55}},{"start":{"line":39,"column":55},"end":{"line":39,"column":null}}],"line":39}},"s":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0},"f":{"0":0,"1":0},"b":{"0":[0,0],"1":[0,0],"2":[0,0],"3":[0,0]},"meta":{"lastBranch":4,"lastFunction":2,"lastStatement":12,"seen":{"s:6:16:26:Infinity":0,"s:28:20:51:Infinity":1,"f:6:16:6:23":0,"s:8:18:8:Infinity":2,"b:11:2:18:Infinity:undefined:undefined:undefined:undefined":0,"s:11:2:18:Infinity":3,"s:12:3:16:Infinity":4,"b:15:45:15:55:15:55:15:Infinity":1,"s:17:3:17:Infinity":5,"s:21:2:25:Infinity":6,"f:28:20:28:27":1,"s:33:18:33:Infinity":7,"b:35:2:42:Infinity:undefined:undefined:undefined:undefined":2,"s:35:2:42:Infinity":8,"s:36:3:40:Infinity":9,"b:39:45:39:55:39:55:39:Infinity":3,"s:41:3:41:Infinity":10,"s:46:2:50:Infinity":11}}}
-,"/app/server/controller/security_controller.ts": {"path":"/app/server/controller/security_controller.ts","statementMap":{"0":{"start":{"line":8,"column":19},"end":{"line":32,"column":null}},"1":{"start":{"line":36,"column":16},"end":{"line":90,"column":null}},"2":{"start":{"line":11,"column":18},"end":{"line":14,"column":null}},"3":{"start":{"line":17,"column":2},"end":{"line":24,"column":null}},"4":{"start":{"line":18,"column":3},"end":{"line":22,"column":null}},"5":{"start":{"line":23,"column":3},"end":{"line":23,"column":null}},"6":{"start":{"line":27,"column":2},"end":{"line":31,"column":null}},"7":{"start":{"line":38,"column":16},"end":{"line":38,"column":null}},"8":{"start":{"line":41,"column":2},"end":{"line":48,"column":null}},"9":{"start":{"line":42,"column":3},"end":{"line":46,"column":null}},"10":{"start":{"line":47,"column":3},"end":{"line":47,"column":null}},"11":{"start":{"line":52,"column":2},"end":{"line":61,"column":null}},"12":{"start":{"line":53,"column":3},"end":{"line":59,"column":null}},"13":{"start":{"line":60,"column":3},"end":{"line":60,"column":null}},"14":{"start":{"line":64,"column":2},"end":{"line":64,"column":null}},"15":{"start":{"line":68,"column":26},"end":{"line":71,"column":null}},"16":{"start":{"line":74,"column":2},"end":{"line":83,"column":null}},"17":{"start":{"line":75,"column":3},"end":{"line":81,"column":null}},"18":{"start":{"line":82,"column":3},"end":{"line":82,"column":null}},"19":{"start":{"line":85,"column":2},"end":{"line":89,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":8,"column":19},"end":{"line":8,"column":26}},"loc":{"start":{"line":8,"column":58},"end":{"line":32,"column":null}},"line":8},"1":{"name":"(anonymous_1)","decl":{"start":{"line":36,"column":16},"end":{"line":36,"column":23}},"loc":{"start":{"line":36,"column":55},"end":{"line":90,"column":null}},"line":36}},"branchMap":{"0":{"loc":{"start":{"line":17,"column":2},"end":{"line":24,"column":null}},"type":"if","locations":[{"start":{"line":17,"column":2},"end":{"line":24,"column":null}},{"start":{},"end":{}}],"line":17},"1":{"loc":{"start":{"line":21,"column":5},"end":{"line":21,"column":null}},"type":"cond-expr","locations":[{"start":{"line":21,"column":45},"end":{"line":21,"column":55}},{"start":{"line":21,"column":55},"end":{"line":21,"column":null}}],"line":21},"2":{"loc":{"start":{"line":41,"column":2},"end":{"line":48,"column":null}},"type":"if","locations":[{"start":{"line":41,"column":2},"end":{"line":48,"column":null}},{"start":{},"end":{}}],"line":41},"3":{"loc":{"start":{"line":45,"column":5},"end":{"line":45,"column":null}},"type":"cond-expr","locations":[{"start":{"line":45,"column":45},"end":{"line":45,"column":55}},{"start":{"line":45,"column":55},"end":{"line":45,"column":null}}],"line":45},"4":{"loc":{"start":{"line":52,"column":2},"end":{"line":61,"column":null}},"type":"if","locations":[{"start":{"line":52,"column":2},"end":{"line":61,"column":null}},{"start":{},"end":{}}],"line":52},"5":{"loc":{"start":{"line":56,"column":5},"end":{"line":58,"column":null}},"type":"cond-expr","locations":[{"start":{"line":57,"column":8},"end":{"line":57,"column":null}},{"start":{"line":58,"column":8},"end":{"line":58,"column":null}}],"line":56},"6":{"loc":{"start":{"line":74,"column":2},"end":{"line":83,"column":null}},"type":"if","locations":[{"start":{"line":74,"column":2},"end":{"line":83,"column":null}},{"start":{},"end":{}}],"line":74},"7":{"loc":{"start":{"line":78,"column":5},"end":{"line":80,"column":null}},"type":"cond-expr","locations":[{"start":{"line":79,"column":8},"end":{"line":79,"column":null}},{"start":{"line":80,"column":8},"end":{"line":80,"column":null}}],"line":78}},"s":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0},"f":{"0":0,"1":0},"b":{"0":[0,0],"1":[0,0],"2":[0,0],"3":[0,0],"4":[0,0],"5":[0,0],"6":[0,0],"7":[0,0]},"meta":{"lastBranch":8,"lastFunction":2,"lastStatement":20,"seen":{"s:8:19:32:Infinity":0,"s:36:16:90:Infinity":1,"f:8:19:8:26":0,"s:11:18:14:Infinity":2,"b:17:2:24:Infinity:undefined:undefined:undefined:undefined":0,"s:17:2:24:Infinity":3,"s:18:3:22:Infinity":4,"b:21:45:21:55:21:55:21:Infinity":1,"s:23:3:23:Infinity":5,"s:27:2:31:Infinity":6,"f:36:16:36:23":1,"s:38:16:38:Infinity":7,"b:41:2:48:Infinity:undefined:undefined:undefined:undefined":2,"s:41:2:48:Infinity":8,"s:42:3:46:Infinity":9,"b:45:45:45:55:45:55:45:Infinity":3,"s:47:3:47:Infinity":10,"b:52:2:61:Infinity:undefined:undefined:undefined:undefined":4,"s:52:2:61:Infinity":11,"s:53:3:59:Infinity":12,"b:57:8:57:Infinity:58:8:58:Infinity":5,"s:60:3:60:Infinity":13,"s:64:2:64:Infinity":14,"s:68:26:71:Infinity":15,"b:74:2:83:Infinity:undefined:undefined:undefined:undefined":6,"s:74:2:83:Infinity":16,"s:75:3:81:Infinity":17,"b:79:8:79:Infinity:80:8:80:Infinity":7,"s:82:3:82:Infinity":18,"s:85:2:89:Infinity":19}}}
+,"/app/server/controller/security_controller.ts": {"path":"/app/server/controller/security_controller.ts","statementMap":{"0":{"start":{"line":8,"column":19},"end":{"line":32,"column":null}},"1":{"start":{"line":36,"column":16},"end":{"line":92,"column":null}},"2":{"start":{"line":11,"column":18},"end":{"line":14,"column":null}},"3":{"start":{"line":17,"column":2},"end":{"line":24,"column":null}},"4":{"start":{"line":18,"column":3},"end":{"line":22,"column":null}},"5":{"start":{"line":23,"column":3},"end":{"line":23,"column":null}},"6":{"start":{"line":27,"column":2},"end":{"line":31,"column":null}},"7":{"start":{"line":38,"column":16},"end":{"line":38,"column":null}},"8":{"start":{"line":41,"column":2},"end":{"line":48,"column":null}},"9":{"start":{"line":42,"column":3},"end":{"line":46,"column":null}},"10":{"start":{"line":47,"column":3},"end":{"line":47,"column":null}},"11":{"start":{"line":52,"column":2},"end":{"line":61,"column":null}},"12":{"start":{"line":53,"column":3},"end":{"line":59,"column":null}},"13":{"start":{"line":60,"column":3},"end":{"line":60,"column":null}},"14":{"start":{"line":64,"column":2},"end":{"line":64,"column":null}},"15":{"start":{"line":68,"column":2},"end":{"line":68,"column":null}},"16":{"start":{"line":69,"column":2},"end":{"line":69,"column":null}},"17":{"start":{"line":70,"column":26},"end":{"line":73,"column":null}},"18":{"start":{"line":76,"column":2},"end":{"line":85,"column":null}},"19":{"start":{"line":77,"column":3},"end":{"line":83,"column":null}},"20":{"start":{"line":84,"column":3},"end":{"line":84,"column":null}},"21":{"start":{"line":87,"column":2},"end":{"line":91,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":8,"column":19},"end":{"line":8,"column":26}},"loc":{"start":{"line":8,"column":58},"end":{"line":32,"column":null}},"line":8},"1":{"name":"(anonymous_1)","decl":{"start":{"line":36,"column":16},"end":{"line":36,"column":23}},"loc":{"start":{"line":36,"column":55},"end":{"line":92,"column":null}},"line":36}},"branchMap":{"0":{"loc":{"start":{"line":17,"column":2},"end":{"line":24,"column":null}},"type":"if","locations":[{"start":{"line":17,"column":2},"end":{"line":24,"column":null}},{"start":{},"end":{}}],"line":17},"1":{"loc":{"start":{"line":21,"column":5},"end":{"line":21,"column":null}},"type":"cond-expr","locations":[{"start":{"line":21,"column":45},"end":{"line":21,"column":55}},{"start":{"line":21,"column":55},"end":{"line":21,"column":null}}],"line":21},"2":{"loc":{"start":{"line":41,"column":2},"end":{"line":48,"column":null}},"type":"if","locations":[{"start":{"line":41,"column":2},"end":{"line":48,"column":null}},{"start":{},"end":{}}],"line":41},"3":{"loc":{"start":{"line":45,"column":5},"end":{"line":45,"column":null}},"type":"cond-expr","locations":[{"start":{"line":45,"column":45},"end":{"line":45,"column":55}},{"start":{"line":45,"column":55},"end":{"line":45,"column":null}}],"line":45},"4":{"loc":{"start":{"line":52,"column":2},"end":{"line":61,"column":null}},"type":"if","locations":[{"start":{"line":52,"column":2},"end":{"line":61,"column":null}},{"start":{},"end":{}}],"line":52},"5":{"loc":{"start":{"line":56,"column":5},"end":{"line":58,"column":null}},"type":"cond-expr","locations":[{"start":{"line":57,"column":8},"end":{"line":57,"column":null}},{"start":{"line":58,"column":8},"end":{"line":58,"column":null}}],"line":56},"6":{"loc":{"start":{"line":76,"column":2},"end":{"line":85,"column":null}},"type":"if","locations":[{"start":{"line":76,"column":2},"end":{"line":85,"column":null}},{"start":{},"end":{}}],"line":76},"7":{"loc":{"start":{"line":80,"column":5},"end":{"line":82,"column":null}},"type":"cond-expr","locations":[{"start":{"line":81,"column":8},"end":{"line":81,"column":null}},{"start":{"line":82,"column":8},"end":{"line":82,"column":null}}],"line":80}},"s":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0},"f":{"0":0,"1":0},"b":{"0":[0,0],"1":[0,0],"2":[0,0],"3":[0,0],"4":[0,0],"5":[0,0],"6":[0,0],"7":[0,0]},"meta":{"lastBranch":8,"lastFunction":2,"lastStatement":22,"seen":{"s:8:19:32:Infinity":0,"s:36:16:92:Infinity":1,"f:8:19:8:26":0,"s:11:18:14:Infinity":2,"b:17:2:24:Infinity:undefined:undefined:undefined:undefined":0,"s:17:2:24:Infinity":3,"s:18:3:22:Infinity":4,"b:21:45:21:55:21:55:21:Infinity":1,"s:23:3:23:Infinity":5,"s:27:2:31:Infinity":6,"f:36:16:36:23":1,"s:38:16:38:Infinity":7,"b:41:2:48:Infinity:undefined:undefined:undefined:undefined":2,"s:41:2:48:Infinity":8,"s:42:3:46:Infinity":9,"b:45:45:45:55:45:55:45:Infinity":3,"s:47:3:47:Infinity":10,"b:52:2:61:Infinity:undefined:undefined:undefined:undefined":4,"s:52:2:61:Infinity":11,"s:53:3:59:Infinity":12,"b:57:8:57:Infinity:58:8:58:Infinity":5,"s:60:3:60:Infinity":13,"s:64:2:64:Infinity":14,"s:68:2:68:Infinity":15,"s:69:2:69:Infinity":16,"s:70:26:73:Infinity":17,"b:76:2:85:Infinity:undefined:undefined:undefined:undefined":6,"s:76:2:85:Infinity":18,"s:77:3:83:Infinity":19,"b:81:8:81:Infinity:82:8:82:Infinity":7,"s:84:3:84:Infinity":20,"s:87:2:91:Infinity":21}}}
 ,"/app/server/controller/skin_controller.ts": {"path":"/app/server/controller/skin_controller.ts","statementMap":{"0":{"start":{"line":6,"column":16},"end":{"line":26,"column":null}},"1":{"start":{"line":28,"column":20},"end":{"line":51,"column":null}},"2":{"start":{"line":8,"column":18},"end":{"line":8,"column":null}},"3":{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},"4":{"start":{"line":12,"column":3},"end":{"line":16,"column":null}},"5":{"start":{"line":17,"column":3},"end":{"line":17,"column":null}},"6":{"start":{"line":21,"column":2},"end":{"line":25,"column":null}},"7":{"start":{"line":33,"column":18},"end":{"line":33,"column":null}},"8":{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},"9":{"start":{"line":36,"column":3},"end":{"line":40,"column":null}},"10":{"start":{"line":41,"column":3},"end":{"line":41,"column":null}},"11":{"start":{"line":46,"column":2},"end":{"line":50,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":6,"column":16},"end":{"line":6,"column":23}},"loc":{"start":{"line":6,"column":56},"end":{"line":26,"column":null}},"line":6},"1":{"name":"(anonymous_1)","decl":{"start":{"line":28,"column":20},"end":{"line":28,"column":27}},"loc":{"start":{"line":28,"column":59},"end":{"line":51,"column":null}},"line":28}},"branchMap":{"0":{"loc":{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},"type":"if","locations":[{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},{"start":{},"end":{}}],"line":11},"1":{"loc":{"start":{"line":15,"column":5},"end":{"line":15,"column":null}},"type":"cond-expr","locations":[{"start":{"line":15,"column":45},"end":{"line":15,"column":55}},{"start":{"line":15,"column":55},"end":{"line":15,"column":null}}],"line":15},"2":{"loc":{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},"type":"if","locations":[{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},{"start":{},"end":{}}],"line":35},"3":{"loc":{"start":{"line":39,"column":5},"end":{"line":39,"column":null}},"type":"cond-expr","locations":[{"start":{"line":39,"column":45},"end":{"line":39,"column":55}},{"start":{"line":39,"column":55},"end":{"line":39,"column":null}}],"line":39}},"s":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0},"f":{"0":0,"1":0},"b":{"0":[0,0],"1":[0,0],"2":[0,0],"3":[0,0]},"meta":{"lastBranch":4,"lastFunction":2,"lastStatement":12,"seen":{"s:6:16:26:Infinity":0,"s:28:20:51:Infinity":1,"f:6:16:6:23":0,"s:8:18:8:Infinity":2,"b:11:2:18:Infinity:undefined:undefined:undefined:undefined":0,"s:11:2:18:Infinity":3,"s:12:3:16:Infinity":4,"b:15:45:15:55:15:55:15:Infinity":1,"s:17:3:17:Infinity":5,"s:21:2:25:Infinity":6,"f:28:20:28:27":1,"s:33:18:33:Infinity":7,"b:35:2:42:Infinity:undefined:undefined:undefined:undefined":2,"s:35:2:42:Infinity":8,"s:36:3:40:Infinity":9,"b:39:45:39:55:39:55:39:Infinity":3,"s:41:3:41:Infinity":10,"s:46:2:50:Infinity":11}}}
 ,"/app/server/controller/user_controller.ts": {"path":"/app/server/controller/user_controller.ts","statementMap":{"0":{"start":{"line":6,"column":16},"end":{"line":26,"column":null}},"1":{"start":{"line":28,"column":20},"end":{"line":51,"column":null}},"2":{"start":{"line":8,"column":18},"end":{"line":8,"column":null}},"3":{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},"4":{"start":{"line":12,"column":3},"end":{"line":16,"column":null}},"5":{"start":{"line":17,"column":3},"end":{"line":17,"column":null}},"6":{"start":{"line":21,"column":2},"end":{"line":25,"column":null}},"7":{"start":{"line":33,"column":18},"end":{"line":33,"column":null}},"8":{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},"9":{"start":{"line":36,"column":3},"end":{"line":40,"column":null}},"10":{"start":{"line":41,"column":3},"end":{"line":41,"column":null}},"11":{"start":{"line":46,"column":2},"end":{"line":50,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":6,"column":16},"end":{"line":6,"column":23}},"loc":{"start":{"line":6,"column":56},"end":{"line":26,"column":null}},"line":6},"1":{"name":"(anonymous_1)","decl":{"start":{"line":28,"column":20},"end":{"line":28,"column":27}},"loc":{"start":{"line":28,"column":59},"end":{"line":51,"column":null}},"line":28}},"branchMap":{"0":{"loc":{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},"type":"if","locations":[{"start":{"line":11,"column":2},"end":{"line":18,"column":null}},{"start":{},"end":{}}],"line":11},"1":{"loc":{"start":{"line":15,"column":5},"end":{"line":15,"column":null}},"type":"cond-expr","locations":[{"start":{"line":15,"column":45},"end":{"line":15,"column":55}},{"start":{"line":15,"column":55},"end":{"line":15,"column":null}}],"line":15},"2":{"loc":{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},"type":"if","locations":[{"start":{"line":35,"column":2},"end":{"line":42,"column":null}},{"start":{},"end":{}}],"line":35},"3":{"loc":{"start":{"line":39,"column":5},"end":{"line":39,"column":null}},"type":"cond-expr","locations":[{"start":{"line":39,"column":45},"end":{"line":39,"column":55}},{"start":{"line":39,"column":55},"end":{"line":39,"column":null}}],"line":39}},"s":{"0":0,"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0},"f":{"0":0,"1":0},"b":{"0":[0,0],"1":[0,0],"2":[0,0],"3":[0,0]},"meta":{"lastBranch":4,"lastFunction":2,"lastStatement":12,"seen":{"s:6:16:26:Infinity":0,"s:28:20:51:Infinity":1,"f:6:16:6:23":0,"s:8:18:8:Infinity":2,"b:11:2:18:Infinity:undefined:undefined:undefined:undefined":0,"s:11:2:18:Infinity":3,"s:12:3:16:Infinity":4,"b:15:45:15:55:15:55:15:Infinity":1,"s:17:3:17:Infinity":5,"s:21:2:25:Infinity":6,"f:28:20:28:27":1,"s:33:18:33:Infinity":7,"b:35:2:42:Infinity:undefined:undefined:undefined:undefined":2,"s:35:2:42:Infinity":8,"s:36:3:40:Infinity":9,"b:39:45:39:55:39:55:39:Infinity":3,"s:41:3:41:Infinity":10,"s:46:2:50:Infinity":11}}}
 ,"/app/server/core/server.ts": {"path":"/app/server/core/server.ts","statementMap":{"0":{"start":{"line":16,"column":9},"end":{"line":16,"column":null}},"1":{"start":{"line":17,"column":18},"end":{"line":17,"column":null}},"2":{"start":{"line":40,"column":23},"end":{"line":52,"column":null}},"3":{"start":{"line":55,"column":22},"end":{"line":57,"column":null}},"4":{"start":{"line":22,"column":2},"end":{"line":22,"column":null}},"5":{"start":{"line":25,"column":2},"end":{"line":29,"column":null}},"6":{"start":{"line":32,"column":2},"end":{"line":32,"column":null}},"7":{"start":{"line":35,"column":2},"end":{"line":35,"column":null}},"8":{"start":{"line":42,"column":2},"end":{"line":42,"column":null}},"9":{"start":{"line":43,"column":2},"end":{"line":43,"column":null}},"10":{"start":{"line":44,"column":2},"end":{"line":44,"column":null}},"11":{"start":{"line":45,"column":2},"end":{"line":45,"column":null}},"12":{"start":{"line":46,"column":2},"end":{"line":46,"column":null}},"13":{"start":{"line":47,"column":2},"end":{"line":47,"column":null}},"14":{"start":{"line":48,"column":2},"end":{"line":48,"column":null}},"15":{"start":{"line":49,"column":2},"end":{"line":49,"column":null}},"16":{"start":{"line":50,"column":2},"end":{"line":50,"column":null}},"17":{"start":{"line":51,"column":2},"end":{"line":51,"column":null}},"18":{"start":{"line":56,"column":2},"end":{"line":56,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":20,"column":1},"end":{"line":20,"column":15}},"loc":{"start":{"line":20,"column":15},"end":{"line":36,"column":null}},"line":20},"1":{"name":"(anonymous_1)","decl":{"start":{"line":40,"column":23},"end":{"line":40,"column":29}},"loc":{"start":{"line":40,"column":29},"end":{"line":52,"column":null}},"line":40},"2":{"name":"(anonymous_2)","decl":{"start":{"line":55,"column":22},"end":{"line":55,"column":28}},"loc":{"start":{"line":55,"column":28},"end":{"line":57,"column":null}},"line":55}},"branchMap":{},"s":{"0":2,"1":2,"2":2,"3":2,"4":2,"5":2,"6":2,"7":2,"8":2,"9":2,"10":2,"11":2,"12":2,"13":2,"14":2,"15":2,"16":2,"17":2,"18":2},"f":{"0":2,"1":2,"2":2},"b":{},"meta":{"lastBranch":0,"lastFunction":3,"lastStatement":19,"seen":{"s:16:9:16:Infinity":0,"s:17:18:17:Infinity":1,"s:40:23:52:Infinity":2,"s:55:22:57:Infinity":3,"f:20:1:20:15":0,"s:22:2:22:Infinity":4,"s:25:2:29:Infinity":5,"s:32:2:32:Infinity":6,"s:35:2:35:Infinity":7,"f:40:23:40:29":1,"s:42:2:42:Infinity":8,"s:43:2:43:Infinity":9,"s:44:2:44:Infinity":10,"s:45:2:45:Infinity":11,"s:46:2:46:Infinity":12,"s:47:2:47:Infinity":13,"s:48:2:48:Infinity":14,"s:49:2:49:Infinity":15,"s:50:2:50:Infinity":16,"s:51:2:51:Infinity":17,"f:55:22:55:28":2,"s:56:2:56:Infinity":18}}}
@@ -36774,7 +35590,7 @@ export default Server;
 ,"/app/server/router/security_router.ts": {"path":"/app/server/router/security_router.ts","statementMap":{"0":{"start":{"line":6,"column":18},"end":{"line":6,"column":null}},"1":{"start":{"line":9,"column":20},"end":{"line":16,"column":null}},"2":{"start":{"line":11,"column":2},"end":{"line":11,"column":null}},"3":{"start":{"line":12,"column":2},"end":{"line":12,"column":null}},"4":{"start":{"line":15,"column":2},"end":{"line":15,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":9,"column":20},"end":{"line":9,"column":26}},"loc":{"start":{"line":9,"column":26},"end":{"line":16,"column":null}},"line":9}},"branchMap":{},"s":{"0":2,"1":2,"2":2,"3":2,"4":2},"f":{"0":2},"b":{},"meta":{"lastBranch":0,"lastFunction":1,"lastStatement":5,"seen":{"s:6:18:6:Infinity":0,"s:9:20:16:Infinity":1,"f:9:20:9:26":0,"s:11:2:11:Infinity":2,"s:12:2:12:Infinity":3,"s:15:2:15:Infinity":4}}}
 ,"/app/server/router/skin_router.ts": {"path":"/app/server/router/skin_router.ts","statementMap":{"0":{"start":{"line":6,"column":18},"end":{"line":6,"column":null}},"1":{"start":{"line":9,"column":20},"end":{"line":19,"column":null}},"2":{"start":{"line":11,"column":2},"end":{"line":11,"column":null}},"3":{"start":{"line":15,"column":2},"end":{"line":15,"column":null}},"4":{"start":{"line":18,"column":2},"end":{"line":18,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":9,"column":20},"end":{"line":9,"column":26}},"loc":{"start":{"line":9,"column":26},"end":{"line":19,"column":null}},"line":9}},"branchMap":{},"s":{"0":2,"1":2,"2":2,"3":2,"4":2},"f":{"0":2},"b":{},"meta":{"lastBranch":0,"lastFunction":1,"lastStatement":5,"seen":{"s:6:18:6:Infinity":0,"s:9:20:19:Infinity":1,"f:9:20:9:26":0,"s:11:2:11:Infinity":2,"s:15:2:15:Infinity":3,"s:18:2:18:Infinity":4}}}
 ,"/app/server/router/user_router.ts": {"path":"/app/server/router/user_router.ts","statementMap":{"0":{"start":{"line":6,"column":18},"end":{"line":6,"column":null}},"1":{"start":{"line":9,"column":20},"end":{"line":19,"column":null}},"2":{"start":{"line":11,"column":2},"end":{"line":11,"column":null}},"3":{"start":{"line":15,"column":2},"end":{"line":15,"column":null}},"4":{"start":{"line":18,"column":2},"end":{"line":18,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":9,"column":20},"end":{"line":9,"column":26}},"loc":{"start":{"line":9,"column":26},"end":{"line":19,"column":null}},"line":9}},"branchMap":{},"s":{"0":2,"1":2,"2":2,"3":2,"4":2},"f":{"0":2},"b":{},"meta":{"lastBranch":0,"lastFunction":1,"lastStatement":5,"seen":{"s:6:18:6:Infinity":0,"s:9:20:19:Infinity":1,"f:9:20:9:26":0,"s:11:2:11:Infinity":2,"s:15:2:15:Infinity":3,"s:18:2:18:Infinity":4}}}
-,"/app/server/service/file_service.ts": {"path":"/app/server/service/file_service.ts","statementMap":{"0":{"start":{"line":24,"column":17},"end":{"line":32,"column":null}},"1":{"start":{"line":26,"column":19},"end":{"line":26,"column":null}},"2":{"start":{"line":29,"column":2},"end":{"line":29,"column":null}},"3":{"start":{"line":31,"column":2},"end":{"line":31,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":24,"column":17},"end":{"line":24,"column":24}},"loc":{"start":{"line":24,"column":71},"end":{"line":32,"column":null}},"line":24}},"branchMap":{},"s":{"0":1,"1":1,"2":1,"3":1},"f":{"0":1},"b":{},"meta":{"lastBranch":0,"lastFunction":1,"lastStatement":4,"seen":{"s:24:17:32:Infinity":0,"f:24:17:24:24":0,"s:26:19:26:Infinity":1,"s:29:2:29:Infinity":2,"s:31:2:31:Infinity":3}}}
+,"/app/server/service/file_service.ts": {"path":"/app/server/service/file_service.ts","statementMap":{"0":{"start":{"line":10,"column":17},"end":{"line":18,"column":null}},"1":{"start":{"line":12,"column":19},"end":{"line":12,"column":null}},"2":{"start":{"line":15,"column":2},"end":{"line":15,"column":null}},"3":{"start":{"line":17,"column":2},"end":{"line":17,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":10,"column":17},"end":{"line":10,"column":24}},"loc":{"start":{"line":10,"column":71},"end":{"line":18,"column":null}},"line":10}},"branchMap":{},"s":{"0":1,"1":1,"2":1,"3":1},"f":{"0":1},"b":{},"meta":{"lastBranch":0,"lastFunction":1,"lastStatement":4,"seen":{"s:10:17:18:Infinity":0,"f:10:17:10:24":0,"s:12:19:12:Infinity":1,"s:15:2:15:Infinity":2,"s:17:2:17:Infinity":3}}}
 ,"/app/server/service/mysql_service.ts": {"path":"/app/server/service/mysql_service.ts","statementMap":{"0":{"start":{"line":9,"column":18},"end":{"line":25,"column":null}},"1":{"start":{"line":11,"column":2},"end":{"line":21,"column":null}},"2":{"start":{"line":12,"column":3},"end":{"line":20,"column":null}},"3":{"start":{"line":24,"column":2},"end":{"line":24,"column":null}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":9,"column":18},"end":{"line":9,"column":30}},"loc":{"start":{"line":9,"column":30},"end":{"line":25,"column":null}},"line":9}},"branchMap":{"0":{"loc":{"start":{"line":11,"column":2},"end":{"line":21,"column":null}},"type":"if","locations":[{"start":{"line":11,"column":2},"end":{"line":21,"column":null}},{"start":{},"end":{}}],"line":11}},"s":{"0":1,"1":1,"2":1,"3":1},"f":{"0":1},"b":{"0":[1,0]},"meta":{"lastBranch":1,"lastFunction":1,"lastStatement":4,"seen":{"s:9:18:25:Infinity":0,"f:9:18:9:30":0,"b:11:2:21:Infinity:undefined:undefined:undefined:undefined":0,"s:11:2:21:Infinity":1,"s:12:3:20:Infinity":2,"s:24:2:24:Infinity":3}}}
 }
 
@@ -36809,9 +35625,9 @@ export default Server;
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">23.91% </span>
+                <span class="strong">23.81% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>121/506</span>
+                <span class='fraction'>121/508</span>
             </div>
         
             
@@ -36830,9 +35646,9 @@ export default Server;
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">24.2% </span>
+                <span class="strong">24.1% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>121/500</span>
+                <span class='fraction'>121/502</span>
             </div>
         
             
@@ -36866,17 +35682,17 @@ export default Server;
 </thead>
 <tbody><tr>
 	<td class="file low" data-value="controller"><a href="controller/index.html">controller</a></td>
-	<td data-value="6.47" class="pic low">
+	<td data-value="6.38" class="pic low">
 	<div class="chart"><div class="cover-fill" style="width: 6%"></div><div class="cover-empty" style="width: 94%"></div></div>
 	</td>
-	<td data-value="6.47" class="pct low">6.47%</td>
-	<td data-value="139" class="abs low">9/139</td>
+	<td data-value="6.38" class="pct low">6.38%</td>
+	<td data-value="141" class="abs low">9/141</td>
 	<td data-value="1.16" class="pct low">1.16%</td>
 	<td data-value="86" class="abs low">1/86</td>
 	<td data-value="9.09" class="pct low">9.09%</td>
 	<td data-value="22" class="abs low">2/22</td>
-	<td data-value="6.47" class="pct low">6.47%</td>
-	<td data-value="139" class="abs low">9/139</td>
+	<td data-value="6.38" class="pct low">6.38%</td>
+	<td data-value="141" class="abs low">9/141</td>
 	</tr>
 
 <tr>
@@ -36962,7 +35778,7 @@ export default Server;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="prettify.js"></script>
         <script>
@@ -37209,7 +36025,7 @@ export default AuthorizationMiddleware;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -37331,7 +36147,7 @@ export default AuthorizationMiddleware;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -37871,7 +36687,7 @@ export default Body_partRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -38145,7 +36961,7 @@ export default CategoryRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -38344,7 +37160,7 @@ export default ContactRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -38586,7 +37402,7 @@ export default ContactRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -39112,7 +37928,7 @@ export default PackRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -40305,7 +39121,7 @@ class ProductRepository {
 		// variable de requete : précédée d'un :, suivi du nom de la variable
 		// requetes préparées :sécurité;(utilisation des varibales de requetes)la requete est exécutée si elle ne représente pas de risque de sécurité
 		// DISTINCT: Evite les doublons
-		const sql = <span class="cstat-no" title="statement not covered" >`SELECT ${this.table}.*,</span>
+		const sql = <span class="cstat-no" title="statement not covered" >`SELECT ${this.table}.*,                                      </span>
 					GROUP_CONCAT(DISTINCT skin.id) AS skin_ids,
 					GROUP_CONCAT(DISTINCT pack.id) AS pack_ids,
 					GROUP_CONCAT(DISTINCT body_part.id) AS body_part_ids
@@ -40736,7 +39552,7 @@ export default ProductRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -41004,7 +39820,7 @@ export default RoleRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -41431,7 +40247,7 @@ export default SecurityRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -41951,7 +40767,7 @@ export default SkinRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -42240,7 +41056,7 @@ export default UserRepository;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -42397,7 +41213,7 @@ export default Body_partRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -42554,7 +41370,7 @@ export default CategoryRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -42714,7 +41530,7 @@ export default ContactRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -42859,7 +41675,7 @@ export default HomepageRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -43116,7 +41932,7 @@ export default HomepageRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -43273,7 +42089,7 @@ export default PackRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -43517,7 +42333,7 @@ export default ProductRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -43674,7 +42490,7 @@ export default RoleRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -43822,7 +42638,7 @@ export default SecurityRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -43979,7 +42795,7 @@ export default SkinRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -44136,7 +42952,7 @@ export default UserRouter;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -44241,35 +43057,7 @@ export default UserRouter;
 <a name='L19'></a><a href='#L19'>19</a>
 <a name='L20'></a><a href='#L20'>20</a>
 <a name='L21'></a><a href='#L21'>21</a>
-<a name='L22'></a><a href='#L22'>22</a>
-<a name='L23'></a><a href='#L23'>23</a>
-<a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a>
-<a name='L26'></a><a href='#L26'>26</a>
-<a name='L27'></a><a href='#L27'>27</a>
-<a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a>
-<a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L22'></a><a href='#L22'>22</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -44295,20 +43083,6 @@ export default UserRouter;
 import fs from "node:fs/promises";
 import { fileTypeFromFile } from "file-type";
 &nbsp;
-//
-// [
-//   {
-//     fieldname: 'image',
-//     originalname: 'Argile_et_Rhassoul.png',
-//     encoding: '7bit',
-//     mimetype: 'image/png',
-//     destination: 'public/img/products',
-//     filename: 'bde194790217794769729886886c077b',
-//     path: 'public/img/products/bde194790217794769729886886c077b',
-//     size: 3468635
-//   }
-// ]
-&nbsp;
 class FileService {
 	// fonction qui renomme le fichier transferé en ajoutant l'extension
 	// Cette fonction doit retourner le nom complet du fichier
@@ -44332,7 +43106,7 @@ export default FileService;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -44469,7 +43243,7 @@ export default FileService;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>
@@ -44644,7 +43418,7 @@ export default MySQLService;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-09T10:35:12.907Z
+                at 2026-04-20T10:45:10.962Z
             </div>
         <script src="../prettify.js"></script>
         <script>

@@ -37,7 +37,7 @@
 .formGroup input,
 .formGroup select,
 .formGroup textarea {
-	padding: 14px; /* Plus grand pour le confort mobile */
+	padding: 14px;
 	border: 1.5px solid var(--color-border);
 	border-radius: 8px;
 	font-size: 1rem;
@@ -46,7 +46,7 @@
 
 .formRow {
 	display: grid;
-	grid-template-columns: 1fr; /* 1 colonne mobile */
+	grid-template-columns: 1fr;
 	gap: 15px;
 }
 
@@ -63,7 +63,6 @@
 	margin-top: 20px;
 }
 
-/* Desktop Adjustment */
 @media (min-width: 1024px) {
 	.formContainer {
 		margin-left: 260px;
@@ -76,7 +75,7 @@
 	}
 
 	.formRow {
-		grid-template-columns: 1fr 1fr; /* 2 colonnes Desktop */
+		grid-template-columns: 1fr 1fr;
 	}
 }
 

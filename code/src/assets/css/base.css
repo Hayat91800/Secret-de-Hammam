@@ -94,7 +94,7 @@ a:focus {
 	outline-offset: 4px;
 }
 
-/* Lien */
+/* Lien d'évitement */
 .skipLink:not(:focus) {
 	position: absolute;
 	width: 1px;

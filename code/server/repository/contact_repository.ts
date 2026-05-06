@@ -7,7 +7,7 @@ class ContactRepository {
 
 	// Selectionner tous les documents
 	public selectAll = async (): Promise<Document[] | unknown> => {
-		// connexionau server Mongodb
+		// connexion au server Mongodb
 		const connection = await new MongodbService().connect();
 
 		// Selection d'une collection

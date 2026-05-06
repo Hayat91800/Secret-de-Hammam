@@ -1,4 +1,3 @@
-/* Conteneur principal calqué sur .productCard */
 .guideCard {
 	margin-top: 30px;
 	background-color: var(--color-neutral-light);
@@ -6,12 +5,10 @@
 	border: 1px solid var(--color-border);
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 	overflow: hidden;
-	/* Petit rappel de la couleur accent pour souligner l'aspect premium */
 	border-top: 5px solid var(--color-accent);
 	padding: 20px;
 }
 
-/* En-tête du guide */
 .guideHeader {
 	display: flex;
 	justify-content: space-between;
@@ -23,7 +20,7 @@
 
 .guideHeader h4 {
 	font-family: var(--font-title);
-	font-size: 1.2rem; /* Cohérent avec le h3 mobile de la fiche produit */
+	font-size: 1.2rem;
 	color: var(--color-text-dark);
 	margin: 0;
 }
@@ -40,10 +37,9 @@
 	letter-spacing: 0.5px;
 }
 
-/* Grille d'informations */
 .guideGrid {
 	display: grid;
-	grid-template-columns: 1fr; /* 1 colonne sur mobile */
+	grid-template-columns: 1fr;
 	gap: 20px;
 }
 
@@ -55,7 +51,6 @@
 	padding: 10px;
 }
 
-/* Style des icônes utilisant la couleur primaire du produit */
 .guideIcon {
 	font-size: 1.8rem;
 	color: var(--color-primary);
@@ -71,34 +66,31 @@
 
 .guideItem p {
 	font-family: var(--font-body);
-	font-size: 0.85rem; /* Même taille que .descriptionText sur mobile */
+	font-size: 0.85rem;
 	color: #555;
 	line-height: 1.5;
 }
 
-/* --- Tablette et Desktop --- */
 @media (min-width: 768px) {
 	.guideCard {
-		padding: 40px; /* Aligné sur le padding de .productInfo */
+		padding: 40px;
 		margin-top: 40px;
 	}
 
 	.guideHeader h4 {
-		font-size: 1.8rem; /* Proche du h3 desktop */
+		font-size: 1.8rem;
 	}
 
 	.guideGrid {
-		grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur desktop */
+		grid-template-columns: repeat(3, 1fr);
 		gap: 40px;
 	}
 
 	.guideItem p {
-		font-size: 0.95rem; /* Cohérent avec le texte desktop */
+		font-size: 0.95rem;
 	}
 
 	.guideItem {
-		/* Aligne le contenu à gauche sur desktop si tu préfères, 
-           sinon garde center pour le look "infographie" */
 		align-items: center;
 	}
 }

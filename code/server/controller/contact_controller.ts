@@ -4,7 +4,7 @@ import ContactRepository from "../repository/contact_repository";
 class ContactController {
 	// Méthode relié à la route en GET située dans le routeur
 	public index = async (_req: Request, res: Response) => {
-		// Récupération des relultats de la rêquete
+		// Récupération des resultats de la rêquete
 		const results = await new ContactRepository().selectAll();
 
 		// renvoyer une reponse avec un code de status HTTP et au format json

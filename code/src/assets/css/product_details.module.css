@@ -1,5 +1,5 @@
 .productsSection {
-	padding: 80px 15px 40px 15px; /* Padding top pour compenser le Header fixed */
+	padding: 80px 15px 40px 15px;
 	min-height: 100vh;
 	background-color: var(--color-white);
 }
@@ -11,7 +11,7 @@
 
 .productCard {
 	display: flex;
-	flex-direction: row; /* Image à gauche, contenu à droite dès le mobile */
+	flex-direction: row;
 	background-color: var(--color-neutral-light);
 	border-radius: 15px;
 	overflow: hidden;
@@ -19,10 +19,9 @@
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* --- Côté Gauche : Image --- */
 .imageWrapper {
-	flex: 0 0 45%; /* L'image occupe 45% de la largeur de la carte */
-	height: 250px; /* Hauteur fixe sur mobile pour un beau rendu horizontal */
+	flex: 0 0 45%;
+	height: 250px;
 }
 
 .imageWrapper img {
@@ -31,13 +30,12 @@
 	object-fit: cover;
 }
 
-/* --- Côté Droit : Informations --- */
 .productInfo {
 	flex: 1;
 	padding: 15px;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between; /* Espace les éléments verticalement */
+	justify-content: space-between;
 	gap: 10px;
 }
 
@@ -58,7 +56,6 @@
 	font-size: 0.85rem;
 	color: #555;
 	line-height: 1.4;
-	/* Limite à 3 lignes pour éviter que la carte ne s'étire trop sur mobile */
 	display: -webkit-box;
 	-webkit-line-clamp: 3;
 	-webkit-box-orient: vertical;
@@ -76,15 +73,14 @@
 	transition: opacity 0.3s;
 }
 
-/* --- Tablette et Desktop --- */
 @media (min-width: 768px) {
 	.productCard {
 		flex-direction: row;
-		height: 400px; /* Plus grand sur desktop */
+		height: 400px;
 	}
 
 	.imageWrapper {
-		flex: 0 0 50%; /* 50/50 sur desktop */
+		flex: 0 0 50%;
 		height: 100%;
 	}
 
@@ -99,6 +95,6 @@
 
 	.descriptionText {
 		font-size: 1rem;
-		-webkit-line-clamp: unset; /* On affiche toute la description */
+		-webkit-line-clamp: unset;
 	}
 }

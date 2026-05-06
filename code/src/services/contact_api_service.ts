@@ -4,7 +4,7 @@ import type { ApiResponse } from "../models/api_response";
 
 class ContactApiService {
 	// Préfixe de l'API
-	private préfix = "/api/contact";
+	private prefix = "/api/contact";
 
 	// selection de tous les enregistrement
 	// On recoit une promesse (car mode async) qui est typer: on recoit un type ApiResponse qui est lui même un Array( un type dans un type)
@@ -12,7 +12,7 @@ class ContactApiService {
 		// configurer la requête HTTP
 		// import.meta.env permet d'importer une variable d'environnement dans vite/react. Il n'y à pas d'éspace.
 		const request = new Request(
-			`${import.meta.env.VITE_API_URL}${this.préfix}`,
+			`${import.meta.env.VITE_API_URL}${this.prefix}`,
 		);
 
 		// éxecuter la requête HTTP
@@ -33,7 +33,7 @@ class ContactApiService {
 		// configurer la requête HTTP
 		// import.meta.env permet d'importer une variable d'environnement dans vite/react. Il n'y à pas d'éspace.
 		const request = new Request(
-			`${import.meta.env.VITE_API_URL}${this.préfix}`,
+			`${import.meta.env.VITE_API_URL}${this.prefix}`,
 			{
 				method: "post",
 				/* Si le formulaire contient un champs de fichier 
@@ -42,8 +42,8 @@ class ContactApiService {
 
 				/*         
                       Si le formulaire ne contient pas de champs de fichier
-                            la propriété body renvoir du JSON : JSON.stringify(...)
-                            ajouter l'en-tête Content-Type: applicatio,/json */
+                            la propriété body renvoie du JSON : JSON.stringify(...)
+                            ajouter l'en-tête Content-Type: application/json */
 
 				body: JSON.stringify(data),
 				headers: {
