@@ -1,7 +1,9 @@
 {
-	"name": "@vitejs/plugin-rsc-examples-starter",
+	"name": "secret-de-hammam",
 	"version": "0.0.0",
 	"private": true,
+	"description": "Boutique e-commerce full-stack de soins orientaux : React 19 + TypeScript, API REST Express, MySQL, MongoDB, JWT, Docker, CI GitHub Actions.",
+	"author": "Hayat Zakhoukh",
 	"license": "MIT",
 	"type": "module",
 	"scripts": {

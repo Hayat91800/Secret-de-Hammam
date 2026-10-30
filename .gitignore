@@ -1,3 +1,23 @@
-mongodb-data
-mysql-data
-code/node_modules
+# Dépendances
+node_modules/
+code/node_modules/
+
+# Données des conteneurs Docker
+mysql-data/
+mongodb-data/
+
+# Variables d'environnement (ne jamais versionner les secrets)
+# .env.test reste versionné : valeurs factices utilisées par la CI
+.env
+.env.development
+.env.production
+.env.local
+
+# Artefacts générés
+dist/
+code/dist/
+code/tests/coverage/
+
+# Fichiers système / éditeur
+.DS_Store
+*.log

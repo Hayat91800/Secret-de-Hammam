@@ -40,8 +40,10 @@ class AuthorizationMiddleware {
 							? `Error`
 							: "Unauthorized - Role not authorized",
 				});
+				// stopper la requête : sans ce return, next() était appelé
+				// et un utilisateur non autorisé atteignait quand même le contrôleur
+				return;
 			}
-			// console.log;
 
 			// Passer au middleware suivant avec la fonction "next"
 			next();
